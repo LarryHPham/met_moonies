@@ -1,0 +1,163 @@
+<!--
+Author: [Thanush Subramanian Elango]
+Created: [07/15/2015]
+Description: [daily_update]
+Associated Files: [daily_update.less][daily_update_logic.js]
+-->
+
+<template name="daily_update">
+  {{#with lbInfo}}
+  <!---Size of the full page!-->
+  <div class="module-2" style="height:auto;">
+    <!--Header!-->
+    <div class="module-header">
+      <!--Header line!-->
+      <span class="module-header-line">
+      </span>
+      <span class="module-header-title">{{header}}
+      </span>
+    </div>
+    <div class="module-wrapper" style="height:auto">
+      <!--Image Wrapper!-->
+      <div class="all_daily_update_modules">
+        <!--Image Wrapper!-->
+
+        <div class="all_daily_update_modules-wrapper-image" style="background-image:url('/daily_update/daily_update.png')">
+          <div class="all_daily_update_modules-wrapper-image-img1">
+            <div class="all_daily_update_modules-opacity">
+            </div>
+            <!--Image Banner!-->
+            <div class="all_daily_update_modules-banner">
+              <div class= "all_daily_update_modules-text1">{{subheader}}</div>
+            </div>
+          </div>
+        </div>
+        <!--Wrapper below the Image!-->
+        <div class="all_daily_update_modules-wrapper-main-body">
+          <!--Wrapper below the Image left side!-->
+          <div class="all_daily_update_modules-wrapper-left-body">
+            <div class="all_daily_update_modules-wrapper-left-body2">
+              <div class= "all_daily_update_modules-regiontext">
+                <span class= "all_daily_update_modules-regiontext-txt">{{c_name}}</span>
+              </div>
+              <!--Values in the Facebook Inc part!-->
+              <div class= "all_daily_update_modules-homestext_wrapper">
+                <div class= "all_daily_update_modules-homestext"> <b>${{csi_price}}</b>
+                  <div class= "all_daily_update_modules-homestext_wrapper2">
+                    <!-- &nbsp; -->
+                    <span class="all_daily_update_modules-homestext_icon" style="color:{{changeColor csi_price_last_operator}}"><i class="fa {{changeIcon csi_price_last_operator}}"></i></span>
+                    <span class="all_daily_update_modules-homestext2" style="color:{{changeColor csi_price_last_operator}}">{{csi_price_change_since_last}} ({{csi_percent_change_since_last}}%)</span>
+                  </div>
+                </div>
+                <!--Time stamp!-->
+              </div>
+              <div class= "all_daily_update_modules-region-last-updated"> LAST UPDATED: {{lastUpdated}}
+              </div><br>
+              <!--Separator below the last updated left side!-->
+              <div class="all_daily_update_modules-borderlineee">
+              </div>
+            </div>
+            <!--Font awesome icons!-->
+            <div class="all_daily_update_modules-font-icons">
+              <i class="fa fa-area-chart"></i><br>
+              <i class="fa fa-pie-chart"></i><br>
+              <i class="fa fa-table"></i><br>
+              <i class="fa fa-bar-chart"></i>
+            </div>
+            <!--The Avg values to be plugged in!-->
+            <div class="all_daily_update_modules-Area-stats">
+              {{text1}}:<br>
+              {{text2}}:<br>
+              {{text3}}:<br>
+              {{text4}}:<br>
+            </div>
+            <div class="all_daily_update_modules-Area-stats-values">
+              {{value1}}<br>
+              {{value2}}<br>
+              {{value3}}<br>
+              {{value4}}</div>
+            </div>
+            <!--Wrapper below the Image right side!-->
+            <div class="all_daily_update_modules-wrapper-right-body">
+              <div class="all_daily_update_modules-wrapper-right-main-body2">
+                <div class="all_daily_update_modules-wrapper-right-body2">
+                  <div class="all_daily_update_modules-wrapper-right-body2-text">
+                    Stock Graph {{lastUpdated}}
+                  </div>
+                </div>
+              </div>
+              <!--Graph Plugin(High Charts)!-->
+              <div class="all_daily_update_modules-wrapper-graph">
+                <div class="daily_update-stockgraph">
+                  {{> highchartsHelper chartId="daily_update-stockgraph" chartWidth="100%" chartHeight="100%" chartObject=getGraph}}
+                </div>
+                <div class="daily_update-buttons">
+                  {{#each buttons}}
+                    <button class="daily_update-buttons-circle {{class}} {{active}}" id="{{data}}">{{data}}</button>
+                  {{/each}}
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <!--Profile Feeds wrapper!-->
+          {{#with aiInfo}}
+          <div class="all_daily_update_modules-wrapper-main-bottom">
+            <div class="all_daily_update_modules-wrapper-bottom-left">
+              <!--Profile Feeds image!-->
+              {{#if isLoc}}
+                <div class=" all_daily_update_modules-wrapper-image-circle" style="background-image:url('{{image}}">
+                </div>
+              {{else}}
+                <div class=" all_daily_update_modules-wrapper-image-circle" style="background-image:url('{{imageUrl image}}')">
+                </div>
+              {{/if}}
+
+            </div>
+            <!--Profile Feeds image text box!-->
+            <div class=" all_daily_update_modules-Profile-image-Text-Box">
+              <div style="width:525px; height:20px; margin-bottom:3px;">
+                <!--Profile Feeds font awesome icon! Profile Feeds time stamp!
+                <div class="all_daily_update_modules-Font-icons2"><i class="fa fa-calendar-o"></i></div>
+
+                <div class="all_daily_update_modules-Date-text">
+                  {{lastUpdated}}
+                </div>
+                -->
+              </div>
+              <!--Profile Feeds !-->
+              <div class="all_daily_update_modules-profile-text">
+                {{{content}}}</div>
+                <!--Profile Feeds Continue reading Link!
+                <div class="all_daily_update_modules-profile-text-blue">Continue Reading Story
+                </div>
+                -->
+              </div>
+            </div>
+            {{/with}}
+            {{#with loc_info}}
+            <div class="all_daily_update_modules-wrapper-main-bottom">
+              <div class="all_daily_update_modules-wrapper-bottom-left">
+                <!--Profile Feeds image!-->
+                <div class=" all_daily_update_modules-wrapper-image-circle" style="background-image:url('{{image}}')"></div>
+              </div>
+              <!--Profile Feeds image text box!-->
+              <div class=" all_daily_update_modules-Profile-image-Text-Box">
+                <!--Profile Feeds !-->
+                <div class="all_daily_update_modules-profile-text" style="margin-top: 10px;">
+                  <i class="fa fa-circle" style="color: #3098ff"></i>
+                  <span style="font-weight: bold;">What is the {{location}} composite?</span>
+                  <div style="font-size: 12px; line-height: 18px; margin-top: 10px">Usually, a composite index has a large number of factors which are averaged together to form a product representative of an overall market or sector. For example, a Composite Index is a market capitalization-weighted grouping of stocks listed in this location’s market. These indexes are useful tools for measuring and tracking price level changes to an entire stock market or sector.</div>
+                </div>
+                <!--Profile Feeds Continue reading Link!
+                <div class="all_daily_update_modules-profile-text-blue">Continue Reading Story
+                </div>
+                -->
+              </div>
+            </div>
+            {{/with}}
+          </div>
+        </div>
+      </div>
+      {{/with}}
+    </template>

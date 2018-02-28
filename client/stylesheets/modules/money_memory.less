@@ -1,0 +1,351 @@
+/* Author: Ryan Fisher
+** Created: 07/17/2015
+** Description: .less file for Money Memory page
+** Associated Files: money_memory.html, money_memory.less, money_memory_logic.js
+*/
+
+@import (reference)"../global_vars.less";
+b {
+  font-family: HN-B;
+}
+
+.mon-mem{
+  background-color: @white;
+  width: 680px;
+  height: 645px;
+  position: relative;
+  text-align: left;
+  margin:20px;
+  //class for blue text
+  &_blue{
+    color: @blue;
+  }//End mon-mem_blue
+
+  //Main page header
+  &_header{
+    width: 680px;
+    height: 45px;
+    border-top: 2px solid @blue;
+    background-color: @black;
+    color: @white;
+    font-size: 18px;
+    line-height: 45px;
+    padding-left: 10px;
+
+  }//End mon-mem_header
+
+  //Main page body
+  &_body{
+    position: relative;
+    float: left;
+    margin: 16px 0px 0px 16px;
+    width: 455px;
+    height: 570px;
+    border: 1px solid #e1e1e1;
+
+    //Body header
+    &_header{
+      height: 42px;
+      background-color: @grey-1;
+      line-height: 42px;
+      font-size: 16px;
+      padding-left: 10px;
+    }//End mon-mem_body_header
+
+    //Company image
+    &_image{
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      border: 2px solid @grey-3;
+      margin-top: 10px;
+      margin-left: 15px;
+      background-size: contain;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }//End mon-mem_body_image
+
+    &_error{
+      text-align: center;
+      font-size: 20px;
+      font-family: HN-B;
+      padding: 8px;
+    }
+
+    //Company name
+    &_company{
+      position: absolute;
+      top: 65px;
+      left: 120px;
+      font-size: 18px;
+    }//End mon-mem_body_company
+
+    //Current stock price
+    &_stock{
+      position: absolute;
+      top: 109px;
+      left: 120px;
+      //price amount
+      &_price{
+        font-size: 28px;
+      }//End mon-mem_body_stock_price
+      //recent history
+      &_history{
+        font-size: 20px;
+        font-family: HN-B;
+      }//End mon-mem_body_stock_history
+    }//End mon-mem_body_stock
+
+    //"You could have earned..." section
+    &_potential{
+      text-align: center;
+      font-size: 24px;
+      //"You could have earned" amount
+      &_amount{
+        font-family: HN;
+        font-size: 32px;
+        position: relative;
+        top: 2px;
+      }//End mon-mem_body_potential_amount
+    }//End mon-mem_body_potnetial
+
+    //Stock price lifetime history
+    &_history{
+      font-size: 14px;
+      text-align: left;
+      color: @black;
+      margin-bottom: 7px;
+      padding-left:10px;
+    }//End mon-mem_body_history
+
+    //Innitial investment box
+    &_investment{
+      height: 70px;
+      border-top: 1px solid #e1e1e1;
+      border-left: 5px solid #e1e1e1;
+      position: relative;
+
+      &:hover{
+        border-left-color: @blue;
+        cursor: pointer;
+
+        >.mon-mem_body_investment_edit{
+          color:@black;
+          >.fa{
+            color: @blue;
+          }
+        }
+      }
+
+      //Initial investment icon
+      &_icon{
+        width: 70px;
+        height: 70px;
+        line-height: 70px;
+        font-size: 30px;
+        text-align: center;
+        color: #4b4b4b;
+        background-color: @grey-1;
+      }//End mon-mem_body_investment_icon
+
+      //Initial investment amount
+      &_amount{
+        position: absolute;
+        top: 15px;
+        left: 90px;
+        font-size: 18px;
+      }//End mon-mem_body_investment_amount
+
+      //Initial investment label
+      &_label{
+        position: absolute;
+        top: 35px;
+        left: 90px;
+      }//End mon-mem_body_investment_label
+
+      //Initial investment edit button
+      &_edit{
+        position: absolute;
+        top: 17px;
+        right: 15px;
+        font-size: 25px;
+        color:@black;
+      }//End mon-mem_body_investment_edit
+
+      &_input{
+        position: absolute;
+        top: -100%;
+        right: -44%;
+        width: 184px;
+        height: 35px;
+        background-color: @white;
+        border: 2px solid @grey-3;
+        padding-left: 5px;
+
+        &-triangle{
+          position: absolute;
+          top: 100%;
+          right: 9%;
+          width: 0;
+        	height: 0;
+        	border-left: 8px solid transparent;
+        	border-right: 8px solid transparent;
+        	border-top: 8px solid @grey-3;
+        }
+
+        >input{
+          width: 125px;
+          height: 100%;
+          border: none;
+          font-size: 18px;
+          color: #000;
+          vertical-align: top;
+          float: left;
+          &:focus{
+            outline: none;
+          }
+        }
+
+        &-submit{
+          float: right;
+          font-size: 14px;
+          border: none;
+          height: 100%;
+          width: 50px;
+          color: @white;
+          background-color: @blue;
+        }
+      }
+    }//End mon-mem_body_investment
+
+    //Start date box
+    &_start-date{
+      height: 70px;
+      border-top: 1px solid #e1e1e1;
+      border-left: 5px solid #e1e1e1;
+      position: relative;
+
+      &:hover{
+        border-left-color: @blue;
+        cursor: pointer;
+
+        >.mon-mem_body_start-date_edit{
+          color:@black;
+          >.fa{
+            color: @blue;
+          }
+        }
+      }
+
+      //Start date icon
+      &_icon{
+        width: 70px;
+        height: 70px;
+        line-height: 70px;
+        font-size: 30px;
+        text-align: center;
+        color: #4b4b4b;
+        background-color: @grey-1;
+      }//End mon-mem_body_start-date_icon
+
+      //Start date
+      &_amount{
+        position: absolute;
+        top: 15px;
+        left: 90px;
+        font-size: 18px;
+      }//End mon-mem_body_start-date_amount
+
+      //Start date label
+      &_label{
+        position: absolute;
+        top: 35px;
+        left: 90px;
+      }//End mon-mem_body_start-date_label
+
+      //Start date edit button
+      &_edit{
+        position: absolute;
+        top: 17px;
+        right: 15px;
+        font-size: 25px;
+        >.fa{
+          color: @black;
+        }
+      }//End mon-mem_body_start-date_edit
+    }//End mon-mem_body_start-date
+
+    //End date box
+    &_end-date{
+      height: 70px;
+      border-top: 1px solid #e1e1e1;
+      border-left: 5px solid #e1e1e1;
+      position: relative;
+
+      &:hover{
+        border-left-color: @blue;
+        cursor: pointer;
+
+        >.mon-mem_body_end-date_edit{
+          color:@black;
+          >.fa{
+            color: @blue;
+          }
+        }
+      }
+
+      //End date icon
+      &_icon{
+        width: 70px;
+        height: 70px;
+        line-height: 70px;
+        font-size: 30px;
+        text-align: center;
+        color: #4b4b4b;
+        background-color: @grey-1;
+      }//End mon-mem_body_end-date_icon
+
+      //End date
+      &_amount{
+        position: absolute;
+        top: 15px;
+        left: 90px;
+        font-size: 18px;
+      }//End mon-mem_body_end-date_amount
+
+      //End date label
+      &_label{
+        position: absolute;
+        top: 35px;
+        left: 90px;
+      }//End mon-mem_body_end-date_label
+
+      //End date edit button
+      &_edit{
+        position: absolute;
+        top: 17px;
+        right: 15px;
+        font-size: 25px;
+        >.fa{
+          color: @black;
+        }
+      }//End mon-mem_body_end-date_edit
+    }//End mon-mem_body_end-date
+  }//End mon-mem_body
+
+  &_links {
+    margin-left: 15px;
+    overflow: hidden;
+  }
+}//End mon-mem
+
+.datepicker{
+  .active{
+    border-color: @blue !important;
+    background-color: @blue !important;
+  }
+}
+
+#moneymemorygraph{
+  margin-top:-10px;
+}

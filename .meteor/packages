@@ -1,0 +1,46 @@
+# Meteor packages used by this project, one per line.
+# Check this file (and the other files in this directory) into your repository.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+reactive-var
+less
+fortawesome:fontawesome
+accounts-base
+accounts-password
+mizzao:bootstrap-3
+http
+iron:router
+maazalik:highcharts
+jquery
+meteorhacks:cluster
+meteorhacks:ssr
+meteorhacks:picker
+meteorhacks:kadira
+meteorhacks:kadira-profiler
+
+ian:accounts-ui-bootstrap-3
+gadicohen:robots-txt
+standard-minifiers
+meteor-base
+mobile-experience
+mongo
+blaze-html-templates
+session
+tracker
+logging
+reload
+random
+ejson
+spacebars
+check
+rajit:bootstrap3-datepicker
+mrt:moment-timezone
+art1sec8:nlp-compromise
+
+meteorhacks:npm
+
+
+npm-container
+kadira:dochead

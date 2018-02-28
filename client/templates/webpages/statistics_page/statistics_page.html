@@ -1,0 +1,234 @@
+<!--
+Author: Kyle Toom
+Date: 8/30/2015
+Decription: A page for showing statistics of an area
+Associated Files: statistics_page.html, statistics_page.less, statistics_page.js
+-->
+
+<template name="statistics_page">
+    {{#with statistics}} <!--object used throughout the page for things like the location name-->
+        <div class="stat-page"> <!--container for whole page-->
+          <a href="{{back_url}}">
+            <div class="abus-bkbx">
+              <div class="abus-bkbx-bx"><i class="fa fa-reply"></i></div>
+              <div class="abus-bkbx-tgl"></div>
+              <div class="abus-bkbx-txt">Go Back to {{fullName}} Profile</div>
+            </div>
+          </a>
+            <div class="stat-pr stat-top"> <!--container for white background area at top-->
+                <div class="stat-pr stat-top-circle" style="{{image}}"> <!--back arrow in top-->
+                </div>
+                <i class="stat-pa stat-n stat-top-txt1">
+
+                </i>
+                <a href="{{global_url}}">
+                  <i class="stat-pa stat-n stat-top-txt2">
+                      <i class="fa fa-map-marker"></i>
+                      United States
+                  </i>
+                </a>
+                <i class="stat-pa stat-b stat-top-txt3">
+                    Statistics
+                </i>
+                <i class="stat-pa stat-l stat-top-txt4 stat-cap">
+                    for {{fullName}}
+                </i>
+            </div>
+            <div class="stat-pr stat-mid"> <!--the black-grey-black section in the middle-ish-->
+                <div class="stat-pa stat-mid-top"> <!--the black header of the middle-->
+                  <div class="stat-b stat-mid-top-txt1"> <!--the left part of the header-->
+                    <div class="stat-mid-top-txt1-static">
+                        Statistics For
+                    </div>
+                    <div class="stat-mid-top-txt1-name stat-cap">
+                        {{fullName}}
+                    </div>
+                  </div>
+                </div>
+
+                <div class="stat-pa stat-mid-mid"> <!--the grey section in the middle-->
+
+                    <div class="stat-pa stat-mid-mid-circle" style="{{image}}">
+                    </div>
+                    <div class="stat-pa stat-mid-mid-building">
+                        <i class="fa fa-building-o fa-lg"></i>
+                    </div>
+                    <i class="stat-pa stat-b stat-mid-mid-txt1">
+                        {{fullName}}
+                    </i>
+                    <div class="stat-pa stat-l stat-mid-mid-txtbox"> <!--the part of the middle-middle that has the important and long text-->
+                        <i class="stat-l stat-mid-mid-txtbox-txt">
+                          <i class="stat-cap">{{fullName}}</i> is home to <i class="stat-i">{{aggregates.total_companies}} public companies.</i>
+                          The <i class="stat-i">average market cap</i>
+                          in {{fullName}} is <i class="stat-i">${{aggregates.average_market_cap}}</i> and the <i class="stat-i">total market cap</i>
+                          for a company is <i class="stat-i">${{aggregates.market_cap}} Billion USD.</i>
+                        </i>
+                    </div>
+
+                </div>
+
+                <div class="stat-pa stat-mid-btm"> <!--the footer of the middle area-->
+                    <div class="stat-pa stat-l stat-mid-btm-txt1">
+                        Discover more information about this location?
+                    </div>
+                    <div class="stat-pa stat-l stat-mid-btm-txt2">
+                      <!--MISSING DATE currently replaced with full name-->{{fullName}}
+                    </div>
+                    <a href="{{back_url}}">
+                      <div class="stat-pa stat-mid-btm-btn">
+                          View Profile <i class="fa fa-angle-right"></i>
+                      </div>
+                    </a>
+                </div>
+            </div>
+            <div class="stat-pr stat-btm"> <!--holds anything but the search module below the middle area-->
+                <div class="stat-btm-what"> <!--a box that looks like it can be closed-->
+                    <div class="stat-b stat-btm-what-top">
+                        What is this page?
+                        <i class="fa fa-times stat-pr stat-btm-what-top-x"></i>
+                    </div>
+                    <div class="stat-btm-what-txt">
+                        This page contains all of the statistics around {{fullName}}. Stats include total companies,
+                        total executives, and more.
+                    </div>
+                </div>
+                <div class="stat-pr stat-btm-data"> <!--a divide to seperate data from the box above-->
+                    <div class="stat-pr stat-btm-data-title">
+                        Statistical Overview <i class="stat-l">for the {{fullName}}:</i>
+                    </div>
+                    <div class="stat-pr stat-btm-data-date">
+                      <!--MISSING DATE-->
+                    </div>
+                    {{#with statOverview}}
+                    <div class="stat-btm-data-text">
+                        <div class="stat-btm-data-stat-l"> <!--for the left tiles-->
+                          {{#each overviewStatsL}} <!--for each of the left tiles-->
+                            <div class="stat-btm-data-stat-box stat-pr">
+                              <div class="stat-btm-data-stat-bar"></div>
+                              <div class="stat-btm-data-stat-fa">
+                                <i class="fa {{font}}"></i>
+                              </div>
+                              <div class="stat-btm-data-stat-value stat-pa">
+                                {{value}}
+                              </div>
+                              <div class="stat-btm-data-stat-lbl stat-l stat-pa">
+                                {{label}}
+                              </div>
+                              <div class="stat-btm-data-stat-arrow stat-pa">
+                              </div>
+                            </div>
+                          {{/each}}
+                        </div>
+                        <div class="stat-btm-data-stat-r"> <!--holds the right tiles-->
+                          {{#each overviewStatsR}} <!--for each right tile-->
+                          <a href="{{url}}">
+                            <div class="stat-btm-data-stat-box stat-pr">
+                              <div class="stat-btm-data-stat-bar"></div>
+                              <div class="stat-btm-data-stat-fa">
+                                <i class="fa {{font}}"></i>
+                              </div>
+                              <div class="stat-btm-data-stat-value stat-pa">
+                                {{value}}
+                              </div>
+                              <div class="stat-btm-data-stat-lbl stat-l stat-pa">
+                                {{label}}
+                              </div>
+                              <div class="stat-btm-data-stat-arrow stat-pa">
+                                <i class="fa fa-angle-right"></i>
+                              </div>
+                            </div>
+                          </a>
+                          {{/each}}
+                        </div>
+                    </div>
+                    {{/with}}
+                </div>
+                <div class="stat-pr stat-btm-data stat-pr clearfix"> <!--a divide to seperate data from the box above-->
+                    <div class="stat-pr stat-btm-data-title">
+                        Sector Breakdown <i class="stat-l">for {{fullName}}:</i>
+                    </div>
+                    <div class="stat-pr stat-btm-data-date">
+                        <div class="stat-btm-data-sector">
+                          <i class="fa fa-th-large"></i> Sector
+                        </div>
+                        <div class="stat-btm-data-net">
+                          Net %
+                        </div>
+                    </div>
+                    <div class="stat-btm-data-graph-lst"> <!--functions as sort of a key to the graph on its right-->
+                      {{#each getGraphTable}}
+                        <a href="{{sectUrl}}"><div class="stat-btm-data-graph-lst-itm{{getGrey}} stat-pr">
+                          <div style="width:5px;height:100%;background-color:{{color}}"></div>
+                          <div class="stat-btm-data-graph-lst-s stat-pa">
+                            {{name}} <!--corresponds to sector name-->
+                          </div>
+                          <div class="stat-btm-data-graph-lst-n stat-pa stat-b">
+                            {{y}}% <!--corresponds to net percent-->
+                          </div>
+                        </div></a>
+                      {{/each}}
+                    </div>
+                    <div class="stat-btm-data-graph-grad stat-pa"></div> <!--a gradient that adds a fading effect to the list above-->
+                    <div class="stat-pa stat-btm-data-graph" id="statGraph">
+                        <!--Put graph here-->
+                        <div class="stat-pa stat-btm-data-graph-image" style="{{image}}"></div>
+                        {{> highchartsHelper chartId="statChart" chartWidth="180px" chartHeight="180px" chartObject=getGraphObject}}
+                    </div>
+                </div>
+
+                <!-- Dont have enough Data
+                <div class="stat-pr stat-btm-data">
+                  <div class="stat-pr stat-btm-data-title">
+                    Population Breakdown <i class="stat-l">for {{fullName}}:</i>
+                  </div>
+                  <div class="stat-pr stat-btm-data-date">
+                      <i class="fa fa-calendar"></i>
+                      Updated 08/03/2015 at 4PM EST
+                  </div>
+                  <div class="stat-btm-data-text">
+                      <div class="stat-btm-data-stat-l">
+                        {{#each populationStatsL}}
+                          <div class="stat-btm-data-stat-box stat-pr">
+                            <div class="stat-btm-data-stat-bar"></div>
+                            <div class="stat-btm-data-stat-fa">
+                              <i class="fa fa-{{fa}}"></i>
+                            </div>
+                            <div class="stat-btm-data-stat-value stat-pa">
+                              {{value}}
+                            </div>
+                            <div class="stat-btm-data-stat-lbl stat-l stat-pa">
+                              {{label}}
+                            </div>
+                            <div class="stat-btm-data-stat-arrow stat-pa">
+                              <i class="fa fa-angle-right"></i>
+                            </div>
+                          </div>
+                        {{/each}}
+                      </div>
+                      <div class="stat-btm-data-stat-r">
+                        {{#each populationStatsR}}
+                          <div class="stat-btm-data-stat-box stat-pr">
+                            <div class="stat-btm-data-stat-bar"></div>
+                            <div class="stat-btm-data-stat-fa">
+                              <i class="fa fa-{{fa}}"></i>
+                            </div>
+                            <div class="stat-btm-data-stat-value stat-pa">
+                              {{value}}
+                            </div>
+                            <div class="stat-btm-data-stat-lbl stat-l stat-pa">
+                              {{label}}
+                            </div>
+                            <div class="stat-btm-data-stat-arrow stat-pa">
+                              <i class="fa fa-angle-right"></i>
+                            </div>
+                          </div>
+                        {{/each}}
+                      </div>
+                  </div>
+                </div>-->
+
+            </div>
+            {{> search_module}}
+        </div>
+    {{/with}}
+</template>

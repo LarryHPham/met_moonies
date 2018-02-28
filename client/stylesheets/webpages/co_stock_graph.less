@@ -1,0 +1,610 @@
+/*
+Author: Kyle Toom
+Date: 8/12/2015
+Decription: A page for showing what has happened with a company over a period of time
+Associated Files: co_stock_graph.html, co_stock_graph.less, co_stock_graph.js
+*/
+
+@import (reference)"../global_vars.less";
+@import (reference)"../modules.less";
+
+.csg
+{
+    &-pr //csg-pr
+    {
+        position: relative;
+    }
+
+    &-pa //csg-pa
+    {
+        position: absolute;
+    }
+
+    &-b //csg-b
+    {
+        font-style: normal;
+        font-family: HN-B;
+    }
+
+    &-n //csg-n: normal text for use in <i> tags
+    {
+        font-style: normal;
+        font-family: HN;
+    }
+
+    &-l //csg-l
+    {
+        font-style: normal;
+        font-family: HN-L;
+    }
+
+    &-grn //csg-grn
+    {
+        color: @green;
+        font-style: normal;
+        font-family: HN-B;
+    }
+
+    &-blue //csg-blue
+    {
+        font-style: normal;
+        color: @blue;
+        font-family: HN-B;
+    }
+
+    &-black //csg-black
+    {
+        font-family: HN-B;
+        color: @black;
+        font-style: normal;
+    }
+
+    &-i //csg-i
+    {
+        font-style: italic;
+    }
+
+    &-page //csg-page
+    {
+        width: 680px;
+        height: auto;
+        background-color: @white;
+        color: @black;
+    }
+
+    &-top //csg-top
+    {
+        width: 680px;
+        height: 140px;
+
+        &-circle //csg-top-circle
+        {
+            border-radius: 50%;
+            border: 2px solid @grey-2;
+            width: 100px;
+            height: 100px;
+            top: 20px;
+            left: 20px;
+
+            &-btn //csg-top-circle-btn
+            {
+                border-radius: 50%;
+                width: 35px;
+                height: 35px;
+                background-color: @blue;
+                left: -8px;
+                color: @white;
+                text-align: center;
+                padding-top: 7px;
+            }
+        }
+
+        &-txt1 //csg-top-txt1
+        {
+            font-size: 10px;
+            color: #959595;
+            left: 128px;
+            top: 16px;
+        }
+
+        &-txt2 //csg-top-txt2
+        {
+            font-size: 12px;
+            left: 128px;
+            top: 43px;
+        }
+
+        &-txt3 //csg-top-txt3
+        {
+            font-size: 22px;
+            left: 128px;
+            top: 59px;
+        }
+
+        &-txt4 //csg-top-txt4
+        {
+            font-size: 22px;
+            left: 128px;
+            top: 87px;
+        }
+    }
+
+    &-mid //csg-mid: the section that goes black-grey-black
+    {
+        width: 680px;
+        height: 360px;
+        background-image: @dark-linen;
+        color: @white;
+
+        &-top //csg-mid-top
+        {
+            background-color: @black;
+            height: 35px;
+            width: 680px;
+
+            &-txt1 //csg-mid-top-txt1
+            {
+              font-size: 16px;
+              border-right: 1px solid #363636;
+              padding: 5px 14px;
+              max-width: 400px;
+              height: 35px;
+              float: left;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
+
+            &-txt2 //csg-mid-top-txt2
+            {
+                margin: 0px 15px;
+                width: 56px;
+                float: left;
+                padding-top: 7px;
+                font-size: 14px;
+            }
+        }
+
+        &-mid //csg-mid-mid
+        {
+            top: 35px;
+            width: 680px;
+            height: 249px;
+
+            &-l //csg-mid-mid-l
+            {
+                margin-left: 15px !important;
+            }
+
+            &-r //csg-mid-mid-r
+            {
+                margin-right: 15px !important;
+            }
+
+            &-circle //csg-mid-mid-circle
+            {
+                border-radius: 50%;
+                width: 180px;
+                height: 180px;
+                border: 3px solid @grey-2;
+                background-color: @white;
+                left: 55px;
+                top: 34px;
+            }
+
+            &-building //csg-mid-mid-building
+            {
+                border-radius: 50%;
+                background-color: @blue;
+                width: 40px;
+                height: 40px;
+                left: 235px;
+                top: 32px;
+                padding-top: 10px;
+                padding-left: 13px;
+            }
+
+            &-txt1 //csg-mid-mid-txt
+            {
+                font-size: 22px;
+                top: 30px;
+                left: 291px;
+                width: 380px;
+                height: 31px;
+                overflow: hidden;
+            }
+
+            &-txt2 //csg-mid-mid-txt2
+            {
+                font-size: 14px;
+                top: 58px;
+                left: 291px;
+                color: #f2f2f2;
+            }
+
+            &-txt3 //csg-mid-mid-txt3
+            {
+                font-size: 14px;
+                top: 58px;
+                left: 385px;
+                color: #f2f2f2;
+            }
+
+            &-txtbox //csg-mid-mid-txtbox
+            {
+                border-left: 2px solid @grey-2;
+                height: 101px;
+                width: 361px;
+                left: 255px;
+                top: 98px;
+                padding-left: 19px;
+                font-size: 16px;
+                line-height: 19px;
+                overflow: hidden;
+
+                &-txt //csg-mid-mid-txtbox-txt
+                {
+                    top: -4px;
+                    font-style: normal;
+                }
+
+                &-btm1 //csg-mid-mid-txtbox-btm1
+                {
+                    top: -4px;
+                    line-height: 30px;
+                    font-style: normal;
+                }
+
+                &-btm2 //csg-mid-mid-txtbox-btm2
+                {
+                    top: -9px;
+                    font-style: normal;
+                }
+            }
+        }
+
+        &-btm //csg-mid-btm: the lower black part of the middle
+        {
+            top: 284px;
+            height: 76px;
+            width: 680px;
+            background-color: @black;
+
+            &-txt1 //csg-mid-btm-txt1
+            {
+                left: 20px;
+                top: 14px;
+                font-size: 18px;
+            }
+
+            &-txt2 //csg-mid-btm-txt2
+            {
+                left: 20px;
+                top: 44px;
+                font-size: 14px;
+            }
+
+            &-btn //csg-mid-btm-btn
+            {
+                left: 490px;
+                top: 21px;
+                background-color: @blue;
+                border-radius: 5px;
+                width: 180px;
+                height: 35px;
+                font-size: 14px;
+                text-align: center;
+                padding-top: 7px;
+            }
+        }
+    }
+
+    &-btm //csg-btm
+    {
+        width: 680px;
+        min-height: 978px;
+        padding: 10px 15px 0px 15px;
+
+        &-txt1 //csg-btm-txt1
+        {
+            font-size: 12px;
+            height: 12px;
+            line-height: 12px;
+
+            &-blue //csg-btm-txt1-blue
+            {
+                color: @blue;
+            }
+        }
+
+        &-what //csg-btm-what: the box that starts with "what is this page?"
+        {
+            width: 650px;
+            height: 81px;
+            background-color: #fafafa;
+            border: 1px solid #ebebeb;
+            font-size: 14px;
+            margin-top: 15px;
+
+            &-top //csg-btm-what-top
+            {
+                width: 100%;
+                height: 20px;
+                background-color: #ebebeb;
+                color: #333333;
+                font-size: 12px;
+                padding: 0px 10px;
+
+                &-x //csg-btm-what-top-x
+                {
+                    float: right;
+                    top: 3px;
+                }
+            }
+
+            &-txt //csg-btm-what-txt
+            {
+                width: 610px;
+                height: 31px;
+                margin-top: 14px;
+                margin-left: 20px;
+                line-height: 16px;
+            }
+        }
+
+        &-data //csg-btm-data
+        {
+            width: 680px;
+            height: auto;
+            left: -15px;
+            margin-top: 13px;
+
+            &-title //csg-btm-data-title
+            {
+                width: 650px;
+                height: 28px;
+                font-size: 18px;
+                left: 15px;
+                border-bottom: 1px solid @grey-2;
+            }
+
+            &-date //csg-btm-data-date
+            {
+                color: #959595;
+                font-size: 12px;
+                left: 15px;
+                top: 5px;
+            }
+
+            &-graph //csg-btm-data-graph
+            {
+                left: 15px;
+                width: 650px;
+                margin-top: 5px;
+                height: 221px;
+            }
+
+            &-period //csg-btm-data-period
+            {
+                width: 100%;
+                height: 50px;
+                background-color: #f2f2f2;
+                padding: 0px 37px;
+
+                &-btn //csg-btm-data-period-btn
+                {
+                    background-color: #dadada;
+                    border-radius: 50%;
+                    width: 35px;
+                    height: 35px;
+                    font-size: 14px;
+                    color: #272727;
+                    margin: 8px 10px;
+                    float: left;
+                    text-align: center;
+                    padding-top: 7px;
+                    cursor: pointer;
+
+                    &-a //csg-btm-data-period-btn-a
+                    {
+                        background-color: @blue;
+                        color: @white;
+                    }
+                }
+            }
+
+            &-list //csg-btm-data-list
+            {
+                width: 680px;
+                height: 206px;
+            }
+
+            &-list-l //csg-btm-data-list-l
+            {
+                width: 325px;
+                height: 185px;
+                float:left;
+                left: 15px;
+                top: 10px;
+                border-right: 1px dashed @grey-2;
+            }
+
+            &-list-r //csg-btm-data-list-r
+            {
+                width: 325px;
+                height: 185px;
+                right: 0px;
+                top: 10px;
+                float:right;
+            }
+
+            &-list-i //csg-btm-data-list-i
+            {
+                width: 310px;
+                height: 20px;
+                border-bottom: 1px solid #404040;
+                font-size: 14px;
+                padding-bottom: 30px;
+                margin-bottom: 5px;
+
+                &-l //csg-btm-data-list-i-l
+                {
+                    float: left;
+                    width: 50%;
+                    text-align: left;
+                    overflow: hidden;
+                    height: 20px;
+                }
+
+                &-r //csg-btm-data-list-i-r
+                {
+                    float: right;
+                    width: 50%;
+                    text-align: right;
+                    overflow: hidden;
+                    height: 20px;
+                }
+
+                &-b //csg-btm-data-list-i-b
+                {
+                    width: 310px;
+                    height: 20px;
+                    font-size: 14px;
+                    padding-bottom: 30px;
+                }
+            }
+
+            &-list-e //csg-btm-data-list-e: the "exception" list item that is a paragraph
+            {
+                width: 310px;
+                height: 89px;
+
+                &-title //csg-btm-data-list-e-title
+                {
+                    font-size: 14px;
+                    max-width: 300px;
+                    overflow: hidden;
+                    height: 17px;
+                }
+
+                &-circle //csg-btm-data-list-e-circle
+                {
+                    border: 2px solid @grey-2;
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    float: left;
+                    top: 5px;
+                }
+
+                &-txt //csg-btm-data-list-e-txt
+                {
+                    float: right;
+                    width: 250px;
+                    height: 90px;
+                    font-size: 12px;
+                    top: 5px;
+                    overflow: hidden;
+                }
+            }
+
+            &-tile //csg-btm-data-tile
+            {
+                width: 680px;
+                height: auto;
+                padding: 10px 15px;
+                border-top: 1px solid #c2c2c2;
+                clear: both;
+
+                &:after
+                {
+                    clear: both;
+                    content: "";
+                    display: table;
+                }
+
+                &-grey //csg-btm-data-tile-grey
+                {
+                    width: 680px;
+                    height: auto;
+                    padding: 10px 15px;
+                    background-color: #f6f6f6;
+                    border-top: 1px solid #c2c2c2;
+                    clear: both;
+
+                    &:after
+                    {
+                        clear: both;
+                        content: "";
+                        display: table;
+                    }
+                }
+
+                &-title //csg-btm-data-tile-title
+                {
+                    font-size: 16px;
+                    left: 44px;
+                    top: 6px;
+                }
+
+                &-l //csg-btm-data-tile-l
+                {
+                    width: 325px;
+                    padding-top: 55px;
+                    border-right: 1px dashed rgb(215,215,215);
+                    float: left;
+                    padding-bottom: 10px;
+                }
+
+                &-r //csg-btm-data-tile-r
+                {
+                    width: 325px;
+                    padding-top: 55px;
+                    left: 15px;
+                    float: left;
+                    padding-bottom: 10px;
+                }
+
+                &-circle //csg-btm-data-tile-circle
+                {
+                    border-radius: 50%;
+                    background-color: @blue;
+                    color: @white;
+                    width: 35px;
+                    height: 35px;
+                    float: left;
+                    font-size: 16px;
+                    padding-top: 5px;
+                    padding-left: 13px;
+                    top: 0px;
+                    left: 0px;
+                }
+
+                &-stat //csg-btm-data-tile-stat
+                {
+                    width: 300px;
+                    height: 20px;
+                    font-size: 14px;
+                    border-bottom: 1px solid #bfbfbf;
+
+                    &-l //csg-btm-data-tile-stat-l
+                    {
+                        float: left;
+                        width: 50%;
+                        height: 20px;
+                        overflow: hidden;
+                    }
+
+                    &-r //csg-btm-data-tile-stat-r
+                    {
+                        float: right;
+                        width: 50%;
+                        height: 20px;
+                        overflow: hidden;
+                        text-align: right;
+                    }
+                }
+            }
+        }
+    }
+}

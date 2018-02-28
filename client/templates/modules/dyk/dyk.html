@@ -1,0 +1,41 @@
+<!-- Author: Ryan Fisher
+**** Created: [08/04/2015]
+**** Description: Did You Know module
+**** Associated Files: dyk.html, dyk.less, dyk_logic.js
+-->
+
+<template name="dyk">
+  {{#with dykCheck}}
+  <div class="dyk">
+    <!--Module Header-->
+    <div class="module-header">
+      <span class="module-header-line"></span>
+      <span class="module-header-title">{{company}}'s Did You Know?</span>
+    </div>
+    <!--End Module Header-->
+
+    <div class="dyk-body">
+      <div class="dyk-body-left">
+        {{#each dykInfo}}
+        <div class="dyk-body-fact">
+          <!--<button class="dyk-body-fact-share"><i class="fa fa-share-alt"></i></button>-->
+          <div class="dyk-body-fact-title">Did You Know:</div>
+          <div class="dyk-body-fact-text">
+            {{this}}
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+
+    <!--Module Footer-->
+    <!-- <div class="module-footer">
+      <button class="module-footer-button">
+        <span class="module-footer-button-text">See The Full List</span>
+        <span class="module-footer-button-ellipse"><i class="fa fa-mail-forward"></i></span>
+      </button>
+    </div> -->
+    <!--End Module Footer-->
+  </div>
+  {{/with}}
+</template>

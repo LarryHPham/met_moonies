@@ -1,0 +1,373 @@
+/* Author: Sri Sindhusha Kuchipudi
+ Created: 09/30/2015
+ Description: .less file for career_stats module
+ Associated Files: career_stats.html, career_stats.less, career_stats.js
+*/
+@import (reference)"../global_vars.less";
+@import  (reference)"../modules.less";
+
+
+.hp_td{
+  height:445px;
+  width:680px;
+  margin:20px;
+  //class for header part
+  &-hcursor{
+    cursor: pointer!important;
+  }
+  &-h{
+    width: 680px;
+    height: 45px;
+    border-top:3px solid #3098ff;
+    background-color:#000000;
+    //class for vertical line
+    &-vln{
+      background-color:  #3098ff;
+      width: 3px;
+      position: relative;
+      top:16px;
+      left: 11px;
+      height: 13px;
+      float: left;
+    }
+
+    //class for text
+    &-tbox{
+      float: left;
+      position: relative;
+      left: 17px;
+      top: 10px;
+      height: 17px;
+      font-family: HN-B;
+      color:  #ffffff;
+      font-size: 18px;/* Approximation due to font substitution */
+      text-align: left;
+        //class for 'whats happening with' part
+      &-t1{
+        float:left;
+        overflow:hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      //class for 'company name' part
+      &-t2{
+        float: left;
+        position: relative;
+        left: 5px;
+      }
+      //class for 'today' part
+      &-t3{
+        max-width: 70px;
+        float: left;
+        position: relative;
+        left: 5px;
+        overflow:hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }//end of text
+  }//end of header part
+  //class for image place holder container
+  &-imgh{
+    width: 680px;
+    height: 250px;
+    background-color:  rgba(0, 0, 0, 0.65);
+    //background-image:@imgholder;
+    //class for big image place holder
+    &-im{
+      border-radius: 50%;
+      border: solid 10px #424242;
+      background-color:  #ffffff;
+      width: 150px;
+      height: 150px;
+      float:left;
+      position: relative;
+      left: 49px;
+      top: 30px;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: contain;
+    }
+
+    &-im2{
+      border-radius: 50%;
+      border: solid 1px #cccccc;
+      background-color:  #ffffff;
+      width: 50px;
+      height: 50px;
+      float: left;
+      position: relative;
+      left: 0px;
+      top: 123px;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    &-im3{
+      border-radius: 50%;
+      background-color:  #000000;
+      width: 45px;
+      height: 45px;
+      position: relative;
+      left: -149px;
+      float: left;
+      top: 129px;
+      &-txt{
+        font-family: HN-B;
+        color:  #ffffff;
+        font-size: 16.01px;/* Approximation due to font substitution */
+        text-align: right;
+        position: relative;
+        top: 11.5px;
+        left: -10px;
+        overflow:hidden;
+        text-transform: uppercase;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width:40px;
+      }
+    }
+    //class for heading
+    &-head{
+      width: 105px;
+      height: 11px;
+      position: relative;
+      top: 54px;
+      left: -20px;
+      float: left;
+      //class for fa icon
+      &-fa1{
+        color: #3098ff;
+        font-size: 12px;/* Approximation due to font substitution */
+        font-weight: 400;
+        line-height: 32px;/* Approximation due to font substitution */
+        float: left;
+        position: relative;
+        top: -10px;
+      }
+      //class for text in teading
+      &-txt{
+        font-family: HN-L;
+        color:  #ffffff;
+        font-size: 12px;/* Approximation due to font substitution */
+        line-height: 32px;/* Approximation due to font substitution */
+        position: relative;
+        top: -10px;
+        left: 5px;
+        overflow:hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: 105px;
+      }
+    }
+    //class for paragraph box
+    &-pbox{
+      max-width: 346px;
+      height: 108px;
+      float: left;
+      position: relative;
+      top: 65px;
+      left: -20px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      //class for company name
+      &-cnm{
+        font-family: HN-B;
+        color:  #ffffff;
+        font-size: 24px;/* Approximation due to font substitution */
+        line-height: 28px;/* Approximation due to font substitution */
+        text-align: left;
+        float:left;
+        position: relative;
+        margin-right:6px;
+        max-width: 280px;
+        overflow: hidden;
+        white-space: nowrap;
+
+      }
+      //class for paragraph text
+      &-txt{
+        font-family: HN-L;
+        color:  #ffffff;
+        font-size: 22px;/* Approximation due to font substitution */
+        line-height: 28px;/* Approximation due to font substitution */
+        text-align: left;
+        max-height:84px;
+        position:relative;
+        overflow:hidden;
+      }
+      //class for date text
+      &-dt{
+        font-family: HN-L;
+        color:  #ffffff;
+        font-size: 14px;/* Approximation due to font substitution */
+        line-height: 30px;/* Approximation due to font substitution */
+        text-align: left;
+
+      }
+    }
+    //class for arrow ellipse
+    &-cir{
+      border-radius: 50%;
+      border-width: 2px;
+      border-color:  #ffffff;
+      border-style: solid;
+      width: 61px;
+      height: 61px;
+      float: right;
+      position: relative;
+      top: 79px;
+      right: 20px;
+      cursor:pointer;
+      //class for arrow
+      &-aw{
+        font-family: FontAwesome;
+        color:  #ffffff;
+        font-size: 36px;/* Approximation due to font substitution */
+        font-weight: 400;
+        text-align: center;
+        position: relative;
+        left: 1px;
+        top: 1px;
+      }
+    }
+  }//end of image placeholder
+
+  &-b{
+    width: 680px;
+    height: 150px;
+    background-color: #ffffff;
+    //class for image placeholder
+    &-im{
+      width: 101px;
+      height: 101px;
+      border-radius: 50%;
+      border: 2px solid #cccccc;
+      position: relative;
+      top: 20px;
+      left: 0px;
+      float:left;
+      margin-right: 15px;
+      background-color:  #ffffff;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    //class for 1st paragragh
+    &-p1bx{
+      width: 640px;
+      height: 150px;
+      float: left;
+      position: relative;
+      left: 15px;
+      top: 0px;
+      max-width: 640px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      //class for title
+      &-t{
+        font-family: HN-B;
+        color:  #000000;
+        font-size: 17.94px;/* Approximation due to font substitution */
+        text-align: left;
+        position: relative;
+        top: 15px;
+        left:3px;
+
+      }
+      //class for written fa icon
+      &-faw{
+        color:  #959595;
+        font-size: 9.97px;/* Approximation due to font substitution */
+        font-weight: 400;
+        line-height: 16px;/* Approximation due to font substitution */
+        text-align: left;
+        float:left;
+        position: relative;
+        top: 15px;
+      }
+      //class for written by
+      &-wtn{
+        font-family: HN;
+        position: relative;
+        left: 5px;
+        color:  #959595;
+        font-size: 9.97px;/* Approximation due to font substitution */
+        line-height: 16px;/* Approximation due to font substitution */
+        text-align: left;
+        position: relative;
+        top: 15px;
+      }
+      //class for paragraph text
+      &-pt{
+        max-height: 171px;
+        font-family: HN;
+        color:  #000000;
+        font-size: 13.95px;/* Approximation due to font substitution */
+        line-height: 19.1px;/* Approximation due to font substitution */
+        text-align: left;
+        position: relative;
+        top: 24px;
+        //left:10px;
+      }
+    }
+
+  }
+    //class for footer part
+    .ftr{
+      width: 680px;
+      height: 48px;
+      position: relative;
+      top: -45px;
+      border-bottom: 2px solid #3098ff;
+      background: -webkit-linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+      background: -moz-linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+      background: -o-linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+      background: -ms-linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+      background: linear-gradient(0deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+      //class for continur reading button
+      &-btn{
+
+        position: relative !important;
+        top: 11px !important;
+
+        &-icn{
+          position: relative !important;
+          left: 12px !important;
+          top: 6px !important;
+          float: left !important;
+        }
+        &-txt{
+          font-family: HN-L;
+          color:  #ffffff;
+          font-size: 14px;/* Approximation due to font substitution */
+          line-height: 28px;/* Approximation due to font substitution */
+          text-align: center;
+          float: left;
+          position: relative;
+          top: 5px;
+          left: 32px;
+          max-width: 150px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        &-fa{
+          color:  #ffffff;
+          font-size: 15px;/* Approximation due to font substitution */
+          font-weight: 400;
+          line-height: 28px;/* Approximation due to font substitution */
+          text-align: center;
+          position: relative;
+          top: 5px;
+          left: 5px;
+          float: right;
+          width: 10px;
+          left: -26px;
+        }
+      }
+    }
+    .p{
+      margin: 0px 0 5px 0px !important;
+    }
+}

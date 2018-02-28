@@ -1,0 +1,96 @@
+<!--
+Author: David Wibowo
+Created: [10-15-2015]
+Description:conatct us webpage
+Associated Files: contact_us_page.html, contact_us_page.js, contact_us.less, about_us_page.less
+-->
+<template name="contact_us_page">
+  <div class="abus">
+    <a href="#" onclick="history.go(-1)">
+      <div class="abus-bkbx">
+        <div class="abus-bkbx-bx"><i class="fa fa-reply"></i></div>
+        <div class="abus-bkbx-tgl"></div>
+        <div class="abus-bkbx-txt">Go Back</div>
+      </div>
+    </a>
+    <div class="abus-about">
+      <div class="abus-about-image" style="background-image: url('{{image_url}}');"></div>
+      <div class="abus-about-head">
+        <div class="abus-about-head-update"></div>
+        <div class="abus-about-head-country"><i class="fa fa-map-marker"></i> &nbsp;{{Country}}</div>
+        <h1>{{Title}}</h1>
+        <h2>{{Statement}}</h2>
+      </div>
+    </div>
+    <div class="abus-kit">
+      <div class="abus-kit-left">{{About}}</div>
+      <div class="abus-kit-right">
+        <!--
+        <a href="#"><i class="fa fa-heart"></i><span>Save</span></a>
+        <a href="#"><i class="fa fa-share-alt"></i><span class="abt_us-bar-text">Share</span></a>
+      -->
+      </div>
+    </div>
+    <div class="abus-cnt">
+      <div class = "abus-cnt-dropdown">
+        Now Reading:
+        <select id="sort_by" style = "margin-top: 1px;">
+          <option value="About">About Us</option>
+          <option value="Contact">Contact Us</option>
+          <option value="Copyright">Copyright Infringement</option>
+          <option value="Disclaimer">Disclaimer</option>
+          <option value="Privacy">Privacy Policy</option>
+          <option value="Stock">Stock Disclaimer</option>
+          <option value="Terms">Terms of Service</option>
+        </select>
+      </div>
+
+      <div class="abus-cnt-article">
+
+        <form name="submissionform" action="mailto:support@investkit.com" method="post" enctype="text/plain" class="cup">
+          <div class="cup-fieldsinfo"><b>*</b> All fields are required</div>
+
+          <div class="cup-field">
+            <div class="cup-field-lbl">Full Name</div>
+            <div class="cup-field-cntr"><input type="textbox" placeholder="First Name and Last Name" name="FullName" class="cup-field-cntr-txt" /></div>
+          </div>
+
+          <div class="cup-field">
+            <div class="cup-field-lbl">Email Address</div>
+            <div class="cup-field-cntr"><input type="textbox" placeholder="investkit@gmail.com" name="EmailAddress" class="cup-field-cntr-txt" /></div>
+          </div>
+
+          <div class="cup-field" style="height:330px;">
+            <div class="cup-field-lbl2">My question is regarding:</div>
+            <div class="cup-field-cntr">
+              <input type="checkbox" class="cup-field-cntr-ckb" value="MyProfile" name="Type">
+              <span>My Profile</span><br />
+              <input type="checkbox" class="cup-field-cntr-ckb" value="Email" name="Type">
+              <span>Email</span><br />
+              <input type="checkbox" class="cup-field-cntr-ckb" value="Advertisement" name="Type">
+              <span>Advertisement</span><br />
+              <input type="checkbox" class="cup-field-cntr-ckb" value="Fraud" name="Type">
+              <span>Fraud</span><br />
+              <input type="checkbox" class="cup-field-cntr-ckb" value="FindinganAdvisor" name="Type">
+              <span>Finding an Advisor</span><br />
+              <input type="checkbox" class="cup-field-cntr-ckb" value="Investment" name="Type">
+              <span>Investment</span><br />
+              <input type="checkbox" class="cup-field-cntr-ckb" value="Portfolios" name="Type">
+              <span>Portfolios</span><br />
+              <input type="checkbox" class="cup-field-cntr-ckb" value="Harrasment" name="Type">
+              <span>Harrasment</span>
+              <textarea type="text" maxlength="500" class="cup-field-cntr-desc" name="Message" placeholder="Detailed description of your question here..."></textarea>
+            </div>
+          </div>
+          <div class="cup-field" style="height:100px;"><br />
+            <div class="cup-field-cntr" style="text-align:right">
+              <input type="reset" class="cup-field-cntr-reset" value="RESET">
+              <button type="submit" class="cup-field-cntr-button">Submit  <i class="fa fa-angle-right"></i></button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    {{> search_module}}
+  </div>
+</template>

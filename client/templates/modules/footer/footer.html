@@ -1,0 +1,214 @@
+<!-- Author: Ryan Fisher
+**** Created: [09/16/2015]
+**** Description: Footer template
+**** Associated Files: footer.html, footer.less, footer.js
+-->
+
+<template name="footer">
+  <div class="footer-standard" ><!--This class is the main container for all sub-container -->
+    <div class ="footer-header"><!--This class corresponds -->
+      {{#if notPartner}}
+      <div class="footer-investkit_logo"></div>
+      {{/if}}
+
+      <ul class="footer-btn">
+        <li>
+          <a class="facebook_foot" rel="nofollow">
+            <div class="footer-right_button">
+              <i class="fa fa-pinterest-p"></i>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a class="facebook_foot1" rel="nofollow">
+            <div  class="footer-right_button1">
+              <i class="fa fa-google-plus"></i>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a class="facebook_foot2" rel="nofollow">
+            <div  class="footer-right_button2">
+              <i class="fa fa-linkedin"></i>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a class="facebook_foot3" rel="nofollow">
+          <div  class="footer-right_button3">
+            <i class="fa fa-twitter"></i>
+          </div>
+          </a>
+        </li>
+        <li>
+          <a class="facebook_foot4" rel="nofollow">
+            <div  class="footer-right_button4">
+              <i class="fa fa-facebook "></i>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="footer-content">
+      <div class="footer-home-sec_body" >
+
+      <!-- <div class="footer-title">National Real Estate</div> -->
+
+      <div class="footer-company">
+        <p>Company Listings |
+          <a href="{{pathPick 'company' 'null' '1'}}"> # </a> |
+          <a href="{{pathPick 'company' 'sort=A' '1'}}"> A </a> |
+          <a href="{{pathPick 'company' 'sort=B' '1'}}"> B </a> |
+          <a href="{{pathPick 'company' 'sort=C' '1'}}"> C </a> |
+          <a href="{{pathPick 'company' 'sort=D' '1'}}"> D </a> |
+          <a href="{{pathPick 'company' 'sort=E' '1'}}"> E </a> |
+          <a href="{{pathPick 'company' 'sort=F' '1'}}"> F </a> |
+          <a href="{{pathPick 'company' 'sort=G' '1'}}"> G </a> |
+          <a href="{{pathPick 'company' 'sort=H' '1'}}"> H </a> |
+          <a href="{{pathPick 'company' 'sort=I' '1'}}"> I </a> |
+          <a href="{{pathPick 'company' 'sort=J' '1'}}"> J </a> |
+          <a href="{{pathPick 'company' 'sort=K' '1'}}"> K </a> |
+          <a href="{{pathPick 'company' 'sort=L' '1'}}"> L </a> |
+          <a href="{{pathPick 'company' 'sort=M' '1'}}"> M </a> |
+          <a href="{{pathPick 'company' 'sort=N' '1'}}"> N </a> |
+          <a href="{{pathPick 'company' 'sort=O' '1'}}"> O </a> |
+          <a href="{{pathPick 'company' 'sort=P' '1'}}"> P </a> |
+          <a href="{{pathPick 'company' 'sort=Q' '1'}}"> Q </a> |
+          <a href="{{pathPick 'company' 'sort=R' '1'}}"> R </a> |
+          <a href="{{pathPick 'company' 'sort=S' '1'}}"> S </a> |
+          <a href="{{pathPick 'company' 'sort=T' '1'}}"> T </a> |
+          <a href="{{pathPick 'company' 'sort=U' '1'}}"> U </a> |
+          <a href="{{pathPick 'company' 'sort=V' '1'}}"> V </a> |
+          <a href="{{pathPick 'company' 'sort=W' '1'}}"> W </a> |
+          <a href="{{pathPick 'company' 'sort=X' '1'}}"> X </a> |
+          <a href="{{pathPick 'company' 'sort=Y' '1'}}"> Y </a> |
+          <a href="{{pathPick 'company' 'sort=Z' '1'}}"> Z </a>
+        </p>
+      </div>
+      <div class="footer-people">
+        <p>People Listings |
+          <a href="{{pathPick 'officer' 'null' '1'}}"> # </a> |
+          <a href="{{pathPick 'officer' 'sort=A' '1'}}"> A </a> |
+          <a href="{{pathPick 'officer' 'sort=B' '1'}}"> B </a> |
+          <a href="{{pathPick 'officer' 'sort=C' '1'}}"> C </a> |
+          <a href="{{pathPick 'officer' 'sort=D' '1'}}"> D </a> |
+          <a href="{{pathPick 'officer' 'sort=E' '1'}}"> E </a> |
+          <a href="{{pathPick 'officer' 'sort=F' '1'}}"> F </a> |
+          <a href="{{pathPick 'officer' 'sort=G' '1'}}"> G </a> |
+          <a href="{{pathPick 'officer' 'sort=H' '1'}}"> H </a> |
+          <a href="{{pathPick 'officer' 'sort=I' '1'}}"> I </a> |
+          <a href="{{pathPick 'officer' 'sort=J' '1'}}"> J </a> |
+          <a href="{{pathPick 'officer' 'sort=K' '1'}}"> K </a> |
+          <a href="{{pathPick 'officer' 'sort=L' '1'}}"> L </a> |
+          <a href="{{pathPick 'officer' 'sort=M' '1'}}"> M </a> |
+          <a href="{{pathPick 'officer' 'sort=N' '1'}}"> N </a> |
+          <a href="{{pathPick 'officer' 'sort=O' '1'}}"> O </a> |
+          <a href="{{pathPick 'officer' 'sort=P' '1'}}"> P </a> |
+          <a href="{{pathPick 'officer' 'sort=Q' '1'}}"> Q </a> |
+          <a href="{{pathPick 'officer' 'sort=R' '1'}}"> R </a> |
+          <a href="{{pathPick 'officer' 'sort=S' '1'}}"> S </a> |
+          <a href="{{pathPick 'officer' 'sort=T' '1'}}"> T </a> |
+          <a href="{{pathPick 'officer' 'sort=U' '1'}}"> U </a> |
+          <a href="{{pathPick 'officer' 'sort=V' '1'}}"> V </a> |
+          <a href="{{pathPick 'officer' 'sort=W' '1'}}"> W </a> |
+          <a href="{{pathPick 'officer' 'sort=X' '1'}}"> X </a> |
+          <a href="{{pathPick 'officer' 'sort=Y' '1'}}"> Y </a> |
+          <a href="{{pathPick 'officer' 'sort=Z' '1'}}"> Z </a>
+        </p>
+      </div>
+        <hr class="footer-separator"/>
+
+        <p>States |
+            <a href="{{pathPick 'company' 'state=AL' '1'}}"> Alabama </a> |
+            <a href="{{pathPick 'company' 'state=AK' '1'}}"> Alaska </a> |
+            <a href="{{pathPick 'company' 'state=AZ' '1'}}"> Arizona </a> |
+            <a href="{{pathPick 'company' 'state=AR' '1'}}"> Arkansas </a> |
+            <a href="{{pathPick 'company' 'state=CA' '1'}}"> California </a> |
+            <a href="{{pathPick 'company' 'state=CO' '1'}}"> Colorado </a> |
+            <a href="{{pathPick 'company' 'state=CT' '1'}}"> Connecticut </a> |
+            <a href="{{pathPick 'company' 'state=DE' '1'}}"> Delaware </a> |
+            <a href="{{pathPick 'company' 'state=FL' '1'}}"> Florida </a> |
+            <a href="{{pathPick 'company' 'state=GA' '1'}}"> Georgia </a> |
+            <a href="{{pathPick 'company' 'state=HI' '1'}}"> Hawaii </a> |
+            <a href="{{pathPick 'company' 'state=ID' '1'}}"> Idaho </a> |
+            <a href="{{pathPick 'company' 'state=IL' '1'}}"> Illinois </a> |
+            <a href="{{pathPick 'company' 'state=IN' '1'}}"> Indiana </a> |
+            <a href="{{pathPick 'company' 'state=IA' '1'}}"> Iowa </a> |
+            <a href="{{pathPick 'company' 'state=KS' '1'}}"> Kansas </a> |
+        </p>
+
+        <p>
+            <a href="{{pathPick 'company' 'state=KY' '1'}}"> Kentucky </a> |
+            <a href="{{pathPick 'company' 'state=LA' '1'}}"> Louisiana </a> |
+            <a href="{{pathPick 'company' 'state=ME' '1'}}"> Maine </a> |
+            <a href="{{pathPick 'company' 'state=MD' '1'}}"> Maryland </a> |
+            <a href="{{pathPick 'company' 'state=MA' '1'}}"> Massachusetts </a> |
+            <a href="{{pathPick 'company' 'state=MI' '1'}}"> Michigan </a> |
+            <a href="{{pathPick 'company' 'state=MN' '1'}}"> Minnesota </a> |
+            <a href="{{pathPick 'company' 'state=MS' '1'}}"> Mississippi </a> |
+            <a href="{{pathPick 'company' 'state=MO' '1'}}"> Missouri </a> |
+            <a href="{{pathPick 'company' 'state=MT' '1'}}"> Montana </a> |
+            <a href="{{pathPick 'company' 'state=NE' '1'}}"> Nebraska </a> |
+            <a href="{{pathPick 'company' 'state=NV' '1'}}"> Nevada </a> |
+            <a href="{{pathPick 'company' 'state=NH' '1'}}"> New Hampshire </a> |
+        </p>
+
+        <p>
+            <a href="{{pathPick 'company' 'state=NJ' '1'}}"> New Jersey </a> |
+            <a href="{{pathPick 'company' 'state=NM' '1'}}"> New Mexico </a> |
+            <a href="{{pathPick 'company' 'state=NY' '1'}}"> New York </a> |
+            <a href="{{pathPick 'company' 'state=NC' '1'}}"> North Carolina </a> |
+            <a href="{{pathPick 'company' 'state=ND' '1'}}"> North Dakota </a> |
+            <a href="{{pathPick 'company' 'state=OH' '1'}}"> Ohio </a> |
+            <a href="{{pathPick 'company' 'state=OK' '1'}}"> Oklahoma </a> |
+            <a href="{{pathPick 'company' 'state=OR' '1'}}"> Oregon </a> |
+            <a href="{{pathPick 'company' 'state=PA' '1'}}"> Pennsylvania </a> |
+            <a href="{{pathPick 'company' 'state=RI' '1'}}"> Rhode Island </a> |
+            <a href="{{pathPick 'company' 'state=SC' '1'}}"> South Carolina </a> |
+        </p>
+
+        <p>
+          <a href="{{pathPick 'company' 'state=SD' '1'}}"> South Dakota </a> |
+          <a href="{{pathPick 'company' 'state=TN' '1'}}"> Tennessee </a> |
+          <a href="{{pathPick 'company' 'state=TX' '1'}}"> Texas </a> |
+          <a href="{{pathPick 'company' 'state=UT' '1'}}"> Utah </a> |
+          <a href="{{pathPick 'company' 'state=VT' '1'}}"> Vermont </a> |
+          <a href="{{pathPick 'company' 'state=VA' '1'}}"> Virginia </a> |
+          <a href="{{pathPick 'company' 'state=DC' '1'}}"> Washington, D.C. </a> |
+          <a href="{{pathPick 'company' 'state=WA' '1'}}"> Washington </a> |
+          <a href="{{pathPick 'company' 'state=WV' '1'}}"> West Virginia </a> |
+          <a href="{{pathPick 'company' 'state=WI' '1'}}"> Wisconsin </a> |
+          <a href="{{pathPick 'company' 'state=WY' '1'}}"> Wyoming </a> |
+        </p>
+
+        <hr class="footer-separator"/>
+
+        <p>
+          You Might Like:&nbsp;&nbsp;<span class="footer-b_blue"><a href="{{trendinglist}}">Trending Lists</a></span>
+            <i class="fa fa-caret-right"></i><span class="footer-b_blue"><a href="{{gain}}"> Who is Gaining Today? </a></span>
+            <i class="fa fa-caret-right"></i><span class="footer-b_blue"><a href="{{loss}}"> Who is Losing Today? </a></span>
+            <i class="fa fa-caret-right"></i><span class="footer-b_blue"><a href="{{national}}"> Today's Market Movers </a></span>
+        </p>
+                <hr class="footer-separator"/>
+        <p> 
+            {{#if notPartner}}
+              <span class="footer-b_blue"><a href="{{pathPickStatic 'content.finance.home'}}">InvestKit.com </a></span>
+              <i class="fa fa-caret-right"></i><a href="{{pathPickStatic 'content.contactus'}}"> Advertise with InvestKit</a> 
+            {{else}}
+              <span class="footer-b_blue"><a href="{{pathPickStatic 'content.partnerhome'}}">MyInvestKit.com </a></span>
+              <i class="fa fa-caret-right"></i><a href="{{pathPickStatic 'content.contactus'}}"> Advertise with MyInvestKit</a> 
+            {{/if}}
+            <i class="fa fa-caret-right">
+            </i><a href="{{pathPickStatic 'content.contactus'}}"> Contact us</a>
+            <i class="fa fa-caret-right"></i> <a href="{{pathPickStatic 'content.latestnews'}}"> Company News</a>
+        </p>
+        <p>
+          <a href="{{pathPickStatic 'content.termsofservice'}}"> Terms of Use</a>
+          <i class="fa fa-caret-right"></i><a href="{{pathPickStatic 'content.privacypolicy'}}"> Privacy Policy </a>
+          <i class="fa fa-caret-right"></i><a href="{{pathPickStatic 'content.aboutus'}}"> Sitemap</a>
+          <i class="fa fa-caret-right"></i><a href="{{pathPickStatic 'content.contactus'}}"> General Feedback</a>
+        </p>
+      </div>
+    </div>
+</div>
+</template>

@@ -1,0 +1,82 @@
+<!--Author: [Praveen Kumar]
+Created: [07/17/2015]
+Description: [Finance : Who's Who Page Module]-->
+
+<template name="new_whos_who">
+  {{#with ww_carousel}}
+  <div class="whos_who">
+    <div class="module-header">
+      <span class="module-header-line"></span><span class="module-header-title">Executives at {{header}}</span>
+    </div>
+    <!--Top Carousel-->
+    <div class="ww_top">
+      <a href="{{o_url}}">
+        <div class="ww_top-image" style="background-image:url('{{imageUrl o_pic}}')">
+          <div class="ww_top-image-counter">#{{rank}}</div>
+          <div class="ww_top-image-subimage" style="background-image:url('{{imageUrl c_logo}}')">
+            <div class="hover" style="line-height: 43px;"><i class="fa fa-share fontsize"></i></div>
+          </div>
+          <div class="hover">
+           <div class="hover-txt1" style="padding-top: 2.0em;">View</div>
+           <div class="hover-txt2">Profile</div>
+         </div>
+        </div>
+      </a>
+      <div class="ww_top-content">
+        <div class="ww_top-content-title">
+          <i class="fa fa-circle" style="color:#3098ff"></i>
+          {{header}} Executives
+        </div>
+        <div class="ww_top-content-desc">
+          <b>{{first}} {{last}}</b> is {{title}} for <b>{{c_name}}</b>
+        </div>
+        <div class="ww_top-content-date">
+          LAST UPDATED: {{curDate}}
+        </div>
+      </div>
+      <div class="ww_top-button">
+        <i class="fa fa-angle-right"></i>
+      </div>
+    </div>
+    <!--Top Carousel END-->
+    <!--TAGS-->
+    <div class="ww_tags">
+      <div class="ww_tags-1">EXECUTIVE</div>
+      <div class="ww_tags-2">COMPANY</div>
+      <div class="ww_tags-3">POSITION</div>
+    </div>
+    <!--TAGS END-->
+    <!--List-->
+    <div class="ww_list">
+      {{#each ww_data}}
+      <div class="ww_list-items" style="background-color:{{background}}">
+        <a href="{{o_url}}">
+          <div class="ww_list-items-content1">
+            <div class="ww_list-items-index">{{rank}}.</div>
+            <div class="ww_list-items-image" style="background-image:url('{{imageUrl o_pic}}')"></div>
+            <div class="ww_list-items-item1">{{first}} {{last}}</div>
+          </div>
+        </a>
+        <a href="{{compUrl}}">
+          <div class="ww_list-items-content2">
+            <div class="ww_list-items-item2" title="{{c_name}}">{{c_name}}</div>
+          </div>
+        </a>
+        <div class="ww_list-items-content3">
+          <div class="ww_list-items-item3">{{title}}</div>
+        </div>
+      </div>
+      {{/each}}
+      <!--mod footer -->
+      <div class="module-footer1" >
+        <a href="{{WholeListUrl}}"><button class="module-footer1-button-2">
+          <div class="module-footer1-button-logo"></div>
+          <div class="module-footer1-button-text"><span style="padding-right:10px">See The List</span><i class="fa fa-angle-right"></i></div>
+        </button></a>
+      </div>
+      <!--mod footer END -->
+    </div>
+    <!--List END-->
+  </div>
+  {{/with}}
+</template>

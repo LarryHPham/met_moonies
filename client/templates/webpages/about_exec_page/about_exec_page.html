@@ -1,0 +1,116 @@
+<!--
+  Author: Sri Sindhusha Kuchipudi
+  Created: 10/15/2015
+  Description: about_exec_page webpage
+  Associated Files: about_exec_page.html, about_exec_page.less, about_exec_page_logic.js
+-->
+
+<template name = "about_exec_page">
+  {{#with profile}}
+  <div class = "abtex">
+
+    <!-- Header Section -->
+
+    <div class = "abtex-hdr">
+      <a href = "{{backToExec}}">
+        <div class = "abtex-hdr-box"><i class = "fa fa-reply"></i></div>
+        <div class = "abtex-hdr-arrw"></div>
+      </a>
+        <div class = "abtex-hdr-txt">Go Back To <strong>{{o_first_name}}&nbsp;{{o_last_name}}'s</strong> Profile</div>
+    </div>
+
+    <!-- END Header Section -->
+
+    <!-- Title Section -->
+    <div class = "abtex-ttl">
+      <div class = "abtex-ttl-img" style="background-image:url({{imageUrl o_pic}})"></div>
+      <div class = "abtex-ttl-txt">
+        <div class = "abtex-ttl-txt-upd">LAST UPDATED: {{o_last_updated}}</div>
+        <div class = "abtex-ttl-txt-loc"><a href="{{locurl}}"><i class = "fa fa-map-marker"></i>&nbsp;{{c_hq_state}}, {{c_hq_city}}</a></div>
+        <div class = "abtex-ttl-txt-abt">About</div>
+        <div class = "abtex-ttl-txt-nm">{{o_first_name}}&nbsp;{{o_last_name}}</div>
+      </div>
+    </div>
+    <!-- END Title Section -->
+
+    <!-- Slider Section -->
+    <div class = "abtex-sldr">
+
+      <!-- Top Portion of Slider -->
+      <div class = "abtex-sldr-top">
+        <div class = "abtex-sldr-top-lft">
+          <div class = "abtex-sldr-top-lft-nm">About {{o_first_name}}&nbsp;{{o_last_name}}</div>
+        </div>
+        <div class = "abtex-sldr-top-rgt">
+
+        </div>
+      </div>
+      <!-- END Top Portion of Slider -->
+
+      <!-- Middle Portion of Slider -->
+      <div class = "abtex-sldr-mid">
+        <!-- <div class = "navigation-button-left"><i class = "fa fa-angle-left"></i></div>
+        <div class = "navigation-button-right"><i class = "fa fa-angle-right"></i></div> -->
+
+        <!-- Images on Left -->
+        <a href = "{{execURL}}">
+          <div class = "abtex-sldr-mid-img" style="background-image:url({{imageUrl o_pic}})">
+            <!--<div class = "abtex-sldr-mid-img-sml" style="background-image:url({{imageUrl c_logo}})"></div>-->
+          </div>
+        </a>
+        <!-- END Images on Left -->
+
+        <!-- Briefcase Icon, Title, and Save/Share Buttons -->
+        <div class = "abtex-sldr-mid-top">
+          <div class = "abtex-sldr-mid-top-lft">
+            <div class = "abtex-sldr-mid-top-lft-icon"><i class = "fa fa-briefcase"></i></div>
+          </div>
+          <div class = "abtex-sldr-mid-top-rgt">
+            <div class = "abtex-sldr-mid-top-rgt-top">{{o_first_name}}&nbsp;{{o_last_name}}</div>
+            <div class = "abtex-sldr-mid-top-rgt-bttm">
+            </div>
+          </div>
+        </div>
+        <!-- END Briefcase Icon, Title, and Save/Share Buttons -->
+
+        <!-- Exec's Description -->
+        <div class = "abtex-sldr-mid-bttm">
+          <div class = "abtex-sldr-mid-bttm-txt">
+            {{o_bio}}
+          </div>
+        </div>
+        <!-- END Exec's Description -->
+      </div>
+      <!-- END Middle Portion of Slider -->
+
+      <!-- Bottom Portion of Slider -->
+      <div class = "abtex-sldr-bttm">
+        <div class = "abtex-sldr-bttm-txt">
+          <div class = "abtex-sldr-bttm-txt-top">Want to know more about <div>{{o_first_name}}&nbsp;{{o_last_name}}</div>?</div>
+          <div class = "abtex-sldr-bttm-txt-bttm">Profile Last Updated On: <strong>{{o_last_updated}}</strong></div>
+        </div>
+        <a href = "{{backToExec}}">
+          <div class = "abtex-sldr-bttm-bttn">
+            <div class = "abtex-sldr-bttm-bttn-txt">View Profile<i class = "fa fa-angle-right"></i></div>
+          </div>
+        </a>
+      </div>
+      <!-- END Bottom Portion of Slider -->
+
+    </div>
+    <!-- END Slider Section -->
+
+    <!-- Description Section -->
+    <div class = "abtex-desc">
+      <div class = "abtex-desc-hdr">
+        <div class = "abtex-desc-hdr-txt"><strong>About</strong> <div>{{o_first_name}}&nbsp;{{o_last_name}}</div>:</div>
+      </div>
+      <div class = "abtex-desc-bdy">
+        {{o_bio}}
+      </div>
+    </div>
+    <!-- END Description Section -->
+    {{> search_module}}
+  </div>
+  {{/with}}
+</template>

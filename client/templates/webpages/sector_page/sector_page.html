@@ -1,0 +1,244 @@
+<!--
+Author: jyothyswaroop
+Created: 8/12/2015
+Description: sector_page
+Associated Files: sector_page_logic.js and sector_page.less
+-->
+<!--Gave a template name stock_disclaimer_page !-->
+<template name="sector_page">
+  {{#with sectorData}}
+<!--Defined a class name globally for height and width !-->
+<div class= "sect_pg">
+  <!--Defined a class name globally for height and width !-->
+  <div class= "list_vw">
+    <!--gave the dimensions for the module with total height and width !-->
+    <div class = "list_vw-n_m">
+      <!--dimensions for the circle container as ('cir-d') !-->
+      {{#with location_data}}
+        <a href="{{url}}">
+          <div class="abus-bkbx">
+            <div class="abus-bkbx-bx"><i class="fa fa-reply"></i></div>
+            <div class="abus-bkbx-tgl"></div>
+            <div class="abus-bkbx-txt">Go Back to {{name}} Profile</div>
+          </div>
+        </a>
+      {{/with}}
+      <div class="list_vw_header">
+        <div class="list_vw-cir_d">
+          <!-- dimensions for the circle as ('circ')!-->
+          <div class="list_vw-circ" style="{{image}}">
+            <!-- defines container for the smaller blue circle('sc_d') !-->
+            <div class= "list_vw-sc_d"></div>
+          </div>
+        </div>
+        <!--defines the container for text box !-->
+        <div class="list_vw-tc">
+          <!-- class date has all the font-weight and font specific !-->
+          <div class="list_vw-date">
+            LAST UPDATED: {{headerDate}}
+          </div>
+          <!--specified font style for location !-->
+          <div class="list_vw-loc_st">
+            {{#with location_data}}
+            <a href="{{url}}">
+              <i class="fa fa-map-marker"></i>
+              <!--specified font style for the state name !-->
+              <span class="list_vw-loc_st">
+                {{name}} &nbsp;| &nbsp;<p class="data-by-text">Data Provided By: <b>{{dataProvidedBy}}</b></p>
+              </span>
+            </a>
+            {{/with}}
+          </div>
+          <!-- specified font sytle for the stock disclaimer !-->
+          <div class="list_vw-loc_st list_vw-disc">
+          {{sector}}
+          </div>
+          <div class="list_vw-loc_st list_vw-fin">
+          in {{location_data.name}} By Largest Market Cap
+          </div>
+          <!--specified font style for the inveskit finance  !-->
+        </div>
+      </div>
+      <!-- <div class="list_vw-bar">
+        <div class="list_vw-bar-title">
+          {{sector}} Companies
+        </div>
+      </div> -->
+      {{#with sectorList}}
+      <div class="list_vw-m_c">
+        <!-- the module.less file navigation buttons-->
+        <button class='list_vw-lefthov' style="position:absolute;"><i class="fa fa-angle-left fa-2x" ></i></button>
+        <button class='list_vw-righthov' style="position:absolute; right: 0"><i class="fa fa-angle-right fa-2x"></i></button>
+        <!-- end of the module.less navigation button -->
+        <!-- wrapper class-->
+        <a href="{{url}}">
+          <div class="list_vw-m_c-image-wr">
+            <div class="list_vw-m_c-image" style="background-image:url('{{imageUrl c_logo}}')">
+              <div class="hover">
+                <div class="hover-txt1" style="font-size:32px;">View</div>
+                <div class="hover-txt2">Profile</div>
+              </div>
+              <div class="list_vw-m_c-sma_ct">
+              <div class="list_vw-m_c-sma_cr" style="background-image:url('{{exchange c_exchange}}')">
+                <div class="hover"></div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </a>
+        <!-- the main container -->
+        <ul class="list_vw-m_c-cr">
+          <!-- the image in blue circle-->
+          <li class="list_vw-m_c-title">
+            <div class="list_vw-m_c-title-image"><i class="fa fa-building-o"></i></div>{{c_name}}
+          </li>
+
+          <!-- the description about the person-->
+          <li class="list_vw-m_c-dp">
+            <div class="list_vw-m_c-dp-dpct">
+            {{c_name}} ({{c_sector}}: {{c_ticker}}) current market cap is valued at
+              <span class="list_vw-m_c-dp-itl">{{csi_market_cap_friendly}}</span>
+            </div>
+            <div class="list_vw-m_c-dp-itl list_vw-m_c-dp-it2">{{c_name}} is currently priced at ${{lcsi_price}}
+              <span class="list_vw-m_c-dp-itl list_vw-m_c-dp-it4"><i class="fa {{changeIcon csi_price_change_since_last}}" style="color:{{changeColor csi_price_change_since_last}}"></i></span>
+              <span class="list_vw-m_c-dp-itl list_vw-m_c-dp-it5" style="color:{{changeColor csi_price_change_since_last}}">{{csi_price_change_since_last}} ({{csi_percent_change_since_last}}%)</span>
+            </div>
+          </li>
+        </ul>
+        <!-- the bottom bar-->
+        <div class="list_vw-m_c-view_more">
+          <!-- the details about the comapny-->
+          <div class="list_vw-m_c-view_more-text">
+            <div class="list_vw-m_c-view_more-text-ln1">Interested in discovering more about {{c_name}}?</div>
+            <div class="list_vw-m_c-view_more-text-ln2">Profile Last Updated On: <span class="list_vw-m_c-dp-itl">{{newDate}}</span></div>
+          </div>
+          <a href="{{url}}">
+            <button class="list_vw-m_c-view_more-button">
+              View Profile <i class="fa fa-angle-right"></i>
+            </button>
+          </a>
+        </div>
+      </div>
+      {{/with}}
+      <!--container for the ct1 to 'sort by' and 'what is this list?'  !-->
+      <div class="list_vw-ct1">
+        <!--container for the sortby
+        <div class="list_vw-sy">
+          <div class="list_vw-syf"> Sort by:
+          <span class="list_vw-syf list_vw-sym"> Market Cap: Highest Lowest <span class="list_vw-sym list_vw-chd"> <i class=" fa fa-chevron-down"></i> </span> </span>
+          </div>
+        </div> !-->
+        <!-- contianer for the complete 'what is this list' class name is wl!-->
+        <div class="list_vw-wl">
+          <!-- container for the 'what is this list' class name is wl2!-->
+          <div class="list_vw-wlc">
+            <!-- font style for the 'what is this list'!-->
+            <div class="list_vw-wlf">
+              What is this list?
+              <span class="list_vw-x">
+               <i class="fa fa-times"></i>
+              </span>
+            </div>
+          </div>
+          <!--container for the text inside the 'what is this list' as wltxt!-->
+          <div class="list_vw-wltxt">
+            <!--font style for the text !-->
+            <div class="list_vw-wltxtf">
+              <p> This is a list featuring all sectors and public companies in the {{getheadername0}} with the highest market cap value, sorted from highest to lowest.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div class="list_vw-wrapper">
+    {{#each companies}}
+      <!-- The loop starts here and the each will take each data item from the items on each iteration-->
+      <div class="list_vw-{{background}}"><br>
+        <!--This is the main (circle) image-->
+        <div class="list_vw-head-circ">
+            <div class="list_vw-head-image" style="background:url('{{imageUrl c_logo}}')">
+              <a href="{{url}}">
+                <div class="hover">
+                  <div class="hover-txt1">View</div>
+                  <div class="hover-txt2">Profile</div>
+                </div>
+              </a>
+              <!-- Here displays the counter number which is a result of each loop-->
+              <span class="list_vw-counter">#{{rank}}</span>
+
+              <span class="list_vw-counter2" style="background-image:url('{{exchange c_exchange}}')">
+                <div class="hover"></div>
+              </span>
+          </div>
+        </div>
+        <!--Location title -->
+        <div class="list_vw-sp">
+          <div  class="list_vw-space">
+            <!-- This displays the font awesome map sybmol infornt of the united states-->
+            <a href="{{locurl}}">
+              <a href="{{locurl}}">
+                <i class="fa fa-map-marker"></i>
+                <span  class="list_vw-space list_vw-space2">
+                  {{c_hq_state}}, {{c_hq_city}}
+                </span>
+              </a>
+            </a>
+            <!-- Here displays the description which come from the each loop-->
+            <div class="list_vw-adjust">{{ c_name }}</div>
+            <div class="list_vw-follw1">{{c_ticker}}: ${{lcsi_price}}
+              <span class="list_vw-follws1">  <i class="fa {{changeIcon csi_price_change_since_last}}" style="color:{{changeColor csi_price_change_since_last}}"></i> </span>
+              <span class="list_vw-follw3" style="color:{{changeColor csi_price_change_since_last}}">{{csi_price_change_since_last}}({{csi_percent_change_since_last}}%) </span>
+            </div>
+          </div>
+        </div>
+        <!--This displays the blue button which holds the text "View Full List"-->
+        <div class="list_vw-ctmain">
+          <span class="list_vw-ctmaintxt">
+            Want more info about this company?
+          </span>
+          <a href="{{url}}">
+            <button class="list_vw-tile-button">
+              View Profile
+              <span style="margin-left:6px"><i class="fa fa-angle-right"></i></span>
+            </button>
+          </a>
+        </div>
+        <div class="list_vw-rtct">
+          <div class="list_vw-rttx1"> Market Cap</div>
+          <div class="list_vw-rttx2"> {{csi_market_cap_friendly}}</div>
+          <div class="list_vw-rttx3"> {{newDate}} </div>
+        </div>
+        <!-- This displays the font awesome heart symbol beside the text "save"-->
+
+        <div class="list_vw-sn">
+          <div  class="list_vw-save">
+
+          </div>
+        </div>
+
+        <!-- This displays the font awesome share symbol beside the text "share"-->
+        <div class="list_vw-sh">
+          <div  class="list_vw-share">
+
+          </div>
+        </div>
+        <!-- container with all font style as specified !-->
+        <!-- This displays the font awesome flag symbol beside the text "Feedback"-->
+        <div class="list_vw-fe ">
+          <div  class="list_vw-share list_vw-feedback">
+
+          </div>
+        </div>
+      </div>
+      <!--This is the End of each loop -->
+    {{/each}}
+    </div>
+  <!--created a container for the fotter  !-->
+<div class="sect_pg-fotter">
+    {{> search_module}}
+</div>
+
+  </div>
+</div>
+</div>
+{{/with}}
+</template>

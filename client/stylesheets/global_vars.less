@@ -1,0 +1,223 @@
+
+// Global vars from specs 6/2/15
+@orange: #f7701d;
+@orange-1: #ff3131;
+@red: #ca1010;
+@yellow: #ffc500;
+@green: #44b224;
+@blue: #3098ff;
+@grey-fail: #999ea6;
+@grey-1: #f2f2f2;
+@grey-2: #dadada;
+@grey-3: #cccccc;
+@grey-4: #272727;
+// End GVFS
+@grey-5: #252525;
+@grey-6: #959595;
+@grey-7: #fefefe;
+@grey-8: #e1e1e1;
+
+// /Header Style
+@fb: #3b5998;
+@twitter: #00aced;
+@gplus: #dd4b39;
+@linkedin: #007bb6;
+@pinterest: #cb2027;
+@clipboard: #f7701d;
+
+// William Mod
+@white: #ffffff;
+@black: #000000;
+
+@bgcolor: #ebebeb;
+
+//icons used globally
+@info-icon: url('/icons/info.png');
+@full-linen: url('/public/linen_pattern.png');
+@dark-linen: url('/public/drk-linen.png');
+@tile: url('/public/Tile_Overlay.png');
+//for unfinished pieces used for the future
+@coming-soon: url('/public/comingsoon-asset.png');
+@coming-soon-frame: url('/public/onframe.png');
+@investkit:url('public/financial_logo_lg.png');
+@investkit-white:url('/public/Logo_InvestKit.png');
+@button-icon:url('/public/FinanceButtonIcon.png');
+html, body { // Default vals across the board
+  margin-top: auto;
+  font-family: HN, sans-serif, Arial; //HelveticaNeue, sans-serif, Arial replace with this once we get helvetica Neue
+  width: 100%;
+  height: auto;
+  background-color: @bgcolor;
+}
+
+//temporary
+div, span{
+  font-family: HN, sans-serif, Arial;
+}
+a {
+  text-decoration: none !important;
+  color:inherit;
+}
+// End william mod
+
+@font-face{
+  font-family: HN;
+  src: url('/fonts/HelveticaNeue.otf');
+}
+
+@font-face{
+  font-family: HN-B;
+  src: url('/fonts/HelveticaNeue-Bold.otf');
+}
+
+@font-face{
+  font-family: HN-L;
+  src: url('/fonts/HelveticaNeue-Light.otf');
+}
+
+@font-face{
+  font-family: Gotham Book;
+  src: url('/fonts/GothamHTF-Book.ttf');
+}
+
+@font-face{
+  font-family: Gotham Bold;
+  src: url('/fonts/GothamHTF-Bold.ttf');
+}
+
+@font-face{
+  font-family: Gotham Black;
+  src: url('/fonts/GothamHTF-Black.ttf');
+}
+//Font Incorrect? Potentially not needed
+@font-face{
+  font-family: Gotham Book Italic;
+  src: url('/fonts/GothamHTF-Book-Italic.ttf');
+}
+
+@font-face{
+  font-family: Gotham Book Light;
+  src: url('/fonts/GothamHTF-Book-Light.ttf');
+}
+
+//Global Stylings
+.syn-text-center{
+  text-align: center;
+}
+
+.coming-soon{
+  width:100%;
+  height:100%;
+  background-image: @coming-soon;
+  background-size:100%;
+
+}
+
+.coming-soon-frame{
+  width:100%;
+  height:100%;
+  background-image: @coming-soon-frame;
+  background-size:100%;
+
+}
+
+.noclick, #stwrapper {
+  // For elements that shouldn't be highlightable
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+} // END .noclick
+
+//Hovers
+/*
+<div class="hover">
+  <div class="hover-txt1">View</div>
+  <div class="hover-txt2">Profile</div>
+</div>
+*/
+.hover{
+  width:100%;
+  height:100%;
+  border-radius: 50%;
+  opacity: 0;
+  text-align: center;
+  color: @white;
+  font-size: 20px;
+  &-txt1{
+    padding-top:1.5em;
+    font-size: 23px;
+    font-family: HN-B;
+    color:@white;
+  }
+  &-txt2{
+    font-size: 20px;
+    font-family: HN;
+    color:@white;
+  }
+  &:hover{
+    opacity: 1;
+    background:rgba(48,152,255,0.75);
+  }
+}
+
+/* Begin required CSS. */
+.line-clamp
+{
+	display            : block;
+	display            : -webkit-box;
+	-webkit-box-orient : vertical;
+	position           : relative;
+
+	line-height        : 1.2;
+	overflow           : hidden;
+	text-overflow      : ellipsis;
+	padding            : 0 !important;
+}
+.line-clamp:after
+{
+	content    : '...';
+	text-align : right;
+	bottom     : 0;
+	right      : 0;
+	width      : 25%;
+	display    : block;
+	position   : absolute;
+	height     : calc(1em * 1.2);
+	background : linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 75%);
+}
+@supports (-webkit-line-clamp: 1)
+{
+	.line-clamp:after
+	{
+		display : none !important;
+	}
+}
+.line-clamp-1
+{
+	-webkit-line-clamp : 1;
+	height             : calc(1em * 1.2 * 1);
+}
+.line-clamp-2
+{
+	-webkit-line-clamp : 2;
+	height             : calc(1em * 1.2 * 2);
+}
+.line-clamp-3
+{
+	-webkit-line-clamp : 3;
+	height             : calc(1em * 1.2 * 3);
+}
+.line-clamp-4
+{
+	-webkit-line-clamp : 4;
+	height             : calc(1em * 1.2 * 4);
+}
+.line-clamp-5
+{
+	-webkit-line-clamp : 5;
+	height             : calc(1em * 1.2 * 5);
+}
+/* End required CSS. */

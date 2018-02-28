@@ -1,0 +1,130 @@
+/*
+Author: Deepika Priyanka V
+Created: 07/17/2015
+Description: Share & follow module
+Associated Files: share_logic.js and share.less
+*/
+
+@import (reference)"../global_vars.less"; //include important global vars (colors mostly)
+@import (reference)"../modules.less";
+
+/* defeined a unique name*/
+.fin_style{
+  /*defined the height and width for new_module*/
+  &-new_module{
+    .module;
+    height: 246px;
+    border-bottom:none;
+  }
+  /*defined the height and width for body */
+  &-body{
+    height: 201px;
+    width: 680px;
+  }
+  /*defined the height and width for left_side */
+  &-lside{
+    height: 210px;
+    width: 210px;
+    display:inline-block;
+  }
+  /*leftcircle will create a circle on left side in left_side class*/
+  &-lcircle{
+    height: 180px;
+    width: 180px;
+    border-radius: 100%;
+    border: 2px solid #cccccc;
+    margin: 10px 0 0 10px;
+    position: relative;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    float: left;
+  }
+  /*defined the height and width for right_side */
+  &-rside{
+    height: 145px;
+    width: 420px;
+    top:30px;
+    right:35px;
+    float: right;
+    position: relative;
+    display:inline-flex;
+  }
+  /*right_data will create a data on right side */
+  &-rdata{
+    width: 400px;
+    font-family: HN-L;
+    color:  #272727;
+    font-size: 18px;
+    position: absolute;
+  }
+  /*defined dimensions for facebook block */
+  &-fb{
+    border-radius: 5px;
+    background-color:  #3b5998;
+    width: 200px;
+    height: 40px;
+    position: absolute;
+    top:32px;
+    text-align: center;
+  }
+  /*defined dimensions for facebook_text */
+  &-fbtext{
+    font-family: HN-B;
+    color:  #ffffff;
+    font-size: 12px;
+    padding: 13px 38px 0px 0;
+    position: relative;
+    float: right;
+  }
+  /*defined dimensions for facebook font_awesome*/
+  &-fbicon{
+    font-family: HN;
+    color:  #ffffff;
+    font-size: 18px;
+    padding:8px 0 0 20px;
+    position: relative;
+    float:left;
+  }
+  /*defined dimensions for twitter block */
+  &-twitter{
+    background-color:  #00aced;
+    float: right;
+    left: 215px;
+  }
+  /*defined dimensions for twitter_text */
+  &-twtext{
+    padding: 13px 52px 0px 0;
+  }
+  /*defined dimensions for twitter_awesome */
+  &-twicon{
+    padding:8px 0 0 20px;
+  }
+  /*defined dimensions for google block */
+  &-google{
+    background-color:  #dd4b39;
+    top:87px;
+  }
+  /*defined dimensions for google_text */
+  &-gtext{
+    padding: 13px 44px 0px 0;
+  }
+  /*defined dimensions for google font_awesome */
+  &-gicon{
+    padding:8px 0 0 20px;
+  }
+  /*defined dimensions for pinterest block */
+  &-pinterest{
+    background-color:  #cb2027;
+    top:87px;
+    left:215px;
+  }
+  /*defined dimensions for pinterest_text */
+  &-ptext{
+    padding: 13px 40px 0px 0;
+  }
+  /*defined dimensions for pinterest font_awesome */
+  &-picon{
+    padding:8px 0 0 20px;
+  }
+}

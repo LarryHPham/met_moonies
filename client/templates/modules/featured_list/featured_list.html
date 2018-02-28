@@ -1,0 +1,159 @@
+<!--
+Author:Meghana yerramillli
+Created: [07-20-2015]
+Description: featured top 100 lists
+Associated Files: featured_list.html, featured_list.js
+-->
+<template name="featured_list">
+  {{#with checkData}}
+  {{#with featuredData}}
+  <!--whole panel for the page-->
+  <div class="fl_panel">
+    <!--header-->
+    <div class="module-header">
+      <span class="module-header-line"></span>
+      <span class="module-header-title"> Featured Top Lists For {{compName}}</span>
+    </div>
+    <!--body of the page-->
+    <div class="module-wrapper">
+      <div class="fl_block">
+        <!--block Title-->
+        <div class="fl_block_title">
+          <!--block title ,icon and text-->
+          <i class="fa fa-circle"></i>
+          <SPAN class="fl_title_text">{{compName}}'s Trending List</span>
+          </div>
+          <!--Top 100 title-->
+          <div class ="fl_ct">
+          <div class="fl_block_text">{{featured_list_title}}
+          </div>
+        </div>
+          <!--company name-->
+          {{#with featuredList}}
+          <div class="fl_co">
+          <div class = "fl_company-name">{{c_name}}</div>
+          <!--location-->
+          <div class = "fl_location-text">
+            <span class="fl_fa_loc">
+              <i class="fa fa-map-marker"></i>
+            </span>
+            <a href="{{loc_url}}">{{c_hq_city}}, {{c_hq_state}}</a>
+          </div>
+        </div>
+          <!--container containing circle for image, icon and position-->
+          {{#if count}}
+            <div class="fl_ico">
+              <!--left navigation button-->
+              <div class="fl_lf">
+               <button class='fl_block_leftbutton'>
+                 <i class="fa fa-angle-left fa-2x" ></i>
+               </button>
+             </div>
+               <!--right navigation button-->
+               <div class="fl_rt">
+               <button class='fl_block_rightbutton'>
+                 <i class="fa fa-angle-right fa-2x"></i>
+               </button>
+             </div>
+            </div>
+          {{/if}}
+
+        <div class="fl_cr">
+          <!--image in the circle-->
+          <a href="{{comp_url}}">
+            <div class="fl_block_pic" style="background-image:url('{{imageUrl c_logo}}')">
+              <div class="hover">
+                <div class="hover-txt1" style="font-size:28px;">View</div>
+                <div class="hover-txt2" style="font-size:26px">Profile</div>
+              </div>
+              <!--circle for position number-->
+              <div class = "fl_block_pic_counter">#{{counter}}</div>
+            </div>
+          </a>
+        </div>
+
+          <br><br><br>
+          <!--container for information about stocks-->
+          <div class="fl_bottomcontainer">
+            <!--CEO & shares information-->
+            <!-- <div class="fl_line-1" >CEO: {{company_CEO}} | NASDAQ: {{company_stock}} </div> -->
+            <div class="fl_line-1" ></div>
+            <div class="fl_line-2">{{data_name}}:
+              <span class="fl_sh">{{data_value}}</span>
+            </div>
+          </div>
+          <!--footer for see the whole list button-->
+          <div class="fl_footer">
+            <!-- See whole list Button -->
+            <a href="{{featURL}}">
+              <button class="module-footer-button" >
+                <span class="module-footer-button-text">See Full List</span>
+                <span class="module-footer-button-ellipse">
+                  <i class="fa fa-mail-forward"></i>
+                </span>
+              </button>
+            </a>
+            <!-- END -->
+          </div>
+          {{/with}}
+        </div>
+        <!--tiles beside the main block-->
+        <div class="fl_tiles">
+          <!--classes for tiles used are the tile classes in modules.less file-->
+          {{#each gettitle}}
+          <div class="module-tile">
+            <!--tile container-->
+            <div class="module-tile-default">
+              <div class="module-tile-default-container">
+                <!--icons in tile-->
+                <div class="{{tile1_icon_none}}">
+                  <div class="module-tile-default-icon">
+                    <i class="fa fa-list-ul"></i>
+                  </div>
+                </div>
+                <div class="{{tile2_icon_none}}">
+                  <div class="module-tile-default-icon">
+                    <i class="fa fa-trophy"></i>
+                  </div>
+                </div>
+                <div class="{{tile3_icon_none}}">
+                  <div class="module-tile-default-icon">
+                    <i class="fa fa-th-large"></i>
+                  </div>
+                </div>
+                <!--tile text
+                <div class="{{fl_none}}">
+                  <div class="fl_new">NEW</div>
+                </div>-->
+                <div class="module-tile-default-text">{{title}}
+                </div>
+              </div>
+            </div>
+            <!--Hover effects for the tiles-->
+            <a class="module-tile-link" href="{{url}}">
+              <div class="module-tile-hover">
+                <div class="module-tile-name">
+                  <span class="{{tile1_icon_none}}">
+                    <i class="fa fa-list-ul"></i>
+                  </span>
+                  <span class="{{tile2_icon_none}}">
+                    <i class="fa fa-trophy"></i>
+                  </span>
+                  <span class="{{tile3_icon_none}}">
+                    <i class="fa fa-th-large"></i>
+                  </span>{{title}}
+                </div>
+                <div class="module-tile-info" style="margin: 0;">
+                </div>
+                <!--Tile Button -->
+                <button class="module-tile-button module-tile-button-align">OPEN PAGE <i class="fa fa-mail-forward"></i></button>
+              </div>
+            </a>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+    {{/with}}
+    {{/with}}
+  </template>

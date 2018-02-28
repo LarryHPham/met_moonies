@@ -1,0 +1,146 @@
+<!--
+Author: jyothyswaroop
+Created: 10/14/2015
+Description: edu_history
+Associated Files: edu_history_logic.js and edu_history.less
+-->
+<!--Gave a template name stock_disclaimer_page !-->
+<template name="edu_history">
+<!--Defined a class name globally for height and width !-->
+{{#with executive}}
+<div class= "edu_his">
+  <!--gave the dimensions for the module with total height and width !-->
+  <div class = "edu_his-n_m">
+    <a href="{{ExecURL}}">
+        <div class="edu_his-hdtl">
+          <div class="edu_his-hdtl-or">
+            <div class="edu_his-hdtl-mailrep" >
+              <i class="edu_his-mailrep fa fa-reply"></i>
+            </div>
+            <div class="edu_his-hdtl-rta">
+            </div>
+          </div>
+          <!-- for the text contianer!-->
+          <div class="edu_his-hdtl-txtctt">
+            <div class="edu_his-hdtl-gb">
+              Go Back To
+              <div class="edu_his-hdtl-bar-title">
+              <div class="edu_his-hdtl-bar-helper">
+                {{officer.fullname}}'s
+              </div>
+                <div class="edu_his-hdtl-bar-side">Profile </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    <!--dimensions for the circle container as ('cir-d') !-->
+    <div class="edu_his-cir_d">
+    <!-- dimensions for the circle as ('circ')!-->
+      <a href="{{ExecURL}}">
+        <div class="edu_his-circ" style="background-image: url('{{imageUrl officer.o_pic}}')">
+          <!-- defines container for the smaller blue circle('sc_d') !-->
+          <div class= "edu_his-sc_d">
+          <!-- defines the dimension for the small circle('sc') !-->
+          <div class="edu_his-sc_d edu_his-sc">
+          <i class="edu_his-bfo fa fa-reply"></i>
+          </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <!--defines the container for text box !-->
+    <div class="edu_his-tc">
+    <!-- class date has all the font-weight and font specific !-->
+    <div class="edu_his-date">
+      LAST UPDATED: {{lastupdate}}
+    </div>
+    <!--specified font style for location !-->
+    <div class="edu_his-loc_st">&nbsp;</div>
+    <!-- specified font sytle for the stock disclaimer !-->
+    <div class="edu_his-loc_st edu_his-disc">
+      Education History
+    </div>
+    <!--specified font style for the inveskit finance  !-->
+    <div class="edu_his-loc_st edu_his-fin">
+    For {{officer.fullname}}
+    </div>
+    </div>
+    <div class="edu_his-m_c">
+      <div class="edu_his-m_c-image-wr" style="background-image: url('{{imageUrl officer.o_pic}}')"></div>
+      <!-- the main container -->
+      <ul class="edu_his-m_c-cr">
+        <!-- the image in blue circle-->
+        <li class="edu_his-m_c-title">
+          <div class="edu_his-m_c-title-image"><i class="fa fa-briefcase"></i>
+          <span class="edu_his-m_c-title-text"> {{officer.College}} </span>
+          </div>
+        </li>
+        <!-- the description about the person-->
+        <li class="edu_his-m_c-dp">
+          <div class="edu_his-m_c-dp-dpct">
+            {{officer.fullname}} graduated from {{officer.College}} and is the {{officer.long_title}} of {{officer.c_name}}.
+            <br><br>
+            <b>{{officer.c_name}}</b> is currently priced at:
+            <br>
+            <b>${{officer.c_price}}</b>
+            <span style="color:{{changeColor officer.c_change_operator}}">
+              <i class="fa {{changeIcon officer.c_change_operator}}"></i>
+            </span>
+            <span style="color:{{changeColor officer.c_change_operator}}">{{changeSign officer.c_change_operator}}{{officer.c_price}} ({{changeSign officer.c_change_operator}}{{officer.c_price_change}}%)</span>
+        </div>
+        </li>
+      </ul>
+      <!-- the bottom bar-->
+      <div class="edu_his-m_c-view_more">
+        <!-- the details about the comapny-->
+        <div class="edu_his-m_c-view_more-text">
+          <div class="edu_his-m_c-view_more-text-ln1">Want to know more about {{officer.fullname}}?</div>
+          <div class="edu_his-m_c-view_more-text-ln2">Profile Last Updated On: <span class="edu_his-m_c-dp-itl edu_his-m_c-dp-itl2">{{lastupdate}}</span></div>
+        </div>
+        <a href="{{ExecURL}}">
+          <button class="edu_his-m_c-view_more-button">
+            View Profile  <i class="fa fa-angle-right"></i>
+          </button>
+        </a>
+      </div>
+    </div>
+
+    <div class="edu_his-wrapper">
+      <!-- The loop starts here and the each will take each data item from the items on each iteration-->
+      {{#each colleges}}
+      <div class="edu_his-{{getBackgroundStyle}}"><br>
+        <!--This is the main (circle) image-->
+        <div class="edu_his-head-circ">
+          <div class="edu_his-head-image" style="background-image: url('{{imageUrl officer.o_pic}}')"></div>
+        </div>
+        <!--Location title -->
+        <div class="edu_his-sp">
+          <div class="edu_his-space">
+            <span class="edu_his-space edu_his-space2">&nbsp;</span>
+            <!-- Here displays the description which come from the each loop-->
+            <div class="edu_his-adjust">{{College}}</div>
+            <div class="edu_his-follw1">{{#if Major}}Studied <span class="edu_his-follwb">{{Major}}</span>{{/if}}</div>
+          </div>
+        </div>
+        <!--This displays the blue button which holds the text "View Full List"-->
+        <div class="edu_his-ctmain">
+          {{#each rivals}}
+          <a href="{{url}}"><div title="{{o_first_name}} {{o_last_name}} from {{c_name}} ({{c_ticker}})" class="edu_his-cir1" style="background-image: url('{{imageUrl o_pic}}')"></div></a>
+          {{/each}}
+          <a href="{{rivalsUrl}}">
+            <button class="edu_his-tile-button">
+              View All College Rivals
+              <span style="margin-left:6px"><i class="fa fa-angle-right"></i></span>
+            </button>
+          </a>
+        </div>
+        <!-- This displays the font awesome heart symbol beside the text "save"-->
+        <div class="edu_his-onediv"></div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</div>
+{{/with}}
+</template>

@@ -1,0 +1,196 @@
+<!-- Author: Ryan Fisher
+**** Created: [07/17/2015]
+**** Description: Money Memory page
+**** Associated Files: money_memory.html, money_memory.less, money_memory_logic.js
+-->
+
+<template name="money_memory">
+  {{#with companyInfo}}
+  <!--Page wrapper-->
+  <div class="mon-mem">
+    <!--Main page header-->
+    <div class="mon-mem_header">
+      <span class="mon-mem_blue"><b>I</b></span>
+      <span><b>{{c_name}}'s Money Memory</b></span>
+    </div>
+
+    <!--Main page body-->
+    <div class="mon-mem_body">
+      <!--Main page body header-->
+      <div class="mon-mem_body_header">
+        <i class="fa fa-circle mon-mem_blue"></i>
+        <span><b>MONEY MEMORY</b></span>
+      </div>
+      <!--Company image-->
+      <div class="mon-mem_body_image" style="background-image: url('{{imageUrl c_logo}}')"></div>
+      <!--Company name-->
+      <div class="mon-mem_body_company">
+        <span><b>{{c_name}} Today</b></span>
+      </div>
+      <!--Price of stock-->
+      <div class="mon-mem_body_stock">
+        <span class="mon-mem_body_stock_price"><b>${{csi_price}}</b></span>
+        <span class="mon-mem_body_stock_history" style = "color: {{changeColor csi_price_last_operator}}">
+          <i class="fa {{changeIcon csi_price_last_operator}}" style="margin-left:10px"></i>
+          <span class="mon-mem_body_stock_history_text" style = "font-family: HN-B; color:{{changeColor csi_price_last_operator}}">{{csi_price_change_since_last}} ({{csi_percent_change_since_last}}%)</span>
+        </span>
+      </div>
+​
+      <!--Main chart-->
+      <div id="moneymemorygraph" class="mon-mem_body_chart">
+        {{> highchartsHelper chartId="moneymemorygraph" chartWidth="450px" chartHeight="125px"  chartObject=getMMGraphObject}}
+      </div>
+      {{#if resultExists}}
+        {{#with mmInfo}}
+          <!--"You could have earned..."
+          <div class="mon-mem_body_potential">
+            <span>You could have {{earn_lose}}:I</span>
+            <span class="mon-mem_body_potential_amount" style = "color: {{colorIndicator}}">${{roi}}</span>
+          </div>-->
+          <!--Stock price history-->
+          <div class="mon-mem_body_history" style="{{changeColor investment_total}}">
+            <span>If you purchased <b>${{user_initial_investment}} worth of {{ticker}} shares</b> on {{sntfurthest}}, and sold them, {{sntrecent}} you could have {{earn_lose}} <span style="color:{{changeColor percent_change}}">${{roi}}</span> with a <span style="color:{{changeColor percent_change}}">{{percent_change}}%</span> {{chng}}. You would currently have <b>${{investment_total}}</b>.</span>
+          </div>
+        {{/with}}
+      {{else}}
+        <div class="mon-mem_body_error">
+          No data for this time period.<br>Please try a different time range.
+        </div>
+      {{/if}}
+      <!--Initial investment box-->
+      <div class="mon-mem_body_investment">
+        <div class="mon-mem_body_investment_icon">
+          <i class="fa fa-money"></i>
+        </div>
+        <div class="mon-mem_body_investment_amount">
+          <span>${{user_initial_investment}}</span>
+        </div>
+        <div class="mon-mem_body_investment_label">
+          <span>Initial Investment</span>
+        </div>
+        <div class="mon-mem_body_investment_edit">
+          <i class="fa fa-edit"></i>
+
+          <form id="investment-form">
+          <div class="mon-mem_body_investment_input" style="display: none">
+            <div class="mon-mem_body_investment_input-triangle"></div>
+            <input id="investment-input" type="text">
+            <button class="mon-mem_body_investment_input-submit" type="submit">Invest</button>
+          </div>
+          </form>
+        </div>
+      </div>
+      <!--Start date box-->
+      <div class="mon-mem_body_start-date">
+        <div class="mon-mem_body_start-date_icon">
+          <i class="fa fa-calendar"></i>
+        </div>
+        <div class="mon-mem_body_start-date_amount">
+          <span>{{user_start_date}}</span>
+        </div>
+        <div class="mon-mem_body_start-date_label">
+          <span>Start Date</span>
+        </div>
+        <div id="start-date-container" class="mon-mem_body_start-date_edit">
+          <i class="fa fa-edit"></i>
+        </div>
+        {{> mm_start_date}}
+      </div>
+      <!--End date box-->
+      <div class="mon-mem_body_end-date">
+        <div class="mon-mem_body_end-date_icon">
+          <i class="fa fa-bullseye"></i>
+        </div>
+        <div class="mon-mem_body_end-date_amount">
+          <span>{{user_end_date}}</span>
+        </div>
+        <div class="mon-mem_body_end-date_label">
+          <span>End Date</span>
+        </div>
+        <div id="end-date-container" class="mon-mem_body_end-date_edit">
+          <i class="fa fa-edit"></i>
+        </div>
+        {{> mm_end_date}}
+      </div>
+    </div><!--End Main page body-->
+
+    <!--Modules to the left of the module-->
+    <div class="mon-mem_links">
+      <!--Top box-->
+      <div class="module-tile">
+        <div class="module-tile-default">
+          <div class="module-tile-default-container">
+            <div class="module-tile-default-icon">
+              <i class="fa fa-calculator"></i>
+            </div>
+            <div class="module-tile-default-text">
+              Money Memory
+            </div>
+          </div>
+        </div>
+        <a class="module-tile-link" href="{{linkToMM}}">
+          <div class="module-tile-hover">
+            <div class="module-tile-name">
+              <i class="fa fa-calculator"></i>Money Memory
+            </div>
+            <div class="module-tile-info"></div>
+            <button class="module-tile-button">OPEN PAGE <i class="fa fa-mail-forward"></i></button>
+          </div>
+        </a>
+      </div>
+      <!--Middle box-->
+      <div class="module-tile">
+        <div class="module-tile-default">
+          <div class="module-tile-default-container">
+            <div class="module-tile-default-icon">
+              <img src="/icons/trending_icon.png" width="56" height="46">
+            </div>
+            <div class="module-tile-default-text">
+              Financials
+            </div>
+          </div>
+        </div>
+        <a class="module-tile-link" href="{{linkToFinOverview}}">
+          <div class="module-tile-hover">
+            <div class="module-tile-name">
+              <img src="/icons/trending_icon.png" width="21" height="17">&nbsp; Financials
+            </div>
+            <div class="module-tile-info"></div>
+            <button class="module-tile-button">OPEN PAGE <i class="fa fa-mail-forward"></i></button>
+          </div>
+        </a>
+      </div>
+      <!--Bottom box-->
+      <div class="module-tile">
+        <div class="module-tile-default">
+          <div class="module-tile-default-container">
+            <div class="module-tile-default-icon">
+              <i class="fa fa-fighter-jet"></i>
+            </div>
+            <div class="module-tile-default-text">
+              Competitors
+            </div>
+          </div>
+        </div>
+        <a class="module-tile-link" href="{{linkToCompetitors}}">
+          <div class="module-tile-hover">
+            <div class="module-tile-name">
+              <i class="fa fa-fighter-jet"></i>Competitors
+            </div>
+            <div class="module-tile-info"></div>
+            <button class="module-tile-button">OPEN PAGE <i class="fa fa-mail-forward"></i></button>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div><!--End Page wrapper-->
+  {{/with}}
+</template>
+
+<template name="mm_start_date">
+  <input id="mm-start-date" style="display: none">
+</template>
+
+<template name="mm_end_date">
+  <input id="mm-end-date" style="display: none">
+</template>

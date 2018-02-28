@@ -1,0 +1,52 @@
+<template name="search_page">
+  <div class="search_page">
+    <a id="go_back">
+      <div class="excmp-return">
+        <div class="excmp-return-button">
+          <i class="fa fa-mail-reply"></i>
+        </div>
+        <div class="excmp-return-triangle"></div>
+        Go Back
+      </div>
+    </a>
+    <div class="re_discover_small" style="background-image: url('/public/search_image.png');">
+      <div class="re_discover_small-title" style="font-size: 38px;">Discover Your Next Investment</div>
+      <div class="re_discover_small-subtitle">Find the stocks you can invest in right in your neighborhood.</div>
+      <form autocomplete="off">
+          <div class="re_mainsearch">
+              <input type="text" name="keyword" class="re_mainsearch-text" placeholder="Search for a Company, Location, or Executive">
+              <button class="re_searchbtn fa fa-search"></button>
+              <ul class="discover_recommendations">
+                  <div class="caret-top"></div>
+                  <i class="fa fa-times discover_recommendations_close"></i>
+              </ul>
+          </div>
+      </form>
+    </div>
+    <!--menu options-->
+    {{#with searchLength}}
+    <nav class="search_tab-menu">
+      <ul class="search_tab-menu-active">
+        <li class="search_tab-menu-active-list current-list" id="executive"><i class="fa fa-circle"></i> Executive({{execLength}})</li>
+        <li class="search_tab-menu-active-list" id="company"><i class="fa fa-circle"></i> Company({{compLength}})</li>
+        <li class="search_tab-menu-active-list" id="location"><i class="fa fa-circle"></i> Location({{locLength}})</li>
+      </ul>
+    </nav>
+    {{/with}}
+    <!--below tabs where results are to be displayed-->
+    <div class="search_results">
+      <div class="search_results-showing">Showing {{currentResult}} results of {{totalResults}}</div>
+      {{#each Results}}
+      <!--RESULTS FROM API BELOW-->
+      <a href="{{url}}">
+        <div class="search_results-info">
+          <div class="search_results-info-h1">
+            {{{string}}}
+          </div>
+        </div>
+      </a>
+      {{/each}}
+      <!--below tabs where results are to be displayed END-->
+    </div>
+  </div>
+</template>

@@ -1,0 +1,112 @@
+<!-- Author: David Wibowo
+**** Created: [09/30/2015]
+**** Description: Exec profile header
+**** Associated Files: c-p_header.html, c-p_header.less, c-p_header_logic.js
+-->
+
+<template name="c_p_header">
+  <div class="p">
+   {{> cp_head}}
+   {{> cp_body}}
+
+   <div class="c_p_graph-updated">
+     <div class="c_p_graph-line"></div>
+     Stock Graph {{graphTitle}}
+   </div>
+   <div class="c_p_graph">
+     {{> c_p_graph}}
+   </div>
+   <!--{{> cp_rdr}}-->
+ </div>
+</template>
+
+<template name="cp_head">
+  {{#with topInfo}}
+  <div class="p-head">
+    <div class="p-head-top">
+      <div class="p-head-top-lastUpdate">LAST UPDATED: {{c_tr_last_updated}}</div>
+      <div class="p-head-top-container">
+        <div class="p-head-top-container-location"><i class="fa fa-map-marker"></i>&nbsp;<a href="{{locationURL}}"> {{c_hq_city}}, {{c_hq_state}}</a>
+          <!-- | INDUSTRY:<span class="p-head-bottom-name">INDUSTRY STUFF HERE</span>-->
+        </div>
+        <div class="p-head-top-container-profile"><span class="p-light_font">COMPANY</span> PROFILE &nbsp;<i class="fa fa-angle-down"></i></div>
+      </div>
+      <div class="p-head-top-name"><span class="p-head-top-name-txt">{{c_name}}</span></div>
+    </div>
+    <div class="p-head-bottom">
+      <div class="p-head-bottom-triangle"></div>
+      <div class="p-head-bottom-img" style="background-image: url('{{imageUrl c_logo}}')">
+        <a href="{{mrURL}}">
+          <div class="p-head-bottom-img-sml" style="background-image:URL('{{exchange c_exchange}}')"></div>
+        </a>
+      </div>
+      <div class="p-head-bottom-icon"><i class="fa fa-map-marker"></i></div>
+      <div class="p-head-bottom-about">Quick info about <span class="p-bold_font">{{c_ticker}}</span></div>
+      <div class="p-head-bottom-text">
+        <div class="p-head-bottom-text-wrapper">
+          <div class="p-head-bottom-text-content">
+          {{{text}}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{/with}}
+</template>
+
+<template name="cp_body">
+  {{#with bodyInfo}}
+  <div class="p-body">
+    <div class="p-body-box" style="width:24%;">
+        <div>{{c_exchange}} Symbol</div>
+        <div class="value">{{c_ticker}}</div>
+        <div>&nbsp;</div>
+    </div>
+    <div class="p-body-box" style="width:24%;">
+        <div>Sector</div>
+        <a href="{{sect_url}}"><div class="value" id="sector">{{c_sector}}</div></a>
+        <div>&nbsp;</div>
+    </div>
+    <div class="p-body-box" style="border-right: 0px; width:52%">
+        <div>Stock Price & Change Percentage</div>
+        {{#with stockInfo}}
+        <div class="value"><span class="p-bold_font">${{csi_price}}</span><span style="margin-left: 5px; color: {{changeColor csi_price_last_operator}}"><i class="fa {{changeIcon csi_price_last_operator}}"></i>{{csi_price_change_since_last}} ({{csi_percent_change_since_last}}%)</span></div>
+        <div class="last-updated">{{lastUpdated}}</div>
+        {{/with}}
+    </div>
+  </div>
+  {{/with}}
+</template>
+
+<template name="cp_rdr">
+  {{#with rdrInfo}}
+  <div class="p-rdr">
+    <a href="{{url}}">
+      <div class="p-rdr-tri"></div>
+      <div class="p-rdr-container">
+        <div class="p-rdr-container-icon"></div>
+        <div class="p-rdr-container-dr">Digital Reader</div>
+        <div class="p-rdr-container-explore">Explore This Company</div>
+        <div class="p-rdr-container-line"></div>
+        <div class="p-rdr-container-circle"><i class="fa fa-angle-right"></i></div>
+        <div class="p-rdr-container-left">{{c_name}}</div>
+        <div class="p-rdr-container-text">Get an in–depth, visual look at today’s stock price,
+the compeition, executive compensation
+and much more.
+        </div>
+      </div>
+    </a>
+  </div>
+  {{/with}}
+</template>
+
+<template name="c_p_graph">
+    <div class="c_p_graph-stockgraph">
+      {{> highchartsHelper chartId="c_p_graph-stockgraph" chartWidth="100%" chartHeight="100%" chartObject=getGraph}}
+    </div>
+    <div class="c_p_graph-buttons">
+      {{#each buttons}}
+        <button class="c_p_graph-buttons-circle {{class}}" id="{{data}}">{{data}}</button>
+      {{/each}}
+    </div>
+</template>

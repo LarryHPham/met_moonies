@@ -1,0 +1,211 @@
+/*
+Author : David Wibowo
+Date: 09/08/2015
+Description: Area brekdown
+Associated files: area_breakdown.html,area_breakdown.less,area_breakdown.js
+*/
+
+@import (reference)"../global_vars.less";
+
+// Begin bkdn
+.bkdn {
+  position: relative;
+  width: 680px;
+  text-align: left;
+  margin: 20px;
+  background-color: @white;
+  height: 660px;             // Change the value to "auto" to enable full view (use .js to do that)
+  overflow: hidden;          // set value to "visible" ( see .js to do that)
+  // Begin bkdn-cnr
+  &-cnr {
+    // Begin bkdn-cnr-head
+    &-head {
+      height: 45px;
+      background-color: #000;
+      padding-left: 10px;
+      padding-right: 5px;
+      text-align: left;
+      vertical-align: middle;
+      border-top: 3px solid @blue;
+      // Begin bkdn-cnr-head-line
+      &-line{
+        font-size:12px;
+        color:@blue;
+        border-left: 3px solid @blue;
+        position: relative;
+        top:5px;
+      }// End bkdn-cnr-head-line
+      // Begin bkdn-cnr-head-title
+      &-title {
+        padding-left: 7px;
+        font-family: HN-B;
+        font-size: 18px;
+        text-align: left;
+        color: @white;
+        position: relative;
+        top:7px;
+      }// End bkdn-cnr-head-title
+    }// End bkdn-cnr-head
+    // Begin bkdn-cnr-map
+    &-map{
+      height: 360px;
+      background-color: @white;
+    } // End bkdn-cnr-map
+    // Begin bkdn-cnr-container
+    &-container {
+      margin: 6px 18px 10px 18px;
+      // Begin bkdn-cnr-container-stat
+      &-stat {
+        position: relative;
+        height: 28px;
+        border-bottom: 1px solid #cccccc;
+        // Begin bkdn-cnr-container-stat-left
+        &-left {
+          position: absolute;
+          left: 0px;
+          font-family: HN-l;
+          font-size: 18px;
+          color:  #000000;
+          text-align: left;
+        } // End bkdn-cnr-container-stat-left
+        // Begin bkdn-cnr-container-stat-right
+        &-right {
+          position: absolute;
+          top:5px;
+          right: 0px;
+          font-family: HN-l;
+          font-size: 11px;
+          color:  #999999;
+          text-align: right;
+        } // End bkdn-cnr-container-stat-right
+      } // End bkdn-cnr-container-stat
+      // Begin bkdn-cnr-container-content
+      &-content {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        // Begin bkdn-cnr-container-content-line
+        &-line{
+          width: 100%;
+          height: 1px;
+          background-color: @grey-2;
+        } // End bkdn-cnr-container-content-line
+        // Begin bkdn-cnr-container-content-Bttom_dtls
+        &-Bttom_dtls{
+          list-style-type: none;
+          border-right: 1px solid @grey-2;
+          border-bottom: 1px solid @grey-2;
+          // Begin bkdn-cnr-container-content-Bttom_dtls-Stnd_bx_dtls
+          &-Stnd_bx_dtls{
+            height:70px;
+            width:620px;
+            border-left:5px solid @grey-2;
+            outline-offset: 1px;
+          }// End bkdn-cnr-container-content-Bttom_dtls-Stnd_bx_dtls
+          // Begin bkdn-cnr-container-content-Bttom_dtls-Stnd_bx_dtls:hover
+          &-Stnd_bx_dtls:hover{
+            border-left:5px solid @blue;
+          } // End bkdn-cnr-container-content-Bttom_dtls-Stnd_bx_dtls:hover
+          // Begin bkdn-cnr-container-content-Bttom_dtls-Stnd_bx_dtls:hover &-angrit
+          &-Stnd_bx_dtls:hover &-angrit{
+            color:@blue;
+          } // End bkdn-cnr-container-content-Bttom_dtls-Stnd_bx_dtls:hover &-angrit
+          // Begin bkdn-cnr-container-content-Bttom_dtls-shading_awsm
+          &-shading_awsm{
+            height:70px;width:70px;
+            background-color: @grey-1;
+          } // End bkdn-cnr-container-content-Bttom_dtls-shading_awsm
+          // Begin bkdn-cnr-container-content-Bttom_dtls-angrit
+          &-angrit {
+            float: right;
+            margin-top:-40px;
+            margin-right:5px;
+            color:@grey-3;
+          } // End bkdn-cnr-container-content-Bttom_dtls-angrit
+          // Begin bkdn-cnr-container-content-Bttom_dtls-users
+          &-users  {
+            margin-left:20px;
+            margin-top:25px;
+            color:#4b4b4b;
+            font-weight: HN;
+            line-height: 24px;
+            text-align: left;
+          } // End bkdn-cnr-container-content-Bttom_dtls-users
+          // Begin bkdn-cnr-container-content-Bttom_dtls-Stat_txt_aln
+          &-Stat_txt_aln{
+            list-style-type: none;
+            text-align: left !important;
+            margin-left: 205px;
+            margin-top: -30px;
+          } // End bkdn-cnr-container-content-Bttom_dtls-Stat_txt_aln
+          // Begin bkdn-cnr-container-content-Bttom_dtls-stat_txt_lrg
+          &-stat_txt_lrg{
+            font-size: 24px;
+            height: 27px;
+            width: 500px;
+            font-family: HN;
+            color: @black;
+            margin: -58px 0 0px -129px ;
+            padding: 0 0 0 5px;
+            line-height: 25px;
+          } // End bkdn-cnr-container-content-Bttom_dtls-stat_txt_lrg
+          // Start bkdn-cnr-container-content-Bttom_dtls-Stat_txt_sml
+          &-Stat_txt_sml{
+            font-size: 14px;
+            color: @black;
+            width: 500px;
+            height: 19px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin:-3px 0 0 -129px;
+            padding: 0 0 0 5px;
+            line-height: 22px;
+          } // End bkdn-cnr-container-content-Bttom_dtls-Stat_txt_sml
+        } // End bkdn-cnr-container-content-Bttom_dtls
+      } // End bkdn-cnr-container-content
+    } // End bkdn-cnr-container
+  } // End bkdn-cnr
+}// End bkdn
+  //class for footer part
+// Begin ftr
+.ftr{
+  width: 680px;
+  position: absolute;
+  height:48px;
+  top: 612px;
+  display: block;      // change value to "none" for full page (use .js to do that)
+  border-bottom: 2px solid #3098ff;
+  background: -webkit-linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+  background: -moz-linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+  background: -o-linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+  background: -ms-linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(0deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+  //Begin ftr-btn
+  &-btn{
+    position: relative !important;
+    top: 11px !important;
+    cursor: pointer;
+    // Begin ftr-btn-icn
+    &-icn{
+      position: relative !important;
+      left: 12px !important;
+      top: 6px !important;
+      float: left !important;
+    } // End ftr-btn-icn
+    // Begin ftr-btn-txt
+    &-txt{
+      font-family: HN-L;
+      color:  #ffffff;
+      font-size: 14px;
+      line-height: 28px;
+      text-align: center;
+      float: left;
+      position: relative;
+      top: 5px;
+      left: 32px;
+      max-width: 150px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    } // End ftr-btn-txt
+  } // End ftr-btn
+} // End ftr

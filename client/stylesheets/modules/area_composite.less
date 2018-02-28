@@ -1,0 +1,523 @@
+/*Author: [Vinay Vittal karagod]
+Created: [05/30/2015]
+Description: [.less file for Sector Breakdown Module]
+Associated Files: [area_composite.html,area_composite.less,]
+*/
+
+
+@import (reference) "/client/stylesheets/global_vars.less"; //include important global vars (colors mostly)
+
+.area_comp {
+  &_bottom {
+    width: 453px;
+    height: auto;
+    position: absolute;
+    top: 288px;
+    border-top: 1px solid @grey-3;
+  } // END .area_comp_bottom
+
+  &_row {
+    .noclick;
+    height: 70px;
+    width: 100%;
+    border-bottom: 1px solid @grey-3;
+    position: relative;
+    cursor: pointer;
+
+    &:hover {
+      .area_comp_row_left{
+        background-color: @blue;
+      }
+
+      .fa-angle-right {
+        color: @blue;
+      }
+    }
+
+    &_image {
+      width: 69px;
+      height: 69px;
+      color: #4b4b4b;
+      background-color: @grey-1;
+      font-size: 30px;
+      text-align: center;
+      line-height: 70px;
+      position: absolute;
+      top: 0px;
+      left: 5px;
+    } // END .area_comp_row_image
+
+    &_left {
+      width: 5px;
+      height: 69px;
+      background-color: @grey-8;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+    } // END .area_comp_row_left
+
+    &_right{
+      height: 69px;
+      position: absolute;
+      left: 74px;
+      width: 379px;
+
+      &_comp {
+        height: 69px;
+        padding: 12px 0;
+        width: 150px;
+        position: absolute;
+        left: 193px;
+
+        &_circle {
+          height: 45px;
+          width: 45px;
+          border: 1px solid @grey-3;
+          border-radius: 50%;
+          float: left;
+          margin-right: 5px;
+
+          background-color: @white;
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: center center;
+        } // END .area_comp_row_right_comp_circle
+      } // END .area_comp_row_right_comp
+
+      &_text {
+        height: 69px;
+        width: 183px;
+        padding: 18.5px 0;
+        color: @black;
+        text-align: left;
+        position: absolute;
+        left: 10px;
+
+        &_1 {
+          font-size: 18px;
+          line-height: 18px;
+        } // END .area_comp_row_right_text_1
+
+        &_2 {
+          font-size: 14px;
+          line-height: 14px;
+        } // END .area_comp_row_right_text_2
+      } // END .area_comp_row_right_text
+
+      .fa-angle-right {
+        // height: 69px;
+        float: right;
+        line-height: 69px;
+        font-size: 30px;
+        margin-right: 10px;
+        color: @grey-3;
+      } // END .area_comp_row_right .fa-caret-right
+    } // END .area_comp_row_right
+  } // END .area_comp_row
+} // END .area_comp
+
+.ar_comp{
+  //right panel
+  &-rpanel{
+    background: white none repeat scroll 0 0;
+    height: 600px;
+    width: 210px;
+    float: right;
+  }
+//Panel details are specified
+  &-panel{
+    //margin-left:15px;
+    //margin-right:15px;
+    //margin-top:15px;
+    //margin-bottom:15px;
+    width: 455px;
+    height: 570px;
+    border:1px solid #D3D3D3;
+    border-bottom: 0px;
+    transform: translate(210px,15px) !important;
+    -moz-transform: translate(210px,15px);
+    -webkit-transform: translate(210px,15px);
+    -khtml-transform: translate(210px,15px);
+    position: relative;
+    left: -195px;
+
+    &-smac{
+      float: left;
+      padding-right: 6px;
+    }
+    //Header of the module
+    &-header{
+      width: 453px;
+      height: 41px;
+      background-color: @grey-1;
+    }
+
+    //Title of the module
+    &-title{
+      color: @black;
+      height: 35px;
+      max-width: 450px;
+      font-size: 16px; /* Approximation due to font substitution */
+      font-weight: HN-B;
+      line-height: 46px; /* Approximation due to font substitution */
+      text-align: left;
+      text-transform: uppercase;
+      transform: translate(10px,-2px) !important;
+      -webkit-transform: translate(10px,-2px);
+      -khtml-transform: translate(10px,-2px);
+      -moz-transform: translate(10px,-2px);
+      vertical-align: middle;
+
+      &:after {
+        display:"block";
+        content: "";
+        clear: both;
+      }
+
+    }
+
+
+    // giving the specifications data for the helper
+    &-helper{
+      max-width:260px;
+      height: 30px;
+      float: left;
+      font-size: 16px;
+      line-height: 46px;
+      font-family: HN-B;
+      padding-right: 6px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    //side data specifications
+    &-side{
+      width: 150px;
+      height: 30px;
+      float:left;
+      font-size: 16px;
+      font-family: HN-B;
+      text-align: left;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  // wrapper for the widget footer
+  &-module-footer {
+    height: 35px;
+    width: 100%;
+    position: absolute;
+    align:center;
+    bottom: 13px;
+    right:106px;
+  }
+
+//To change font icon to blue
+  &-blue{
+  font-family: FontAwesome;
+  color: @blue;
+  font-size: 14px;
+  font-weight: HN;
+  line-height: 46px;
+  text-align: left;
+  transform: translate(0px,0px);
+  }
+
+  //wrapper for positioning the tiles
+  &-tiles{
+    bottom:585px;
+    //position: relative;
+  //  margin-bottom:15px;
+    //left: 470px;
+    transform: translate(0px,-570px) !important;
+    -webkit-transform: translate(0px,-570px);
+    -khtml-transform: translate(0px,-570px);
+    -moz-transform: translate(0px,-570px);
+    width: 30%;
+  }
+
+  //Elipse in the tile
+  &-tileelipse{
+    bottom: 25px !important;
+    margin-right: 10px !important;
+    border: 1px solid @blue;
+    background-image: @dark-linen;
+    display:block;
+  }
+
+  //Tile icon alignment
+  &-tileicon{
+    margin-left: 36px !important;
+  }
+
+  //Top left ponel of 5 columns
+  &-sectbrkdn{
+    width: 243px;
+    height: 247px;
+    float: left;
+    position: relative;
+    left: -18px;
+
+    //Title Container of the top left panel
+    &-titlecontainer{
+      width: 241px;
+      height: 38px;
+      //border-bottom: 1px solid @grey-3;
+      inner-stroke:1px;
+      gradient:@white;
+      text-align: left;
+    }
+
+    //Title Text of the top left Panel
+    &-titletext{
+      padding-left: 10px;
+      padding-bottom: 10px;
+      padding-top: 10px;
+      color: @grey-6;
+      font-size: 12px;
+    }
+
+    //Right side text in the title of Top left Panel
+    &-titlerighttext{
+      padding-left: 95px !important;
+    }
+  }
+
+  //Wrapper for columns in top left panel
+  &-sectbrkdnlist{
+    width: 241px;
+    height: 52px;
+    border-top: 1px solid @grey-3;
+    text-align: left;
+    position: relative;
+  }
+
+  //Left side text in the top left panel
+  &-sectbrkdncontent{
+    padding-bottom: 10px;
+    margin-top: 15px;
+    padding-left: 15px;
+    font-size: 14px;
+    font-weight: HN-L;
+    position: absolute;
+    color: @black;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 173px;
+  }
+
+  //Wrapper for Right text of the Top left Panel
+  &-contentrighttext{
+    padding-bottom: 10px;
+    margin-top: 15px;
+    float:right;
+    padding-right: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: @black;
+  }
+
+//Wrapper to align text to the right
+  &-fa-angle-right-align{
+    font-size: 30px;
+    padding-bottom: 8px;
+    margin-top: 8px;
+    float: right;
+    color:@grey-3;
+  }
+
+  //Color for the left div of top left panel
+  &-itemidentifier{
+    width:5px;
+    position: absolute;
+    height: 52px;
+  }
+  //colors for identifier in top left nad bottom panels
+  &-redidt{
+    background-color:@red;
+  }
+  &-blueidt{
+    background-color: @blue;
+  }
+  &-yellowidt{
+    background-color: #FFBD2F;
+  }
+  &-purpleidt{
+    background-color: #6D0E77;
+  }
+  &-greyidentifier{
+    background-color: @grey-2;
+    height:68.5px;
+    &:hover{
+    background-color: @blue;
+  }
+  }
+
+
+
+  //Bottom pannel of 4 columns
+  &-sect_lst{
+    width:436px;
+    height: 274px;
+    position: relative;
+    float: left;
+    TOP: -247PX;
+    LEFT: 0PX;
+
+    //Wrapper for the content of the bottom panel
+    &-content{
+      height: 70px;
+      width: 453px !important;
+      border-bottom: 1px solid @grey-3;
+      &:hover .s_b-greyidentifier {
+        background-color: @blue;
+        color: @blue;
+      }
+      &:hover .s_b-sect_lst-fa-angle-right-align{
+
+        color: @blue;
+      }
+    }
+
+    //Wrapper for the image in the bottom panel
+    &-sect_img_cntnt{
+      width:70px;
+      height: 68.5px;
+      margin-left:5px;
+      position:absolute;
+      background-color:@grey-1;
+      //border-bottom: 1px solid @grey-3;
+    }
+    //for image positioning
+    &-sect_img1{
+      position: relative;
+      left:-15px;
+    }
+    //Alignment of the image in the bottom panel
+    &-sect_img{
+      font-family: FontAwesome;
+      color: #4b4b4b;
+      font-size: 30px; /* Approximation due to font substitution */
+      font-weight: HN;
+      line-height: 38px; /* Approximation due to font substitution */
+      text-align: right;
+
+    }
+
+    &-fntawsm{
+      transform: translate(15px,15px) !important;
+      -webkit-transform: translate(15px,15px);
+      -khtml-transform: translate(15px,15px);
+      -moz-transform: translate(15px,15px);
+
+    }
+    // Right align ogf the arrow in the bottom panel
+    &-fa-angle-right-align{
+      font-size: 30px;
+      margin-top:16px;
+      margin-right:15px;
+      float: right;
+      color:@grey-3;
+      transform: translate(145px,-35px) !important;
+      -webkit-transform: translate(145px,-35px);
+      -khtml-transform: translate(145px,-35px);
+      -moz-transform: translate(145px,-35px);
+    }
+
+&-total_cnt{
+  color: @black;
+  font-size: 18px; /* Approximation due to font substitution */
+  font-weight: HN;
+  line-height: 18px; /* Approximation due to font substitution */
+  text-align: left;
+  transform: translate(85px,15px) !important;
+  -webkit-transform: translate(85px,15px);
+  -khtml-transform: translate(85px,15px);
+  -moz-transform: translate(85px,15px);
+  width: 35%;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+&-cmpny_domn{
+  color: @black;
+  font-size: 14px; /* Approximation due to font substitution */
+  font-weight: HN;
+  line-height: 18px; /* Approximation due to font substitution */
+  text-align: left;
+  transform: translate(0px,0px);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 173px;
+  //margin: 0px 0px 0px 0px;
+}
+
+&-cmpny_imgs{
+  border-radius: 50%;
+  border-width: 1px;
+  border-color: @grey-3;
+  border-style: solid;
+  background-color: @white;
+  width: 45px;
+  height: 45px;
+  transform: translate(-50px,-23px) !important;
+  -webkit-transform: translate(-50px,-23px);
+  -khtml-transform: translate(-50px,-23px);
+  -moz-transform: translate(-50px,-23px);
+  float: right;
+  margin: 0px 0px 0px 5px;
+
+}
+  }
+
+  //piechart wrapper
+    &-donutchart{
+      width: 210px;
+      height: 247px;
+      float: right;
+      position: relative;
+      top: -247px;
+
+      &-image{
+        width:105px;
+        height:105px;
+        border-radius: 50%;
+        position: absolute;
+        top: 28%;
+        left: 26%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+    }
+//piechart image wrapper
+    &-piechartimage{
+      width: 93px;
+      height: 94px;
+      border-radius: 100%;
+      top: 180px;
+      position: absolute;
+      left: 317px;
+      z-index: 0;
+    }
+}
+
+.imageIcon{
+  display: block;
+  font-family: serif;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 35px;
+  height: 35px;
+  margin: auto;
+  transform: translate(0,-50%);
+  top: 50%;
+  position: relative;
+}
+.capital-goods{
+  background-image:url('/icons/sector_capital_goods.svg');
+}

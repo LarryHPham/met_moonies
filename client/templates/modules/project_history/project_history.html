@@ -1,0 +1,78 @@
+<!--
+Author: Tanner Storment
+Created: [07-16-2015]
+Description: Project History List
+Associated Files: project_history.html, project_history.js
+-->
+
+<template name="project_history">
+  {{#with moduleCheck}}
+  <div class="module-4">
+    <div class="module-header">
+      <span class="module-header-line"></span>
+      <!--widget title-->
+      <span class="module-header-title">{{firstName}} {{lastName}}'s Work & Project History</span>
+    </div>
+    <div class="module-wrapper">
+      <!--Begin Panel-->
+        <div class="proj_hist-content-panel">
+          <div class="proj_hist-list-panel">
+            {{#each projList}}
+              {{#if this}}<!--checks validity of array element-->
+                <div class="proj_hist-list-tile-{{#if isEven @index}}white{{else}}grey{{/if}}"><!--isEven is used to alternate between background colors-->
+                  <!--Project Picture & Response Buttons-->
+                  <span class="proj_hist-profile-info">
+                    <a href="{{url}}">
+                    <span class="proj_hist-profile-image" style="background-image: url('{{imageUrl c_logo}}')">
+                      <div class="hover">
+                        <div class="hover-txt1">View</div>
+                        <div class="hover-txt2">Profile</div>
+                      </div>
+                    </span>
+                    </a>
+                  </span>
+                  <!--Project Information-->
+                  <span class="proj_hist-tile-info">
+                    <div>
+                      <a href="{{locurl}}">
+                        <i class="fa proj_hist-tile-info-mark fa-map-marker"></i>
+                        <span class="proj_hist-tile-info-loc">{{location}}</span>
+                      </a>
+                    </div>
+                    <div class="proj_hist-tile-info-comp-name">{{c_name}}</div>
+                    <div class="proj_hist-tile-info-pos-dets">
+                      <span class="proj_hist-tile-info-pos-name">{{title}}</span>
+                      <span class="proj_hist-tile-info-pos-work-date"> since {{start_month}} {{start_year}} - {{end_date}}</span>
+                      <!--<span class="proj_hist-tile-info-pos-time">{{project_time_elapsed}}</span>-->
+                    </div>
+                    {{#each connections}}
+                      <a href="{{url}}">
+                        <span class="proj_hist-featured-image" id="{{o_id}}"></span>
+                      </a>
+                    {{/each}}
+                    <a href="{{workurl}}">
+                    <div class="proj_hist-va-connections">
+                      <span class="proj_hist-va-connections-text">View All Connections</span>
+                      <i class="fa proj_hist-va-connections-icon fa-angle-right"></i>
+                    </div>
+                    </a>
+                  </span>
+                  <!--/Project Information-->
+                </div>
+              {{else}}
+                <div class="proj_hist-list-tile-{{getBackgroundStyle}}"></div>
+              {{/if}}
+            {{/each}}
+          </div>
+        </div>
+        <div class="module-footer1" >
+          <a href="{{WholeListUrl}}"><button class="module-footer1-button-2">
+            <div class="module-footer1-button-logo"></div>
+            <div class="module-footer1-button-text"><span style="padding-right:10px">See The List</span><i class="fa fa-angle-right"></i></div>
+          </button></a>
+        </div>
+      <!--End Panel-->
+    </div>
+  </div>
+  {{/with}}
+</template>

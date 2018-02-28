@@ -1,0 +1,176 @@
+<!-- Author: Sri Sindhusha Kuchipudi
+** Created: 09/18/2015
+** Description: .html file for header_nav
+** Associated Files: header_nav.html, header_nav.less, header_nav_logic.js
+-->
+<!-- This is the template for header-->
+<template name="header_navtest">
+  <!-- This is the Div for total header-->
+  <div class="pgheader-nav">
+   <!-- This is the Div for top part of the header-->
+    <div class="pgheader-nav_divtp">
+      <div class="pgcentp">
+        {{#if notPartner}}
+        <!-- This is the Div for Logo header-->
+        <a href="/">
+          <div class="pgheader-nav_divtp_Finlogo"></div>
+        </a>
+        {{/if}}
+        <!-- This is the Div for research button-->
+        <div class="pgheader-nav_divtp_Resrch">
+            <div class="pgheader-nav_divtp_Resrch_restxt">Research</div>
+        </div>
+          <!-- This is the Div for top list button-->
+        <div class="pgheader-nav_divtp_tplst">
+            <div class="pgheader-nav_divtp_tplst_tptxt">Top Lists</div>
+        </div>
+          <!-- This is the Div for saved button-->
+        <div class="pgheader-nav_divtp_sav">
+            <div class="pgheader-nav_divtp_sav_savetxt">Saved</div>
+        </div>
+          <!-- This is the Div for sign In button-->
+        <div class="pgheader-nav_divtp_signin">
+            <div class="pgheader-nav_divtp_signin_signtxt">Sign In</div>
+        </div>
+          <!-- This is the Div for Register button-->
+        <div class="pgheader-nav_divtp_restr">
+            <span class="pgheader-nav_divtp_restr_faregicon"><i class="fa fa-user-plus"></i></span>
+            <span class="pgheader-nav_divtp_restr_rgsrtxt">Register</span>
+        </div>
+      </div>
+    </div>
+      <!-- This is the Div for bottom part of the header-->
+    <div class="pgheader-nav_divbtm">
+      <div class="pgcenbtm">
+        <!-- This is the Div for search button-->
+      <div class="pgheader-nav_divbtm_srchbr">
+        <input type=text class="pgheader-nav_divbtm_srchbr_srcbrtxt" placeholder="Search for a Company, Location, or Executive">
+        <div class="pgheader-nav_divbtm_srchbr_fasrchicon"><i class="fa fa-search"></i></div>
+      </div>
+        <!-- This is the Div for Exchange Type drop down list-->
+      <div class="pgheader-nav_divbtm_ddexc  ddbox">
+        <div class="pgheader-nav_divbtm_ddexc_ddextxt">Exchange Type</div>
+        <div id=exdd class="pgheader-nav_divbtm_ddexc_ddETfaicon"><i id=dropEX class="fa fa-sort-desc"></i>
+      </div>
+        <!-- This is the Div for drop down list-->
+        <div class="dropdown-menu dropdown-meEX">
+          <div class="menualign removeborder" id="ExchangeType1">
+            <span> Exchange Type1</span>
+          </div>
+          <div class="menualign removeborder" id="ExchangeType2">
+            <span> Exchange Type2</span>
+          </div>
+          <div class="menualign removeborder" id=ExchangeType3>
+            <span> Exchange Type3</span>
+          </div>
+          <div class="menualign removeborder" id=ExchangeType4>
+            <span> Exchange Type4</span>
+        </div>
+     </div>
+    </div>
+    {{#each drpdwns}}
+      <!-- This is the Div for Sector Type drop down list-->
+      <div  id={{listname}} class="pgheader-nav_divbtm_ddSectr  ddbox">
+        <div class="pgheader-nav_divbtm_ddSectr_ddsttxt">{{listtype}}</div>
+        <div  class="pgheader-nav_divbtm_ddSectr_ddSTfaicon"><i class="fa fa-sort-desc"></i></div>
+          <!-- This is the Div for drop down list-->
+        <div class="dropdown-menu dropdown-meST" id={{listno}}>
+          <div class="menualign removeborder" id={{option1}}>
+            <span> {{option1}}</span>
+          </div>
+          <div class="menualign removeborder" id={{option2}}>
+            <span> {{option2}}</span>
+          </div>
+          <div class="menualign removeborder" id={{option3}}>
+            <span> {{option3}}</span>
+          </div>
+          <div class="menualign removeborder" id={{option4}}>
+            <span> {{option4}}</span>
+        </div>
+      </div>
+    </div>
+      {{/each}}
+
+        <!-- This is the Div more options button-->
+      <div class="pgheader-nav_divbtm_mroptns">
+      <span class="pgheader-nav_divbtm_mroptns_faiconmr"><i class="fa fa-cog"></i></span>
+      <span class="pgheader-nav_divbtm_mroptns_mroptxt"> More Filters</span>
+    </div>
+  </div>
+    </div>
+  </div>
+</template>
+
+<template name="header_nav">
+  {{> directory_list_button}}
+
+  <div class="layout_nav">
+    <table style="min-width:90vw; max-width: 12vw; margin: 0 auto;">
+      <tr style="position: relative;">
+        <td class="layout_nav-logo-cell">
+          {{#if notPartner}}
+          <a href="/">
+            <div class="layout_nav-logo"></div>
+          </a>
+          {{else}}
+          {{#with partnerHome}}
+          <a href="{{url}}">
+            <div style="color:#ffffff; font-family:HN-B; font-size:18px;white-space:nowrap;">{{title}}</div>
+          </a>
+          {{/with}}
+          {{/if}}
+        </td>
+        <td style="padding-left: 23vw; position: relative">
+          {{#unless homepage}}
+          <div class="layout_nav-search">
+            <div class="search_icon fa fa-search"></div>
+            <input type="text" name="keyword" class="layout_nav-search_input" placeholder="Search for a Company, Location, or Executive">
+            <ul class="header_search_recommendations">
+              <div class="caret-top"></div>
+            </ul>
+          </div>
+          {{/unless}}
+        </td>
+        <td style="float:right;min-width:200px;max-width:1600px;">
+          <a class="share-link">
+            <div class="layout_nav-share">
+              <span id="button_1" displayText=''></span>
+              <span class='st__large' displayText=''></span>
+              <script>
+                stWidget.addEntry({
+                  service: "sharethis",
+                  element: document.getElementById('button_1'),
+                  url: window.location.href,
+                  title: "{{title}}",
+                  type: "large",
+                  text: "ShareThis",
+                  image: "{{logo}}",
+                  summary: "Get an investor's guide to companies, executives, locations, and more. Browse lists of top performing companies, see what investments might have gained, and access news about companies."
+                });
+              </script>
+            </div>
+          </a>
+          <a class="facebook-link">
+            <div class="layout_nav-fb"><span class='st__large' displayText=''></span>
+              <span class='st__large' displayText=''></span>
+              <span id="button_2" displayText=''></span>
+              <script>
+              stWidget.addEntry({
+                service: "facebook",
+                element: document.getElementById('button_2'),
+                url: window.location.href,
+                title: "{{title}}",
+                type: "large",
+                text: "ShareThis",
+                image: "http://" + window.location.host + "{{logo}}",
+                summary: "Get an investor's guide to companies, executives, locations, and more. Browse lists of top performing companies, see what investments might have gained, and access news about companies."
+              });
+              </script>
+            </div>
+            <div class="layout_nav-share_text">Share It</div>
+          </a>
+        </td>
+      </tr>
+    </table>
+  </div>
+</template>

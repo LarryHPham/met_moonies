@@ -1,0 +1,84 @@
+<!--
+Author: Deepika Priyanka V
+Created: 07/17/2015
+Description: Share & follow module
+Associated Files: share_logic.js and share.less
+
+-->
+<Template name="share">
+   <!--Defined a class name globally for height and width !-->
+    <div class = "fin_style-new_module">
+      <div class="module-header"> <!-- Module header called from modules !-->
+        <span class="module-header-line"></span> <!-- for blue line in the header!-->
+        <span class="module-header-title">SHARE, FOLLOW & WEIGH IN</span> <!-- Header Title !-->
+      </div>
+      <!--class named body was defined to body circle and text !-->
+      <div class = "fin_style-body">
+        <!--class named left_side was defined to body circle !-->
+        <div class ="fin_style-lside">
+          <!--class named left_circle was defined with given parameters !-->
+          {{#if isLocation}}
+          <span class = "fin_style-lcircle" style="{{image}}"></span>
+          {{else}}
+          <span class = "fin_style-lcircle" style="background-image:url('{{imageUrl topImage}}')"></span>
+          {{/if}}
+        </div>
+        <!--class named right_side was defined to text !-->
+        <div class = "fin_style-rside">
+          <!--class named right_side was defined to text with given requirements !-->
+          <div class = "fin_style-rdata">
+            Share this profile with the people you know:
+          </div>
+          <!--created a link for the facebook and gave the styling to the required facebook block !-->
+          <a class="facebook-link">
+            <!-- gave the styling to the required facebook block !-->
+            <div class = "fin_style-fb">
+              <!-- gave the styling to the facebook block with font_awesome!-->
+              <span class= " fin_style-fbicon"> <i class="fa fa-facebook"></i></span>
+              <span class="fin_style-fbtext">
+                Share on Facebook
+              </span>
+            </div>
+          </a>
+          <!--created a link for the twitter and gave the styling to the required facebook block !-->
+          <a class="twitter-link">
+            <!-- gave the styling to the required twitter block !-->
+            <div class = "fin_style-fb fin_style-twitter">
+              <!-- gave the styling to the twitter block with font_awesome!-->
+              <span class="fin_style-fbicon fin_style-twicon">
+                <i class="fa fa-twitter"></i>
+              </span>
+              <span class="fin_style-fbtext fin_style-twtext">
+                Share on Twitter
+              </span>
+            </div>
+          </a>
+          <!--created a link for the google-link and gave the styling to the required facebook block !-->
+          <a class="google-link">
+            <!-- gave the styling to the required google-link block !-->
+            <div class = "fin_style-fb fin_style-google">
+              <!-- gave the styling to the google-link block with font_awesome!-->
+                <span class="fin_style-fbicon fin_style-gicon"> <i class="fa fa-google-plus "></i>
+              </span>
+                <span class="fin_style-fbtext fin_style-gtext">
+                Share on Google +
+              </span>
+            </div>
+          </a>
+          <!--created a link for the pinterest and gave the styling to the required facebook block !-->
+          <a class="pinterest-link">
+            <!-- gave the styling to the required pinterest block !-->
+            <div class = "fin_style-fb fin_style-pinterest">
+              <!-- gave the styling to the pinterest block with font_awesome!-->
+              <span class="fin_style-fbicon fin_style-picon">
+                <i class="fa fa-pinterest"></i>
+              </span>
+                <span class="fin_style-fbtext fin_style-ptext">
+                Share on Pinterest
+              </span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+</Template>

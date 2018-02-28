@@ -1,0 +1,60 @@
+<!--
+Author: David Wibowo
+Created: [10-15-2015]
+Description:conatct us webpage
+Associated Files: stock_disclaimer_page.html, stock_disclaimer_page_logic.js, about_us_page.less
+-->
+<template name="stock_disclaimer_page">
+  <div class="abus">
+    <a href="{{back_url}}">
+      <div class="abus-bkbx">
+        <div class="abus-bkbx-bx"><i class="fa fa-reply"></i></div>
+        <div class="abus-bkbx-tgl"></div>
+        <div class="abus-bkbx-txt">Go Back To Previous Page</div>
+      </div>
+    </a>
+    <div class="abus-about">
+        <div class="abus-about-image" style="background-image: url('{{image_url}}');"></div>
+      <div class="abus-about-head">
+        <div class="abus-about-head-update">Last Updated: {{Update}}</div>
+        <div class="abus-about-head-country"><i class="fa fa-map-marker"></i> &nbsp;{{Country}}</div>
+        <H1>{{Title}}</H1>
+        <H2>{{Statement}}</H2>
+      </div>
+    </div>
+    <div class="abus-kit">
+      <div class="abus-kit-left">{{About}}</div>
+    </div>
+
+    <div class="abus-cnt">
+
+      <div class="abus-cnt-top">
+        <div class="abus-cnt-top-left">Stock Disclaimer</div>
+        <div class = "abus-cnt-dropdown">
+          Now Reading:
+          <select id="sort_by" style = "margin-top: 1px;">
+            <option value="About">About Us</option>
+            <option value="Contact">Contact Us</option>
+            <option value="Copyright">Copyright Infringement</option>
+            <option value="Disclaimer">Disclaimer</option>
+            <option value="Privacy">Privacy Policy</option>
+            <option value="Stock">Stock Disclaimer</option>
+            <option value="Terms">Terms of Service</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="abus-cnt-article">
+        <p>  Market data delayed 15 minutes.</P>
+
+        <p>  This site is powered by InvestKit. Ideas and opinions presented on this website are for informational and educational purposes only, and do not reflect the opinions of InvestKit, or any of its affiliates, subsidiaries or partners. In no way should any content contained herein be interpreted to represent trading or investment advice.</p>
+
+        <p>  © 2015 Data provided by Thompson Reuters® Read Full Disclaimer. </p>
+
+        <p> OTC Data provided by OTC Markets Group Inc.</p>
+
+      </div>
+
+    </div>
+  </div>
+</template>

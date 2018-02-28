@@ -1,0 +1,182 @@
+<!--
+Author: Prashanth Diddi
+Date: 09/02/2015
+Decription: A page for showing executive compensation
+Associated Files: exec_compensation.html, exec_compensation.less, exec_compensation.js
+-->
+
+<template name="exec_compensation">
+  {{#with execHeader}}
+  <div class="excmp-page"> <!--container for whole page-->
+    <a href="{{backToExec}}">
+      <div class="excmp-return">
+        <div class="excmp-return-button">
+          <i class="fa fa-mail-reply"></i>
+        </div>
+        <div class="excmp-return-triangle"></div>
+
+
+        Go Back To <span class="excmp-b">{{o_first_name}} {{o_last_name}}'s</span> Profile
+      </div>
+    </a>
+
+    <div class="excmp-pr excmp-top"> <!--container for white background area at top-->
+      <div class="excmp-pr excmp-top-circle" style="background-image:url('{{imageUrl o_pic}}')"> <!--back arrow in top-->
+      </div>
+      <i class="excmp-pa excmp-n excmp-top-txt1">LAST UPDATED: {{o_last_updated}}</i>
+      <i class="excmp-pa excmp-n excmp-top-txt2"><i class="fa fa-map-marker"></i> United States</i>
+      <i class="excmp-pa excmp-b excmp-top-txt3">Executive Compensation</i>
+      <i class="excmp-pa excmp-l excmp-top-txt4">for {{o_first_name}} {{o_last_name}}</i>
+    </div>
+
+    <div class="excmp-pr excmp-mid">
+
+      <div class="excmp-pa excmp-mid-top">
+        <div class="excmp-b excmp-mid-top-txt1">
+          {{o_first_name}} {{o_last_name}}'s Compensation
+        </div>
+      <!--
+        <div class="excmp-l excmp-mid-top-txt2">
+          <i class="fa fa-heart"></i>  Save
+        </div>
+        <div class="excmp-l excmp-mid-top-txt2">
+          <i class="fa fa-share-alt"></i>  Share
+        </div>
+      -->
+      </div>
+
+      <div class="excmp-pa excmp-mid-mid"> <!--the grey section in the middle-->
+        <div class="excmp-pa excmp-mid-mid-circle" style="background-image:url('{{imageUrl o_pic}}')"><!--Profile Image -->
+        </div>
+        <div class="excmp-pa excmp-mid-mid-building">
+          <i class="fa fa-building-o fa-lg"></i>
+        </div>
+        <i class="excmp-pa excmp-b excmp-mid-mid-txt1">{{o_first_name}} {{o_last_name}}</i>
+        <!--
+        <i class="excmp-pa excmp-l excmp-mid-mid-txt2"><i class="fa fa-heart"></i>  Save</i>
+        <i class="excmp-pa excmp-l excmp-mid-mid-txt3"><i class="fa fa-share-alt"></i>  Share</i>
+      -->
+        <div class="excmp-pa excmp-l excmp-mid-mid-txtbox"> <!--the part of the middle-middle that has the important and long text-->
+          <i class="excmp-mid-mid-txtbox-txt">
+            {{o_first_name}} {{o_last_name}}, the {{o_current_title.long_title}} of {{company}}, has an <i class="excmp-b">annual salary of ${{salary}}</i> and a total compensation of <i class="excmp-b">${{totalComp}}</i>.
+            <br>
+          </i>
+        </div>
+      </div>
+
+      <div class="excmp-pa excmp-mid-btm"> <!--the footer of the middle area-->
+        <div class="excmp-pa excmp-l excmp-mid-btm-txt1">
+          Want more information about {{o_first_name}} {{o_last_name}}?
+        </div>
+        <div class="excmp-pa excmp-l excmp-mid-btm-txt2">
+          Profile Last Updated On: <i class="excmp-b">{{lastUpdated}}</i>
+        </div>
+        <a href="{{backToExec}}">
+          <div class="excmp-pa excmp-mid-btm-btn">
+            View Profile <i class="fa fa-angle-right excmp-right"></i>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="excmp-pr excmp-btm"> <!--holds anything but the search module below the middle area-->
+      <!-- Currently disabled <div class="excmp-b excmp-btm-txt1">
+        Sort by: <i class="excmp-l">Executive Compensation </i><i class="fa fa-angle-down excmp-btm-txt1-blue"></i>
+      </div>-->
+      <div class="excmp-btm-what"> <!--a box that looks like it can be closed-->
+        <div class="excmp-b excmp-btm-what-top">
+          What is this page?
+          <i class="fa fa-times excmp-pr excmp-btm-what-top-x"></i>
+        </div>
+        <div class="excmp-btm-what-txt">
+          This page features an in-depth level view of an executive’s sepcific annual compensation and includes salary, bonuses and other means of compensation.
+        </div>
+      </div>
+      <div class="excmp-pr excmp-btm-data"> <!--a divide to seperate data from the box above-->
+        <div class="excmp-pr excmp-btm-data-title">
+          <span class="excmp-b">Compensation Overview</span> <i class="excmp-l">for {{o_first_name}} {{o_last_name}}:</i>
+        </div>
+      </div>
+      <div class="excmp-choseyr">
+        Total Compensation for {{yearChosen}}: <span class="excmp-b">${{totalCompensation}}</span>
+        <select id="year-chosen" class = "comp-ttl-select">
+            <option class="comp-ttl-select-txt" disabled="disabled" selected="selected" value="2014">Choose Year:&nbsp;</option>
+            {{#each years}}
+              <option class="comp-ttl-select-num" value="{{this}}">{{this}}</option>
+            {{/each}}
+            <i class = "fa fa-sort-desc"></i>
+    		</select>
+      </div>
+      <!-- Graph Starts-->
+      <div class="excmp-pr excmp-btm-data-graph" id="excmpChart">
+        {{> highchartsHelper chartId="excmpChart" chartWidth="675px" chartHeight="265px"  chartObject=getExecCompGraphObject}}
+      </div>
+      <!-- Graph Ends-->
+      <div class="excmp-pr excmp-btm-data"> <!--a divide to seperate data from the box above-->
+        <div class="excmp-pr excmp-btm-data-title">
+          Annual Breakdown <i class="excmp-l">for {{execName}}</i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tiles Starts-->
+    {{#each tiles}}
+    <div class="excmp-pr {{getTileColor}}">
+      {{#with left}}<!-- left Tiles Starts-->
+      <div class="excmp-pr excmp-btm-data-tile-l" >
+        <div class="excmp-pa excmp-btm-data-tile-circle">
+          <i class="fa fa-question"></i>
+        </div>
+        <div class="excmp-pa excmp-btm-data-tile-title">
+          <span class="excmp-b">{{title}}</span>
+          <br>Numbers in USD
+        </div>
+        {{#each item}}
+        <div class="excmp-btm-data-tile-{{noBorder}}">
+          <span class="excmp-btm-data-tile-stat-l">
+            {{text}}
+          </span>
+          <span class="excmp-btm-data-tile-stat-r{{leftPercColor}}">
+            <i class="fa fa-arrow-up excmp-{{upArrow}}"></i><i class="fa fa-arrow-down excmp-{{downArrow}}"></i> {{changePercent}}%
+          </span>
+          <span class="excmp-btm-data-tile-stat-m">
+            <span class="excmp-{{isDollarHidden}}">$</span>{{value}}
+          </span>
+        </div>
+        {{/each}}
+      </div>
+      {{/with}}
+      <!-- left Tiles ends-->
+      <!-- Right Tiles Starts-->
+      {{#with right}}
+      <div class="excmp-pr excmp-btm-data-tile-r excmp-{{isTileHidden}}">
+        <div class="excmp-pa excmp-btm-data-tile-circle">
+          <i class="fa fa-question"></i>
+        </div>
+        <div class="excmp-pa excmp-btm-data-tile-title">
+          <span class="excmp-b">{{title}}</span>
+          <br>Numbers in USD
+        </div>
+        {{#each item}}
+        <div class="excmp-btm-data-tile-{{noBorder}}">
+          <span class="excmp-btm-data-tile-stat-l">
+            {{text}}
+          </span>
+          <span class="excmp-btm-data-tile-stat-r{{rightPercColor}}">
+            <i class="fa fa-arrow-up excmp-{{upArrow}}"></i><i class="fa fa-arrow-down excmp-{{downArrow}}"></i> {{changePercent}}%
+          </span>
+          <span class="excmp-btm-data-tile-stat-m">
+            <span class="excmp-{{isDollarHidden}}">$</span>{{value}}
+          </span>
+        </div>
+        {{/each}}
+      </div>
+      {{/with}}
+      <!-- Right Tiles Ends-->
+    </div>
+    {{/each}}
+    <!-- Tiles Ends-->
+    {{> search_module}} <!-- Didn't Find-->
+  </div>
+  {{/with}}
+</template>

@@ -1,0 +1,94 @@
+<!-- Author: David Wibowo
+**** Created: [09/30/2015]
+**** Description: Exec profile header
+**** Associated Files: l-p_header.html, l-p_header.less, l-p_header_logic.js
+-->
+
+<template name="l_p_header">
+  <div class="p">
+   {{> lp_head}}
+   {{> lp_body}}
+   <!--{{> lp_rdr}}-->
+ </div>
+</template>
+
+<template name="lp_head">
+  {{#with locationData}}
+  <div class="p-head">
+    <div class="p-head-top">
+      <div class="p-head-top-lastUpdate">LAST UPDATED: {{last_updated}}</div>
+      <div class="p-head-top-container">
+        <a href="{{National}}"><div class="p-head-top-container-location"><i class="fa fa-map-marker"></i>&nbsp; United States</div></a>
+        <div class="p-head-top-container-profile"><span class="p-light_font">LOCATION</span> PROFILE</div>
+      </div>
+      <div class="p-head-top-name"><span class="p-head-top-name-txt">{{location}}</span></div>
+    </div>
+    <div class="p-head-bottom">
+    <div class="p-head-bottom-triangle"></div>
+
+      <div class="p-head-bottom-img" style="{{image}}">
+        <!--<div class="p-head-bottom-img-sml"></div>-->
+      </div>
+
+      <div class="p-head-bottom-icon"><i class="fa fa-map-marker"></i></div>
+      <div class="p-head-bottom-about">Info about <span class="p-bold_font">{{location}}</span></div>
+      <div class="p-head-bottom-text">
+        <div class="p-head-bottom-text-wrapper">
+          <div class="p-head-bottom-text-content">
+            Did you know {{location}} has {{total_companies}} companies, gathering a total market cap of {{total_market_cap}} Dollars. {{location}} is also home to {{total_executives}} total executives.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{/with}}
+</template>
+
+<template name="lp_body">
+  {{#with locationData}}
+  <div class="p-body">
+    <div class="p-body-box" style="width:220px;">
+      <a href="{{compUrl}}">
+        <div>Total Public Companies</div>
+        <div class="value">{{total_companies}}</div>
+        <div>&nbsp;</div>
+      </a>
+    </div>
+    <div class="p-body-box" style="width:250px;">
+      <a href="{{compUrl}}">
+        <div>Total Market Cap</div>
+        <div class="value">{{total_market_cap}}</div>
+        <div>&nbsp;</div>
+      </a>
+    </div>
+    <div class="p-body-box" style="border-right: 0px; width:200px;">
+      <a href="{{execUrl}}">
+        <div>Total Executives</div>
+        <div class="value">{{total_executives}}</div>
+        <div>&nbsp;</div>
+      </a>
+    </div>
+  </div>
+  {{/with}}
+</template>
+
+<template name="lp_rdr">
+  {{#with locationData}}
+  <div class="p-rdr">
+    <a href="{{ulr}}">
+      <div class="p-rdr-tri"></div>
+      <div class="p-rdr-container">
+        <div class="p-rdr-container-icon"></div>
+        <div class="p-rdr-container-dr">Digital Reader</div>
+        <div class="p-rdr-container-explore">Explore This Location</div>
+        <div class="p-rdr-container-line"></div>
+        <div class="p-rdr-container-circle"><i class="fa fa-angle-right"></i></div>
+        <div class="p-rdr-container-left">{{Name}}</div>
+        <div class="p-rdr-container-text">
+          Get an in–depth, visual look at today’s composite value, the local companies, exeucitves, advisors and so much more.
+        </div>
+      </div>
+    </a>
+  </div>
+  {{/with}}
+</template>

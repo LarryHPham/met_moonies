@@ -1,0 +1,129 @@
+<!-- Author: Ryan Fisher
+**** Created: [10/19/2015]
+**** Description: Quarterly EIS
+**** Associated Files: quarterly_EIS.html, quarterly_EIS.less, quarterly_EIS_logic.js
+-->
+
+<template name="quarterly_EIS">
+
+  <div class="qeis">
+    <!--Go Back Bar-->
+    <div class="qeis-back">
+      <a href = "{{backURL}}">
+        <div class = "qeis-back-hdr">
+          <div class = "qeis-back-hdr-box"><i class = "fa fa-reply"></i></div>
+          <div class = "qeis-back-hdr-tri"></div>
+          <div class = "qeis-back-hdr-txt">
+            Go Back To <span style="font-family:HN-B">{{profile}}'s</span> Profile
+          </div>
+        </div>
+      </a>
+    </div>
+    <!--End Go Back Bar-->
+
+    <!--Page header-->
+    <div class="qeis-hdr">
+      <div class="qeis-hdr-img" style="background-image:url()"></div>
+      <div class="qeis-hdr-txt">
+        <div class="qeis-hdr-txt-upd">LAST UPDATED: {{updated}}</div>
+        <div class="qeis-hdr-txt-loc"><i class="fa fa-map-marker"></i>{{location}}</div>
+        <div class="qeis-hdr-txt-title">{{title}} Income Statement</div>
+        <div class="qeis-hdr-txt-for">For {{profile}}</div>
+      </div>
+    </div>
+    <!--End Page header-->
+
+    <!--Dropdown menus-->
+    <div class="qeis-ddn">
+      <div class="qeis-ddn-mnu" style="width:160px" id="qeis-ddn-0">
+        Income Statement
+        <div class="qeis-ddn-cir"><i class="fa fa-caret-down"></i></div>
+        <div class="qeis-ddn-options">
+          <div class="qeis-ddn-option">Income Statement</div>
+          <div class="qeis-ddn-option">Balance Sheet</div>
+          <div class="qeis-ddn-option">Cash Flow</div>
+        </div>
+      </div>
+      <div class="qeis-ddn-mnu" style="width:130px" id="qeis-ddn-1">
+        Quarterly Data
+        <div class="qeis-ddn-cir"><i class="fa fa-caret-down"></i></div>
+        <div class="qeis-ddn-options">
+          <div class="qeis-ddn-option">Quarterly Data</div>
+          <div class="qeis-ddn-option">Annual Data</div>
+        </div>
+      </div>
+      <div class="qeis-ddn-mnu" style="width:130px" id="qeis-ddn-2">
+        {{firstLabel}}
+        <div class="qeis-ddn-cir"><i class="fa fa-caret-down"></i></div>
+        <div class="qeis-ddn-options">
+          {{#each label}}
+          <div class="qeis-ddn-option">{{lbl}}</div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+    <!--End Dropdown menus-->
+
+    <!--Chart legend-->
+    <div class="qeis-lgnd">
+      <div class="qeis-lgnd-txt">
+        <div class="qeis-lgnd-clr" style="background-color:#434348" id="qeis-clr-0"></div>
+        <div style="float:left;margin-right:5px;">
+          <div class="qeis-lgnd-amnt">{{ninc}}</div>
+          <div class="qeis-lgnd-lbl">Net Income</div>
+        </div>
+      </div>
+      <div class="qeis-lgnd-txt">
+        <div class="qeis-lgnd-clr" style="background-color:#3098ff" id="qeis-clr-1"></div>
+        <div style="float:left;margin-right:5px;">
+          <div class="qeis-lgnd-amnt">{{rev}}</div>
+          <div class="qeis-lgnd-lbl">Revenue</div>
+        </div>
+      </div>
+      <div class="qeis-lgnd-txt">
+        <div class="qeis-lgnd-clr" style="background-color:#f8a354" id="qeis-clr-2"></div>
+        <div style="float:left;margin-right:5px;">
+          <div class="qeis-lgnd-amnt">{{pm}}</div>
+          <div class="qeis-lgnd-lbl">Profit Margin (%)</div>
+        </div>
+      </div>
+      <div class="qeis-ddn-mnu" style="width:160px;float:right;" id="qeis-ddn-3">
+        Net Income Chart
+        <div class="qeis-ddn-cir"><i class="fa fa-caret-down"></i></div>
+      </div>
+    </div>
+    <!--End Chart legend-->
+
+    <!--Chart-->
+    <div class="qeis-chart" id="quarterlyEISgraph"></div>
+    <!--End Chart-->
+
+    <!--Data Table-->
+    <div class="qeis-tbl">
+      <div class="qeis-tbl-hdr">In Millions of USD (except for per share items)</div>
+
+      <!--Data labels-->
+      <div class="qeis-tbl-lbls">
+        <div class="qeis-tbl-lbl" style="width:205px;margin-left:0px;">Key Metric</div>
+        {{#each label}}
+        <div class="qeis-tbl-lbl" style="{{style}}">{{lbl}}</div>
+        {{/each}}
+      </div>
+
+      <!--Data Row-->
+      {{#each data}}
+      <div class="qeis-tbl-row-{{color}} qeis-tbl-{{border}}">
+        <div class="qeis-tbl-data-title">{{metric}}</div>
+        <div class="qeis-tbl-data" style={{style1}}>{{amnt1}}</div>
+        <div class="qeis-tbl-data" style={{style2}}>{{amnt2}}</div>
+        <div class="qeis-tbl-data" style={{style3}}>{{amnt3}}</div>
+        <div class="qeis-tbl-data" style={{style4}}>{{amnt4}}</div>
+        <div class="qeis-tbl-data" style={{style5}}>{{amnt5}}</div>
+      </div>
+      {{/each}}
+    </div>
+    <!--End Data Table-->
+
+    {{> recommend}}
+  </div>
+</template>

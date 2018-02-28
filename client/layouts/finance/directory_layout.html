@@ -1,0 +1,40 @@
+<template name="directory_layout">
+  <!-- <div class="directory_page">
+
+    {{> directory_list_button}}
+
+    <!-Clickable links on directory page drop down links END->
+  </div> -->
+  {{> navbar}}
+
+</template>
+
+<template name="directory_list_button">
+  <div class="dir-dropdown-block">
+    <span id="invest-list" class="dropdown-button">{{site_name}} TRENDING LISTS</span>
+    <div class="dir-dropdown-block-list" style="display: none">
+      <ul class="dir-dropdown-block-list-ul">
+        {{#each trending_list}}
+          <a href="{{url}}">
+            <li class="dir-dropdown-block-list-ul-item" title="{{top_list_info.top_list_title}}">{{top_list_info.top_list_title}}</li>
+          </a>
+        {{/each}}
+      </ul>
+    </div>
+    <span class="dropdown-button2">DIRECTORIES</span>
+    <div class="dropdown-container" style="display: none">
+      <ul class="ul-list">
+        <a href="{{pathFor 'content.finance.directory' type='company' pageNum='1'}}">
+          <li class="dir-list-item" title="Company Profiles">
+            <i class="fa fa-angle-right"></i>Company Profiles
+          </li>
+        </a>
+        <a href="{{pathFor 'content.finance.directory' type='officer' pageNum='1'}}">
+          <li class="dir-list-item" title="Executive Profiles">
+            <i class="fa fa-angle-right"></i>Executive Profiles
+          </li>
+        </a>
+      </ul>
+    </div>
+  </div>
+</template>

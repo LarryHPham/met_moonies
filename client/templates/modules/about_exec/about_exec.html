@@ -1,0 +1,191 @@
+<!-- Author: Ryan Fisher
+**** Created: [07/17/2015]
+**** Description: About Exec Page
+**** Associated Files: about_exec.html, about_exec.less, about_exec_logic.js
+-->
+
+<template name="about_exec">
+  {{#with rivalInfo}}
+  <!--Page wrapper-->
+  <div class="exec">
+    <!--Main page header -->
+    <div class="exec_header">
+      <div class="exec_vln"></div>
+      <div class="exec_txt">About {{first_name}}&nbsp;{{last_name}}</div>
+    </div>
+    <!--Main page body -->
+    <div class="exec_body">
+
+      <!--Featured executive section -->
+      <div class="exec_body_featured">
+        <!--Featured executive info header-->
+        <div class="exec_body_featured_header">
+          <i class="fa fa-circle fai"></i>
+          <div class="exec_body_featured_header_txt">{{title}}</div>
+        </div>
+        <!--Featured executive info-->
+        <div class="exec_body_featured_info exec_white">
+          <!--Featured executive info description-->
+          <div class="exec_body_featured_info_description">
+            <div class="exec_body_featured_info_description_txt">Other Executives that graduated from</div>
+          </div>
+          <!--Featured executive education location-->
+          <div class="exec_body_featured_info_education-location">
+            <!--<i class="fa fa-map-marker faicon exec_blue"></i>-->
+            <div class="exec_body_featured_info_education-location_txt" >{{univ}}{{LOCATION}}</div>
+          </div>
+          <!--Featured executive images-->
+          <a href="{{execURL}}">
+            <div class="exec_body_featured_info_main-image" style="background-image: url('{{imageUrl pic}}')">
+              <div class="hover">
+                <div class="hover-txt1">View</div>
+                <div class="hover-txt2">Profile</div>
+              </div>
+            </div>
+          </a>
+          <a href="{{execComp}}">
+            <div class="exec_body_featured_info_sub-image" style="background-image: url('{{com_logo}}')">
+              <div class="hover"></div>
+            </div>
+          </a>
+          <!--Featured executive name-->
+          <div class="exec_body_featured_info_name">
+            <div class="exec_body_featured_info_name_txt"> {{fname}} {{lname}} </div>
+          </div>
+          <!--Featured executive education info first line-->
+          <div class="exec_body_featured_info_education-line1_txt">
+            <div>{{univ}}</div>
+          </div>
+          <!--Featured executive education info second line-->
+          <div class="exec_body_featured_info_education-line2_txt">
+            <div>{{degree}} - {{abbr}} | Graduated: {{status}}</div>
+          </div>
+          <!--Featured executive view all button-->
+          <a href="{{CollegeRivals}}">
+            <div class="exec_body_featured_info_view-all exec_white">
+              <div class="exec_body_featured_info_view-all_text">View All College Rivals</div>
+              <i class="fa fa-mail-forward exec_body_featured_info_view-all_icon"></i>
+            </div>
+          </a>
+
+        </div>
+        <!--Featured executive left button-->
+        <div class="exec_body_featured_left-button">
+          <i class="fa fa-angle-left exec_body_featured_left-button_icon exec_white"></i>
+        </div>
+        <!--Featured exeuctive right button-->
+        <div class="exec_body_featured_right-button">
+          <i class="fa fa-angle-right exec_body_featured_right-button_icon exec_white"></i>
+        </div>
+      </div>
+
+      <!--List of other execs -->
+      <div class="exec_body_list">
+        {{#each tt}}
+        <a href="{{execurl}}">
+          <!--First single exec list item-->
+          <div class="exec_body_list_single">
+            <!--List item circle image-->
+            <div class="exec_body_list_single_image" style="background-image: url('{{imageUrl img}}')">
+              <div class="hover"></div>
+            </div>
+            <!--List item top line - name-->
+            <!-- <a href="http://localhost:3000/executive/{{exec_id}}"> -->
+            <div class="exec_body_list_single_name">
+              {{fnm1}}&nbsp;{{lnm1}}
+            </div>
+            <!--List item middle line - company and position-->
+            <div class="exec_body_list_single_position">
+              <a href="{{compurl}}"><div class="exec_blue exec_body_list_single_position_txt"> {{cnm1}} &nbsp; </div></a>
+            <div class="exec_blue exec_body_list_single_position_txt1"> - &nbsp; {{longtl1}}</div>
+            </div>
+            <!--List item bottom line - education-->
+            <div class="exec_body_list_single_education">
+              {{degr1}} - <span style="font-family:HN-B">{{arr1}} </span> | {{univer1}}
+            </div>
+            <!--List item view more button-->
+            <div class="exec_body_list_single_view-more">
+              <i class="fa fa-chevron-right"></i>
+            </div>
+          </div>
+        </a>
+        {{/each}}
+
+        <!--Second single exec list item-->
+
+      </div>
+
+    </div><!--End Main body-->
+
+    <!--Modules to the right of the module-->
+    <div class="exec_links">
+      <!--Top box-->
+      <div class="module-tile">
+        <div class="module-tile-default">
+          <div class="module-tile-default-container">
+            <div class="module-tile-default-icon">
+              <i class="fa fa-graduation-cap"></i>
+            </div>
+            <div class="module-tile-default-text">
+              Education History
+            </div>
+          </div>
+        </div>
+        <a class="module-tile-link" href="{{EHTileURL}}">
+          <div class="module-tile-hover">
+            <div class="module-tile-name">
+              <i class="fa fa-graduation-cap"></i>Edu. History
+            </div>
+            <div class="module-tile-info"></div>
+            <button class="module-tile-button links_backcolor ">OPEN PAGE <i class="fa fa-graduation-cap"></i></button>
+          </div>
+        </a>
+      </div>
+      <!--Middle box-->
+      <div class="module-tile">
+        <div class="module-tile-default">
+          <div class="module-tile-default-container">
+            <div class="module-tile-default-icon">
+              <i class="fa fa-info-circle"></i>
+            </div>
+            <div class="module-tile-default-text">
+              Bio
+            </div>
+          </div>
+        </div>
+        <a class="module-tile-link" href="{{BioTileURL}}">
+          <div class="module-tile-hover">
+            <div class="module-tile-name">
+              <i class="fa fa-info-circle"></i>Bio
+            </div>
+            <div class="module-tile-info"></div>
+            <button class="module-tile-button links_backcolor ">OPEN PAGE <i class="fa fa-info-circle"></i></button>
+          </div>
+        </a>
+      </div>
+      <!--Bottom box-->
+      <div class="module-tile">
+        <div class="module-tile-default">
+          <div class="module-tile-default-container">
+            <div class="module-tile-default-icon">
+              <i class="fa fa-comments"></i>
+            </div>
+            <div class="module-tile-default-text">
+              FAQs
+            </div>
+          </div>
+        </div>
+        <a class="module-tile-link" href="{{FAQTileURL}}">
+          <div class="module-tile-hover">
+            <div class="module-tile-name">
+              <i class="fa fa-comments"></i>FAQs
+            </div>
+            <div class="module-tile-info"></div>
+            <button class="module-tile-button links_backcolor ">OPEN PAGE <i class="fa fa-comments"></i></button>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div><!--End Page wrapper-->
+  {{/with}}
+</template>

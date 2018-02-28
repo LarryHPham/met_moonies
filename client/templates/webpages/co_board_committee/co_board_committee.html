@@ -1,0 +1,232 @@
+<!--
+Author: jyothyswaroop
+Created: 08/10/2015
+Description: co_board_committee page
+Associated Files: co_board_committee_logic.js and co_board_committee.less
+-->
+<!--Gave a template name stock_disclaimer_page !-->
+<template name="co_board_committee">
+<!--Defined a class name globally for height and width !-->
+<div class= "co_commi">
+  <a href="{{backToComp}}">
+    <div class="abus-bkbx" style="margin: 17px 0 0 5px;">
+      <div class="abus-bkbx-bx"><i class="fa fa-reply"></i></div>
+      <div class="abus-bkbx-tgl"></div>
+      <div class="abus-bkbx-txt" style="text-align:left">Go Back to {{backProfile}} Profile</div>
+    </div>
+  </a>
+  <!--gave the dimensions for the module with total height and width !-->
+  <div class = "co_commi-n_m">
+    <!--dimensions for the circle container as ('cir-d') !-->
+    <div class="co_commi-cir_d">
+    <!-- dimensions for the circle as ('circ')!-->
+    <div class="co_commi-circ" style="background-image:url('{{imageUrl image}}')">
+      <!-- defines container for the smaller blue circle('sc_d') !-->
+      <div class= "co_commi-sc_d">
+      </div>
+    </div>
+    </div>
+    <!--defines the container for text box !-->
+    <div class="co_commi-tc">
+    <!-- class date has all the font-weight and font specific !-->
+    <div class="co_commi-date">
+
+    </div>
+    <!--specified font style for location !-->
+    <div class="co_commi-loc_st">
+       <i class="fa fa-map-marker"></i>
+    <!--specified font style for the state name !-->
+    <span class="co_commi-loc_st">
+      {{location}}
+    </span>
+    </div>
+    <!-- specified font sytle for the stock disclaimer !-->
+    <div class="co_commi-loc_st co_commi-disc">
+    Board and Committee
+    </div>
+    <!--specified font style for the inveskit finance  !-->
+    <div class="co_commi-loc_st co_commi-fin">
+    at {{getheadername1}}
+    </div>
+    </div>
+    <div class="co_commi-bar">
+      <div class="co_commi-bar-title">
+        {{getheadername1}}'s Board and Committee
+      </div>
+    </div>
+    {{#with officer}}
+    <div class="co_commi-m_c">
+      <!-- the module.less file navigation buttons-->
+      <button class='co_commi-lefthov'><i class="fa fa-angle-left fa-2x" ></i></button>
+      <button class='co_commi-righthov'><i class="fa fa-angle-right fa-2x"></i></button>
+      <!-- end of the module.less navigation button -->
+      <!-- wrapper class-->
+      <div class="co_commi-m_c-image-wr">
+        <a href="{{url}}">
+          <div class="co_commi-m_c-image" style="background-image:url('{{imageUrl o_pic}}')">
+            <div class="hover">
+              <div class="hover-txt1"></div>
+              <div class="hover-txt2"></div>
+            </div>
+            <a href="{{backToComp}}">
+            <div class="co_commi-m_c-sma_ct">
+                <div class="co_commi-m_c-sma_cr" style="background-image:url('{{imageUrl image}}')">
+                <div class="hover"></div>
+              </div>
+            </div>
+          </a>
+          </div>
+        </a>
+      </div>
+      <!-- the main container -->
+      <ul class="co_commi-m_c-cr">
+        <!-- the image in blue circle-->
+        <li class="co_commi-m_c-title">
+          <div class="co_commi-m_c-title-image"><i class="fa fa-briefcase"></i>
+          <span class="co_commi-m_c-title-text"> {{o_first_name}} {{o_last_name}} </span>
+          </div>
+        </li>
+        <!-- the description about the person-->
+        <li class="co_commi-m_c-dp">
+          <div class="co_commi-m_c-dp-wrapper">
+            <div class="co_commi-m_c-dp-content">
+              {{{o_bio}}}
+            </div>
+          </div>
+        </li>
+      </ul>
+      <!-- the bottom bar-->
+      <div class="co_commi-m_c-view_more">
+        <!-- the details about the comapny-->
+        <div class="co_commi-m_c-view_more-text">
+          <div class="co_commi-m_c-view_more-text-ln1">Want to know more about {{o_first_name}} {{o_last_name}}?</div>
+          <div class="co_commi-m_c-view_more-text-ln2">Profile Last Updated On: <span class="co_commi-m_c-dp-itl">{{o_last_updated}}</span></div>
+        </div>
+        <a href="{{url}}">
+          <button class="co_commi-m_c-view_more-button">
+            View Profile <i class="fa fa-angle-right"></i>
+          </button>
+        </a>
+      </div>
+    </div>
+    {{/with}}
+    <!--container for the ct1 to 'sort by' and 'what is this list?'  !-->
+    <div class="co_commi-ct1">
+    <!--container for the sortby !-->
+    <div class="co_commi-sy">
+
+    </div>
+    <!-- contianer for the complete 'what is this list' class name is wl!-->
+    <div class="co_commi-wl" id="co_commi-wl">
+      <!-- container for the 'what is this list' class name is wl2!-->
+      <div class="co_commi-wlc">
+        <!-- font style for the 'what is this list'!-->
+        <div class="co_commi-wlf">
+        What is this list?
+        <span class="co_commi-x">
+         <i class="fa fa-times"></i>
+        </span>
+        </div>
+      </div>
+      <!--container for the text inside the 'what is this list' as wltxt!-->
+      <div class="co_commi-wltxt">
+      <!--font style for the text !-->
+      <div class="co_commi-wltxtf">
+        <p> This is a list detailing all executive for {{getheadername1}} including CEO, COO, CFO, CTO, Marketing, Directors, etc.</p>
+      </div>
+      </div>
+    </div>
+    </div>
+
+    <div class="co_commi-wrapper" id="co_commi-wrapper">
+      <!-- The loop starts here and the each will take each data item from the items on each iteration-->
+      {{#each officerList}}
+      <div class="co_commi-{{getBackgroundStyle}}"><br>
+        <!--This is the main (circle) image-->
+        <div class="co_commi-head-circ">
+          <a href="{{url}}">
+            <div class="co_commi-head-image"  style="background-image:url('{{imageUrl o_pic}}')">
+              <div class="hover">
+                <div class="hover-txt1">View</div>
+                <div class="hover-txt2">Profile</div>
+              </div>
+              <!-- Here displays the counter number which is a result of each loop-->
+              <span class="co_commi-counter">#{{o_rank}}</span>
+              <a href="{{backToComp}}">
+                <span class="co_commi-counter2" style="background-image:url('{{imageUrl image}}')"><div class="hover"></div></span>
+              </a>
+            </div>
+          </a>
+        </div>
+        <!--Location title -->
+        <div class="co_commi-sp">
+          <div  class="co_commi-space">
+            <!-- This displays the font awesome map sybmol infornt of the united states-->
+            <a href="{{comp_url}}">
+              <i class="fa fa-map-marker"></i>
+              <span  class="co_commi-space co_commi-space2">
+                {{location}}
+              </span>
+            </a>
+            <!-- Here displays the description which come from the each loop-->
+            <a href="{{url}}"><div class="co_commi-adjust">{{o_first_name}} {{o_last_name}}</div></a>
+            <div class="co_commi-follw3">{{o_current_title.long_title}} </div>
+          </div>
+        </div>
+        <!--This displays the blue button which holds the text "View Full List"-->
+        <div class="co_commi-ctmain">
+          <span class="co_commi-ctmaintxt">
+            Want more info about this executive?
+          </span>
+          <a href="{{url}}">
+            <button class="co_commi-tile-button">
+              View profile
+              <span style="margin-left:6px"><i class="fa fa-angle-right"></i></span>
+            </button>
+          </a>
+        </div>
+        <div class="co_commi-rtct">
+          <div class="co_commi-rttx1"> Total Compensation</div>
+          <div class="co_commi-follwt">
+          <span class="co_commi-follw1">${{compen}}</span>
+          </div>
+          <div class="co_commi-rttxg"> <span class="co_commi-follws">{{o_last_updated}}</span></div>
+        </div>
+      <!--This is the End of each loop -->
+      </div>
+      {{/each}}
+    </div>
+    <div class="co_commi-fotter">
+      <!--created a container for the fotter
+        {{> search_module}}
+    !-->
+    </div>
+  </div>
+</div>
+</template>
+
+<template name="featuredStuff">
+  <!--
+  {{#if imghld}}
+  <div class="co_commi-quotes">
+    <div class="co_commi-quotes-head">Featured Companies in the United States</div>
+    {{#each quote}}
+    <div class="co_commi-quotes-image">
+      <div class="co_commi-gap1"></div>
+      <div class="co_commi-quotes-image-text">
+        <div class="co_commi-quotes-image-text-ln1">{{name}}</div>
+          <div class="co_commi-quotes-image-text-vc">
+        <span class="co_commi-quotes-image-text-ln1 co_commi-quotes-image-text-ln4">
+          {{text}}
+        <span class="co_commi-quotes-image-text-ln1 co_commi-quotes-image-text-ln3">
+          {{text2}}
+        </span>
+        </span>
+      </div>
+      </div>
+    </div>
+    {{/each}}
+    <div class="co_commi-quotes-arrow fa fa-angle-right"></div>
+  </div>
+  -->
+</template>

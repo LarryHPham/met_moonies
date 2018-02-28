@@ -1,0 +1,99 @@
+<!--
+Author: David Wibowo
+Created: [10-15-2015]
+Description:conatct us webpage
+Associated Files: about_us_page.html, about_us_page_logic.js, about_us_page.less
+-->
+
+<template name="about_us_page">
+  <div class="abus">
+    <a href="#" onclick="history.go(-1)">
+      <div class="abus-bkbx">
+        <div class="abus-bkbx-bx"><i class="fa fa-reply"></i></div>
+        <div class="abus-bkbx-tgl"></div>
+        <div class="abus-bkbx-txt">Go Back</div>
+      </div>
+    </a>
+    <div class="abus-about">
+      <div class="abus-about-image" style="background-image: url('{{image_url}}');"></div>
+      <div class="abus-about-head">
+        <div class="abus-about-head-update">Last Updated: {{Update}}</div>
+        <div class="abus-about-head-country"><i class="fa fa-map-marker"></i> &nbsp;{{Country}}</div>
+        <h1>{{Title}}</h1>
+        <h2>{{Statement}}</h2>
+      </div>
+    </div>
+    <div class="abus-kit">
+      <div class="abus-kit-left">{{About}}</div>
+      <div class="abus-kit-right">
+        <!--
+        <a href="#"><i class="fa fa-heart"></i><span>Save</span></a>
+        <a href="#"><i class="fa fa-share-alt"></i><span class="abt_us-bar-text">Share</span></a>
+      -->
+      </div>
+    </div>
+    <div class="abus-cnt">
+
+      <div class="abus-cnt-top">
+        <div class="abus-cnt-top-left">What is <b>Invest kit?</b></div>
+        <div class = "abus-cnt-dropdown">
+          Now Reading:
+          <select id="sort_by" style = "margin-top: 1px;">
+            <option value="About">About Us</option>
+            <option value="Contact">Contact Us</option>
+            <option value="Copyright">Copyright Infringement</option>
+            <option value="Disclaimer">Disclaimer</option>
+            <option value="Privacy">Privacy Policy</option>
+            <option value="Stock">Stock Disclaimer</option>
+            <option value="Terms">Terms of Service</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="abus-cnt-article">
+        <p>Stay up to date with what is happening in your local area in finance. Watch live updates and get stock quotes on your favorite companies.
+
+Here at Investkit, we have an appetite for digesting down big data in the world of finance. We create unique simple and user friendly lists to research everything you need to know.</p>
+      </div>
+    </div>
+
+    <div class="abus-boxes">
+      {{#each aboutInfo}}
+      <div class="abus-boxes-box">
+        <div class="abus-boxes-box-sml"></div>
+        <div class="abus-boxes-box-img" style="background-image:url('{{image}}')"></div>
+        <div class="abus-boxes-box-totals">{{totals}}</div>
+        <div class="abus-boxes-box-numbers">{{numbers}}</div>
+      </div>
+      {{/each}}
+    </div>
+
+    <div class="abus-member">
+      <div class="abus-member-map"></div>
+      <div class="abus-member-txt">
+        <h1>Members nationwide</h1>
+        <h2>1,200,000+</h2>
+      </div>
+    </div>
+<!--
+    <div class="abus-invhead">Because you like <b>InvestKit</b>, we recommend: <b>The InvestKit Magazine</b></div>
+
+    <div class="abus-rdr">
+      <div class="abus-rdr-container">
+        <div class="abus-rdr-container-icon"></div>
+        <div class="abus-rdr-container-dr">Digital Reader</div>
+        <div class="abus-rdr-container-explore">Explore InvestKit</div>
+        <div class="abus-rdr-container-line"></div>
+        <a href="{{profile_ulr}}">
+          <div class="abus-rdr-container-circle"><i class="fa fa-angle-right"></i></div>
+        </a>
+        <div class="abus-rdr-container-left">{{Profile}}</div>
+        <div class="abus-rdr-container-text">Get an in–depth, visual look at today’s stock price,
+the compeition, executive compensation
+and much more.
+        </div>
+      </div>
+    </div>
+-->
+  </div>
+</template>

@@ -1,0 +1,202 @@
+<!--
+Author: Kyle Toom
+Date: 8/12/2015
+Decription: A page for showing what has happened with a company over a period of time
+Associated Files: exec_stock_hold.html, exec_stock_hold.less, exec_stock_hold.js
+-->
+
+<template name="exec_stock_hold">
+  {{#with execInf}}
+   <div class="exsh">
+     <a href="{{back_url}}">
+       <div class="exsh-cA">
+         <div class="exsh-cA-cl">
+           <div class="exsh-cA-cl-bx"><i class="fa fa-reply"></i></div>
+           <div class="exsh-cA-cl-tgl"></div>
+         </div>
+         <div class="exsh-cA-cr exsh-txtck">Go Back To <b>{{Profile}}</b>’s Profile</div>
+       </div>
+     </a>
+
+     <div class="exsh-cB">
+       <div class="exsh-cB-cl">
+         <div class="exsh-cB-cl-img" style="background-image: url('{{imageUrl o_pic}}');"></div>
+       </div>
+       <div class="exsh-cB-cr">
+         <div class="exsh-cB-cr-ct exsh-txtck">Last updated: {{o_last_updated}}</div>
+         <div class="exsh-cB-cr-cb">
+           <h3><i class="fa fa-map-marker exsh-txtck"></i> {{Country}}</h3>
+           <h1 class="exsh-txtck">{{Title}}</h1>
+           <h2 class="exsh-txtck">For {{Name}}</h2>
+         </div>
+       </div>
+     </div>
+
+     <div class="exsh-cC">
+       <div class="exsh-cC-ct exsh-txtck">
+         <div class="exsh-cC-ct-cl exsh-txtck">{{Name}}’s Stock Holdings</div>
+         <div class="exsh-cC-ct-cr exsh-txtck">
+           <a><i class="fa fa-heart"></i> Save</a>
+           <a><i class="fa fa-share-alt"></i> Share</a>
+         </div>
+       </div>
+       <div class="exsh-cC-cm">
+         <div class="exsh-cC-cm-cl">
+           <div class="exsh-cC-cm-cl-btn">
+             <i class="fa fa-angle-left"></i>
+           </div>
+         </div>
+         <div class="exsh-cC-cm-cm">
+           <div class="exsh-cC-cm-cm-cl">
+             <div class="exsh-cC-cm-cm-cl-img" style="background-image: url('{{imageUrl o_pic}}');"></div>
+           </div>
+           <div class="exsh-cC-cm-cm-cm">
+             <div class="exsh-cC-cm-cm-cm-icon">
+               <i class="fa fa-building-o"></i>
+             </div>
+             <div class="exsh-cC-cm-cm-cm-line"></div>
+           </div>
+           <div class="exsh-cC-cm-cm-cr">
+             <div class="exsh-cC-cm-cm-cr-ct">
+               <div class="exsh-cC-cm-cm-cr-ct-ct exsh-txtck">{{Name}}</div>
+               <div class="exsh-cC-cm-cm-cr-ct-cb">
+                 <a><i class="fa fa-heart"></i> Save</a>
+                 <a><i class="fa fa-share-alt"></i> Share</a>
+               </div>
+             </div>
+             <div class="exsh-cC-cm-cm-cr-cb">
+                <b>{{Name}}</b>’s currently owns {{ownShare}}% of {{company}}’s ({{tick}}) shares, with a value of {{value}}.<br /><br />
+<b>{{company}}</b> is currently priced at:<br />
+<b>{{price}}</b>  <span style="color:{{color}}"><i class="fa fa-arrow-{{updn}}"></i>  {{change}} ({{percent}}%)</span>
+             </div>
+           </div>
+         </div>
+         <div class="exsh-cC-cm-cr">
+           <div class="exsh-cC-cm-cr-btn">
+             <i class="fa fa-angle-right"></i>
+           </div>
+         </div>
+       </div>
+       <div class="exsh-cC-cb">
+         <div class="exsh-cC-cb-cl">
+           <h1 class="exsh-txtck">Want more information about {{Name}}?</h1>
+           <h2>Profile Last Updated On: <b>07/29/2015</b></h2>
+         </div>
+         <div class="exsh-cC-cb-cr">
+            <a href="#"><div class="exsh-cC-cb-cr-btn">
+               View Profile &nbsp;<i class="fa fa-angle-right"></i>
+            </div></a>
+         </div>
+       </div>
+     </div>
+
+     <div class="exsh-cD">
+       <div class="exsh-cD-cl exsh-txtck">Stock Holdings for {{Name}}</div>
+         <div class="exsh-cD-cr exsh-txtck">
+         <i class="fa fa-calendar"></i> Updated 08/03/2015 at 4PM EST
+       </div>
+     </div>
+
+     <div class="exsh-cE">
+       <div class="exsh-cE-ct" id="eshGraph">
+          {{> highchartsHelper chartId="eshChart" chartWidth="650px" chartHeight="221px" chartObject=getGraphObject}}
+       </div>
+       <div class="exsh-cE-cb">
+         {{#each btns}}
+         <div class="exsh-cE-cb-btn {{isInitial num}}" id="eshBtn{{num}}" onclick="eshBtns({{num}})">
+           {{text}}
+         </div>
+         {{/each}}
+       </div>
+     </div>
+
+     <div class="exsh-cF">
+       <div class="exsh-cF-ctnr1">
+         <div class="exsh-cF-ci">
+           <div class="exsh-cF-ci-ct">
+             <div class="exsh-cF-ci-ct-crl"><i class="fa fa-question"></i></div>
+             <div class="exsh-cF-ci-ct-txt">Share Held</div>
+           </div>
+           <div class="exsh-cF-ci-cb">
+             <div class="exsh-cF-ci-cb-item">
+               <div class="exsh-cF-ci-cb-item-title">Shares</div>
+               <div class="exsh-cF-ci-cb-item-value">38 Million</div>
+             </div>
+           </div>
+         </div>
+
+         <div class="exsh-cF-ci exsh-cF-dash">
+           <div class="exsh-cF-ci-ct">
+             <div class="exsh-cF-ci-ct-crl"><i class="fa fa-question"></i></div>
+             <div class="exsh-cF-ci-ct-txt">Market Value</div>
+           </div>
+           <div class="exsh-cF-ci-cb">
+             <div class="exsh-cF-ci-cb-item">
+               <div class="exsh-cF-ci-cb-item-title">Today’s Value</div>
+               <div class="exsh-cF-ci-cb-item-value">$3.64 Billion</div>
+             </div>
+           </div>
+         </div>
+       </div>
+
+       <div class="exsh-cF-ctnr2">
+         <div class="exsh-cF-ci">
+           <div class="exsh-cF-ci-ct">
+             <div class="exsh-cF-ci-ct-crl"><i class="fa fa-question"></i></div>
+             <div class="exsh-cF-ci-ct-txt">Annual Salary</div>
+           </div>
+           <div class="exsh-cF-ci-cb">
+             <div class="exsh-cF-ci-cb-item exsh-cF-ci-cb-underline">
+               <div class="exsh-cF-ci-cb-item-title">2014</div>
+               <div class="exsh-cF-ci-cb-item-value">$1</div>
+             </div>
+
+             <div class="exsh-cF-ci-cb-item exsh-cF-ci-cb-underline">
+               <div class="exsh-cF-ci-cb-item-title">2013</div>
+               <div class="exsh-cF-ci-cb-item-value">$1</div>
+             </div>
+
+             <div class="exsh-cF-ci-cb-item exsh-cF-ci-cb-nounderline">
+               <div class="exsh-cF-ci-cb-item-title">2012</div>
+               <div class="exsh-cF-ci-cb-item-value">$503,20</div>
+             </div>
+           </div>
+         </div>
+
+         <div class="exsh-cF-ci exsh-cF-dotted">
+           <div class="exsh-cF-ci-ct">
+             <div class="exsh-cF-ci-ct-crl"><i class="fa fa-question"></i></div>
+             <div class="exsh-cF-ci-ct-txt">How Much Of {{tick}} Does He Own?</div>
+           </div>
+           <div class="exsh-cF-ci-cb">
+             <div class="exsh-cF-ci-cb-item">
+               <div class="exsh-cF-ci-cb-item-title">
+                 Share Ownership
+               </div>
+               <div class="exsh-cF-ci-cb-item-value">
+                 {{ownShare}}%
+               </div>
+             </div>
+            <div class="exsh-cF-ci-cb-own">
+               <div class="exsh-cF-ci-cb-own-title exsh-txtck">
+                 Relative to Industry
+               </div>
+               <div class="exsh-cF-ci-cb-own-graph"><i class="exsh-cF-ci-cb-own-lbl" style="color:#000000;">100%</i>
+                 <div class="exsh-cF-ci-cb-own-graph-bar" style="width: {{ownShare}}%">
+                   <i id="grphlbl" class="exsh-cF-ci-cb-own-lbl">{{ownShare}}%</i>
+                 </div>
+               </div>
+               <div class="exsh-cF-ci-cb-own-cntr">
+                 <div class="exsh-cF-ci-cb-own-cntr-cl"><b>Below Average</b></div>
+                 <div class="exsh-cF-ci-cb-own-cntr-cr"><b>Above Average</b></div>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+
+     </div>
+     {{> recommend}}
+   </div>
+  {{/with}}
+</template>

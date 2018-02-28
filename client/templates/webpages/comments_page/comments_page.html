@@ -1,0 +1,143 @@
+<!-- Author: Navya Eetaram
+Created: [07/31/2015]
+Description: comments_page
+<Associated Files: comments_page.html, comments_page.js, comments.less, commentserver.js, comments_page.less-->
+<head>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+</head>
+<template name="comments_page">
+  <div class="c_page">
+
+    <!-- Header Section -->
+    <a href = "#" onclick="history.go(-1)">
+      <div class = "main-hdr">
+        <div class = "main-hdr-box"><i class = "fa fa-reply"></i></div>
+        <div class = "main-hdr-arrw"></div>
+        <div class = "main-hdr-txt">Go Back To <strong>{{c_name}}'s</strong> Profile</div>
+      </div>
+    </a>
+    <!-- END Header Section -->
+
+    <!--Page header-->
+    <div class="c_page-hdr">
+      <!-- the header box -->
+      <div class="c_page-hdr-head-box">
+        <!-- image inside the header box-->
+        <div class="c_page-hdr-head-image"></div>
+        <!-- the text inside the header box-->
+        <div class="c_page-hdr-text">
+          <!-- the latest update-->
+          <div class="c_page-hdr-text-update">
+            LAST UPDATED: {{upd}}
+          </div>
+          <!-- location of the article-->
+          <div class="c_page-hdr-text-loc">
+            <i class="fa fa-map-marker"></i> {{location}}
+          </div>
+          <!-- the name of the article-->
+          <div class="c_page-hdr-text-name">
+            Comments
+          </div>
+          <!-- the person the page is about-->
+          <div class="c_page-hdr-text-auth">
+            For {{c_name}}
+          </div>
+        </div>
+      </div>
+      <div class="c_page-hdr-bar">
+        <div class="c_page-hdr-bar-title">
+          {{c_name}}'s Comments
+        </div>
+        <div class="c_page-hdr-bar-button">
+          <!-- the save option button-->
+          <a href="#"><i class="fa fa-heart"></i><span class="c_page-hdr-bar-text">Save</span></a>
+        </div>
+        <div class="c_page-hdr-bar-button">
+          <!-- share option button -->
+          <a href="#"><i class="fa fa-share-alt"></i><span class="c_page-hdr-bar-text">Share</span></a>
+        </div>
+      </div>
+    <!--comments-->
+      <div class="cspace" >
+
+        <div class = "cspace-hdr">
+          <div class = "cspace-hdr-rec">
+            <i class = "fa fa-heart"></i>
+            <div class = "cspace-hdr-rec-txt">Recommend</div>
+            <div class = "cspace-hdr-rec-num">{{rec_num}}</div>
+          </div>
+          <div class = "cspace-hdr-shr">
+            <i class = "fa fa-share-square-o"></i>
+            <div class = "cspace-hdr-shr-txt">Share&nbsp;&nbsp;&nbsp;...</div>
+          </div>
+          <div class = "cspace-hdr-tabs">
+            <div class = "cspace-hdr-tabs-best">Best</div>
+            <div class = "cspace-hdr-tabs-new">Newest</div>
+            <div class = "cspace-hdr-tabs-old">Oldest</div>
+          </div>
+        </div>
+        <!--Input box-->
+        <div class="c_input" >
+          <div class="c_input_img"></div>
+          <div class="c_input_box">
+            <!--Container to enter text -->
+            <textarea class="c_input_text" id="comment-3" placeholder="Join the discussion..."></textarea>
+          </div>
+        </div>
+
+        <!-- Container for comments-->
+        <div class="cu-box">
+          <div class = "cu-box-main">
+            <div class = "cu-box-main-img"></div>
+            <div class = "cu-box-main-txt">
+              <div class = "cu-box-main-txt-top">
+                <span class = "cu-box-main-txt-top-nm">{{name1}}&nbsp;&nbsp;</span>
+                <span class = "cu-box-main-txt-top-tm">&middot;&nbsp;&nbsp;{{time1}} ago</span>
+              </div>
+              <div class = "cu-box-main-txt-mid">
+                {{comment1}}
+              </div>
+              <div class = "cu-box-main-txt-bttm">
+                <span class = "cu-box-main-txt-bttm-num">{{num1}}</span>
+                <i class = "fa fa-angle-up" style = "margin: 0px 2px; cursor: pointer"></i>
+                <span>|</span>
+                <i class = "fa fa-angle-down" style = "margin: 0px 2px; cursor: pointer"></i>
+                <span class = "cu-box-main-txt-bttm-txt">&middot;&nbsp;&nbsp;Reply&nbsp;&nbsp;&middot;&nbsp;&nbsp;Share</span>
+                <i class = "fa fa-angle-right" style = "margin: 0px 2px; cursor: pointer"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class = "cu-box-sub">
+            <div class = "cu-box-sub-img"></div>
+            <div class = "cu-box-sub-txt">
+              <div class = "cu-box-sub-txt-top">
+                <div class = "cu-box-sub-txt-top-nm">{{name2}}</div>
+                <i class = "fa fa-share"></i>
+                <div class = "cu-box-sub-txt-top-rply">{{name1}}</div>
+                <span>&middot;</span>
+                <div class = "cu-box-sub-txt-top-tm">{{time2}} ago</div>
+              </div>
+              <div class = "cu-box-sub-txt-mid">{{comment2}}</div>
+              <div class = "cu-box-main-txt-bttm">
+                <span class = "cu-box-main-txt-bttm-num">{{num2}}</span>
+                <i class = "fa fa-angle-up" style = "margin: 0px 2px; cursor: pointer"></i>
+                <span>|</span>
+                <i class = "fa fa-angle-down" style = "margin: 0px 2px; cursor: pointer"></i>
+                <span class = "cu-box-main-txt-bttm-txt">&middot;&nbsp;&nbsp;Reply&nbsp;&nbsp;&middot;&nbsp;&nbsp;Share</span>
+                <i class = "fa fa-angle-right" style = "margin: 0px 2px; cursor: pointer"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class = "c-load">
+          <div class = "c-load-txt"><i class = "fa fa-ellipsis-v"></i> Load More</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="c_footer">
+<!--      {{> recommend}}-->
+    </div>
+  </div>
+</template>
